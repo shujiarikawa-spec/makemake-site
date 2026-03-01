@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マケマケの支援モデル（顧問＋制作）｜戦略から実行までを一気通貫</title>
+    <meta name="description"
+        content="マケマケは戦略を描くだけの顧問ではなく、作るだけの制作会社でもありません。「戦略顧問」「クリエイティブ制作」「改善運用」を統合したハイブリッド型のマーケティング支援を提供します。">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1',
+                            400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155',
+                            800: '#1e293b', 900: '#0f172a',
+                        },
+                        blue: {
+                            50: '#eff6ff', 100: '#dbeafe', 400: '#60a5fa', 500: '#3b82f6',
+                            600: '#2563eb', 700: '#1d4ed8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Helvetica Neue"', 'Arial', '"Hiragino Kaku Gothic ProN"', '"Hiragino Sans"', 'Meiryo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- SEO / SGE Schema (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "マーケティング顧問＋制作支援",
+      "provider": {
+        "@type": "Organization",
+        "name": "マケマケ"
+      },
+      "description": "戦略顧問、クリエイティブ制作、改善運用の3つを統合したハイブリッド型マーケティング支援。",
+      "areaServed": "JP",
+      "serviceType": "Marketing Consulting & Web Development"
+    }
+    </script>
+
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 {
+            transition-delay: 100ms;
+        }
+
+        .delay-200 {
+            transition-delay: 200ms;
+        }
+
+        .delay-300 {
+            transition-delay: 300ms;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 selection:bg-blue-200">
+
+    <!-- Header -->
+    <header id="global-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent py-6">
+        <div class="container mx-auto px-6 max-w-6xl flex justify-between items-center">
+            <a href="/" class="flex items-center gap-2 group cursor-pointer text-decoration-none">
+                <div
+                    class="w-8 h-8 bg-slate-900 rounded-sm flex items-center justify-center transition-transform group-hover:scale-105">
+                    <i data-lucide="layers" class="w-5 h-5 text-white"></i>
+                </div>
+                <span class="text-xl font-bold tracking-wider text-slate-900">Makemake</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="/structure.html"
+                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">構造とは</a>
+                <a href="/theory.html"
+                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">理論</a>
+                <a href="/services.html"
+                    class="text-sm font-medium text-blue-600 border-b-2 border-blue-600 pb-1">支援モデル</a>
+                <a href="/case-studies.html"
+                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">事例</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <a href="/diagnosis.html"
+                    class="bg-blue-600 text-white text-sm font-medium px-5 py-2.5 rounded-sm hover:bg-blue-700 transition-all shadow-sm flex items-center gap-2">
+                    売上構造診断 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="pt-32 pb-16 md:pt-40 md:pb-24 bg-slate-900 text-white relative overflow-hidden">
+            <!-- Decorative Grid -->
+            <div class="absolute inset-0 opacity-10 pointer-events-none">
+                <div class="absolute left-1/3 top-0 w-px h-full bg-blue-400"></div>
+                <div class="absolute left-2/3 top-0 w-px h-full bg-blue-400"></div>
+                <div class="absolute top-1/2 left-0 w-full h-px bg-blue-400"></div>
+            </div>
+
+            <div class="container mx-auto px-6 max-w-4xl text-center relative z-10">
+                <div class="reveal">
+                    <span
+                        class="inline-block py-1 px-3 border border-slate-700 bg-slate-800 text-xs font-bold tracking-widest text-slate-300 rounded-sm mb-6">
+                        OUR SERVICES
+                    </span>
+                    <h1 class="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight mb-6">
+                        戦略を描き、形にして、<br class="md:hidden">成果を追う。
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto font-medium">
+                        マケマケは、アドバイスだけで終わるコンサルタントでも、<br class="hidden md:block">
+                        言われた通りに作るだけの制作会社でもありません。<br>
+                        「顧問」と「制作」を統合した、ハイブリッド型支援を提供します。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The 3 Pillars -->
+        <section class="py-24 bg-slate-50 border-b border-slate-200">
+            <div class="container mx-auto px-6 max-w-5xl">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">支援の3本柱</h2>
+                    <p class="text-slate-600">売上構造（市場・戦略・表現・導線）を一気通貫で再設計するための体制です。</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Pillar 1 -->
+                    <div class="bg-white p-8 border border-slate-200 rounded-sm shadow-sm reveal">
+                        <div
+                            class="w-12 h-12 bg-blue-50 border border-blue-100 rounded-sm flex items-center justify-center mb-6">
+                            <i data-lucide="compass" class="w-6 h-6 text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">01. 戦略顧問</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                            自社の強みと戦うべき市場を再定義します。経営層やマーケティング責任者と伴走し、ブレない売上構造の土台を設計します。
+                        </p>
+                        <div class="bg-slate-50 p-4 rounded-sm border border-slate-100">
+                            <p class="text-xs font-bold text-slate-500 mb-2 tracking-wider">主な成果物</p>
+                            <ul class="text-sm text-slate-700 space-y-2 font-medium">
+                                <li class="flex items-center gap-2"><i data-lucide="check"
+                                        class="w-4 h-4 text-blue-500"></i>市場・競合調査レポート</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check"
+                                        class="w-4 h-4 text-blue-500"></i>ポジショニング定義書</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check"
+                                        class="w-4 h-4 text-blue-500"></i>カスタマージャーニーマップ</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="bg-white p-8 border border-slate-200 rounded-sm shadow-sm reveal delay-100">
+                        <div
+                            class="w-12 h-12 bg-slate-100 border border-slate-200 rounded-sm flex items-center justify-center mb-6">
+                            <i data-lucide="pen-tool" class="w-6 h-6 text-slate-700"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">02. 制作・実装</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                            設計した戦略を、顧客の心を動かすクリエイティブに翻訳します。「カッコいい」ではなく「売れる」ことに特化した制作を行います。
+                        </p>
+                        <div class="bg-slate-50 p-4 rounded-sm border border-slate-100">
+                            <p class="text-xs font-bold text-slate-500 mb-2 tracking-wider">主な成果物</p>
+                            <ul class="text-sm text-slate-700 space-y-2 font-medium">
+                                <li class="flex items-center gap-2"><i data-lucide="check"
+                                        class="w-4 h-4 text-blue-500"></i>ランディングページ（LP）</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check"
+                                        class="w-4 h-4 text-blue-500"></i>Webサイト全般</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check"
+                                        class="w-4 h-4 text-blue-500"></i>広告用バナー・動画</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="bg-white p-8 border border-slate-200 rounded-sm shadow-sm reveal delay-200">
+                        <div
+                            class="w-12 h-12 bg-slate-100 border border-slate-200 rounded-sm flex items-center justify-center mb-6">
+                            <i data-lucide="line-chart" class="w-6 h-6 text-slate-700"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">03. 改善運用</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                            作って終わりではありません。数値を計測し、仮説検証を繰り返すことで、CPAの改善とCVRの最大化を図ります。
+                        </p>
+                        <div class="bg-slate-50 p-4 rounded-sm border border-slate-100">
+                            <p class="text-xs font-bold text-slate-500 mb-2 tracking-wider">主な成果物</p>
+                            <ul class="text-sm text-slate-700 space-y-2 font-medium">
+                                <li class="flex items-center gap-2"><i data-lucide="check"
+                                        class="w-4 h-4 text-blue-500"></i>月次/週次レポート</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check"
+                                        class="w-4 h-4 text-blue-500"></i>LPO（LP最適化）実装</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check"
+                                        class="w-4 h-4 text-blue-500"></i>広告アカウント運用・調整</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 90 Days Timeline -->
+        <section class="py-24 bg-white">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">ご支援の流れ（90日モデル）</h2>
+                    <p class="text-slate-600">最初の90日間で、売上の基盤となる「再現性の土台」を構築します。</p>
+                </div>
+
+                <div class="relative border-l-2 border-slate-200 ml-3 md:ml-6 space-y-12">
+
+                    <!-- Phase 1 -->
+                    <div class="relative pl-8 md:pl-12 reveal">
+                        <div
+                            class="absolute w-6 h-6 bg-blue-600 rounded-full -left-[13px] top-1 border-4 border-white shadow-sm">
+                        </div>
+                        <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 mb-4">
+                            <span class="text-blue-600 font-bold text-lg">Phase 1</span>
+                            <span
+                                class="text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-sm w-fit">Week
+                                1 - 2</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">構造診断と戦略立案</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            現状のマーケティング施策をすべて棚卸しし、「どこでユーザーが離脱しているか（導線の断絶）」を可視化します。その後、戦うべき市場とメッセージを再定義します。
+                        </p>
+                    </div>
+
+                    <!-- Phase 2 -->
+                    <div class="relative pl-8 md:pl-12 reveal">
+                        <div
+                            class="absolute w-6 h-6 bg-slate-300 rounded-full -left-[13px] top-1 border-4 border-white shadow-sm">
+                        </div>
+                        <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 mb-4">
+                            <span class="text-slate-700 font-bold text-lg">Phase 2</span>
+                            <span
+                                class="text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-sm w-fit">Week
+                                3 - 6</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">クリエイティブ開発・実装</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            立案した戦略に基づき、必要となるアセット（LP、バナー、ホワイトペーパー等）を制作します。既存の資産が使える場合は改修にとどめ、無駄なコストはかけません。
+                        </p>
+                    </div>
+
+                    <!-- Phase 3 -->
+                    <div class="relative pl-8 md:pl-12 reveal">
+                        <div
+                            class="absolute w-6 h-6 bg-slate-300 rounded-full -left-[13px] top-1 border-4 border-white shadow-sm">
+                        </div>
+                        <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 mb-4">
+                            <span class="text-slate-700 font-bold text-lg">Phase 3</span>
+                            <span
+                                class="text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-sm w-fit">Week
+                                7 - 12</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">運用開始・高速PDCA</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            新しい導線で配信を開始します。初期の反応データをもとに、週次単位でクリエイティブやターゲット設定のチューニングを行い、CPAを適正値へ引き下げます。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-16 p-6 bg-slate-50 border border-slate-200 rounded-sm text-center reveal">
+                    <p class="text-sm text-slate-600">※ 90日以降は、安定した基盤をもとに予算を拡大し、さらなる売上グロースを目指すフェーズに移行します。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA & Performance link -->
+        <section class="py-24 bg-slate-900 text-white relative">
+            <div class="container mx-auto px-6 max-w-4xl text-center">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 reveal">
+                    さらに踏み込んだコミットメントを求める方へ。
+                </h2>
+                <p class="text-slate-300 mb-10 reveal delay-100 max-w-2xl mx-auto leading-relaxed">
+                    マケマケでは、一定の条件を満たす企業様限定で、私たちの報酬と貴社の売上（または粗利/リード数）を連動させる**「成果連動型支援」**を提供しています。
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 reveal delay-200">
+                    <a href="/diagnosis.html"
+                        class="bg-blue-600 text-white font-bold px-8 py-4 rounded-sm hover:bg-blue-500 transition-all shadow-lg flex items-center justify-center gap-2 group">
+                        まずは構造診断から始める
+                        <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="/performance.html"
+                        class="bg-transparent border border-slate-600 text-white font-medium px-8 py-4 rounded-sm hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
+                        成果連動の条件を見る
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-12">
+        <div class="container mx-auto px-6 max-w-6xl flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <i data-lucide="layers" class="w-5 h-5 text-white"></i>
+                <span class="text-lg font-bold tracking-wider text-white">Makemake</span>
+            </div>
+            <div class="flex gap-6 text-sm text-slate-400">
+                <a href="/company.html" class="hover:text-white transition-colors">会社概要</a>
+                <a href="/privacy.html" class="hover:text-white transition-colors">プライバシーポリシー</a>
+                <a href="/contact.html" class="hover:text-white transition-colors">お問い合わせ</a>
+            </div>
+            <p class="text-xs text-slate-500">
+                &copy; <span id="year"></span> Makemake Inc. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Header Scroll
+        const header = document.getElementById('global-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('bg-white/90', 'backdrop-blur-md', 'border-b', 'border-slate-200', 'py-3');
+                header.classList.remove('bg-transparent', 'py-6');
+                // Change logo and text colors for white background
+                header.querySelectorAll('.text-white').forEach(el => {
+                    if (!el.closest('.bg-blue-600')) {
+                        el.classList.remove('text-white');
+                        el.classList.add('text-slate-900');
+                    }
+                });
+            } else {
+                header.classList.remove('bg-white/90', 'backdrop-blur-md', 'border-b', 'border-slate-200', 'py-3');
+                header.classList.add('bg-transparent', 'py-6');
+            }
+        });
+
+        // Intersection Observer for Animation
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>

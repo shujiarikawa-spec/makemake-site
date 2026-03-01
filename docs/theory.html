@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makemake 売上構造理論｜再現性を生み出す4つの連動設計</title>
+    <meta name="description" content="売上構造とは、市場定義・戦略設計・価値表現・顧客導線の連動設計である。年商1億〜10億の壁を越えるためのマケマケ独自の論理モデルを解説します。">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1',
+                            400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155',
+                            800: '#1e293b', 900: '#0f172a',
+                        },
+                        blue: {
+                            50: '#eff6ff', 100: '#dbeafe', 400: '#60a5fa', 500: '#3b82f6',
+                            600: '#2563eb', 700: '#1d4ed8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Helvetica Neue"', 'Arial', '"Hiragino Kaku Gothic ProN"', '"Hiragino Sans"', 'Meiryo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- SEO / SGE Schema (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://makemake.example.com/theory"
+      },
+      "headline": "Makemake 売上構造理論",
+      "description": "売上構造とは、市場定義・戦略設計・価値表現・顧客導線の連動設計である。",
+      "publisher": {
+        "@type": "Organization",
+        "name": "マケマケ",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://makemake.example.com/logo.png"
+        }
+      }
+    }
+    </script>
+
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-scale.is-visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .delay-100 {
+            transition-delay: 100ms;
+        }
+
+        .delay-200 {
+            transition-delay: 200ms;
+        }
+
+        .delay-300 {
+            transition-delay: 300ms;
+        }
+
+        .delay-400 {
+            transition-delay: 400ms;
+        }
+
+        .delay-500 {
+            transition-delay: 500ms;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 selection:bg-blue-200">
+
+    <!-- Header -->
+    <header id="global-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent py-6">
+        <div class="container mx-auto px-6 max-w-6xl flex justify-between items-center">
+            <a href="/" class="flex items-center gap-2 group cursor-pointer text-decoration-none">
+                <div
+                    class="w-8 h-8 bg-slate-900 rounded-sm flex items-center justify-center transition-transform group-hover:scale-105">
+                    <i data-lucide="layers" class="w-5 h-5 text-white"></i>
+                </div>
+                <span class="text-xl font-bold tracking-wider text-slate-900">Makemake</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="/structure"
+                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">構造とは</a>
+                <a href="/theory" class="text-sm font-medium text-blue-600 border-b-2 border-blue-600 pb-1">理論</a>
+                <a href="/services"
+                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">支援モデル</a>
+                <a href="/case-studies"
+                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">事例</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <a href="/diagnosis"
+                    class="bg-blue-600 text-white text-sm font-medium px-5 py-2.5 rounded-sm hover:bg-blue-700 transition-all shadow-sm flex items-center gap-2">
+                    売上構造診断 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="pt-32 pb-16 md:pt-40 md:pb-24 bg-slate-50 relative overflow-hidden">
+            <div
+                class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-full opacity-10 pointer-events-none flex justify-between">
+                <div class="w-px h-full bg-slate-400"></div>
+                <div class="w-px h-full bg-slate-400"></div>
+                <div class="w-px h-full bg-slate-400"></div>
+                <div class="w-px h-full bg-slate-400"></div>
+            </div>
+
+            <div class="container mx-auto px-6 max-w-4xl text-center relative z-10">
+                <div class="reveal">
+                    <span
+                        class="inline-block py-1 px-3 border border-blue-200 bg-blue-50 text-xs font-bold tracking-widest text-blue-700 rounded-sm mb-6">
+                        OUR THEORY
+                    </span>
+                    <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight mb-6">
+                        再現性を生み出す、<br class="md:hidden">4つの連動設計。
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto font-medium">
+                        施策のツギハギを辞め、売上を「構造」として捉え直す。<br>
+                        年商1億の壁、10億の壁を越えるための論理モデル。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Definition -->
+        <section class="py-20 bg-white border-y border-slate-200">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="p-8 md:p-12 border-2 border-slate-900 rounded-sm bg-slate-900 text-center reveal-scale">
+                    <p class="text-sm font-bold tracking-widest text-blue-400 mb-4">DEFINITION</p>
+                    <h2 class="text-xl md:text-3xl font-bold text-white leading-relaxed tracking-wide">
+                        売上構造とは、<br class="md:hidden">
+                        <span class="text-blue-400 border-b-2 border-blue-400/50 pb-1">市場定義・戦略設計・価値表現・顧客導線</span><br
+                            class="md:hidden">
+                        の連動設計である。
+                    </h2>
+                    <p class="mt-8 text-slate-400 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+                        どれか1つでも欠けたり、文脈がズレていたりすれば、どんなに優れたWeb広告やLPも機能しません。<br>
+                        マケマケは、この4層のアラインメント（直列化）を最も重視します。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The 4 Layers -->
+        <section class="py-24 bg-slate-50 relative">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="text-center mb-16">
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4 reveal">
+                        売上を構築する4つのレイヤー
+                    </h2>
+                    <p class="text-slate-600 reveal delay-200">
+                        上流から下流へ。一貫性がなければ、水（売上）は途中で漏れ出します。
+                    </p>
+                </div>
+
+                <div class="max-w-2xl mx-auto">
+                    <!-- Layer 1 -->
+                    <div class="relative p-8 bg-white border border-blue-200 rounded-sm shadow-sm reveal">
+                        <div class="flex flex-col md:flex-row gap-6 items-start">
+                            <div
+                                class="w-14 h-14 bg-blue-50 border border-blue-200 rounded-sm flex items-center justify-center shrink-0">
+                                <i data-lucide="target" class="w-6 h-6 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <div class="flex items-baseline gap-3 mb-2">
+                                    <span class="text-sm font-bold text-slate-400">01.</span>
+                                    <h3 class="text-xl font-bold text-slate-900">市場定義 (Market)</h3>
+                                </div>
+                                <p class="text-sm font-bold text-blue-600 mb-3">誰の、どんな強烈な課題を解くか。</p>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    競合がひしめくレッドオーシャンで戦っていないか。自社が圧倒的に勝てる「ニッチトップ」の領域を見定め、ターゲットを絞り込みます。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center py-3 reveal delay-100">
+                        <i data-lucide="arrow-down" class="w-6 h-6 text-slate-300"></i>
+                    </div>
+
+                    <!-- Layer 2 -->
+                    <div class="relative p-8 bg-white border border-slate-200 rounded-sm shadow-sm reveal delay-100">
+                        <div class="flex flex-col md:flex-row gap-6 items-start">
+                            <div
+                                class="w-14 h-14 bg-slate-100 border border-slate-200 rounded-sm flex items-center justify-center shrink-0">
+                                <i data-lucide="compass" class="w-6 h-6 text-slate-700"></i>
+                            </div>
+                            <div>
+                                <div class="flex items-baseline gap-3 mb-2">
+                                    <span class="text-sm font-bold text-slate-400">02.</span>
+                                    <h3 class="text-xl font-bold text-slate-900">戦略設計 (Strategy)</h3>
+                                </div>
+                                <p class="text-sm font-bold text-blue-600 mb-3">なぜ、自社から買うべきなのか。</p>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    競合と比較された際に選ばれる「必然性」を構築します。独自の強み（USP）を言語化し、価格競争に巻き込まれないポジショニングを確立します。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center py-3 reveal delay-200">
+                        <i data-lucide="arrow-down" class="w-6 h-6 text-slate-300"></i>
+                    </div>
+
+                    <!-- Layer 3 -->
+                    <div class="relative p-8 bg-white border border-slate-200 rounded-sm shadow-sm reveal delay-200">
+                        <div class="flex flex-col md:flex-row gap-6 items-start">
+                            <div
+                                class="w-14 h-14 bg-slate-100 border border-slate-200 rounded-sm flex items-center justify-center shrink-0">
+                                <i data-lucide="pen-tool" class="w-6 h-6 text-slate-700"></i>
+                            </div>
+                            <div>
+                                <div class="flex items-baseline gap-3 mb-2">
+                                    <span class="text-sm font-bold text-slate-400">03.</span>
+                                    <h3 class="text-xl font-bold text-slate-900">価値表現 (Creative)</h3>
+                                </div>
+                                <p class="text-sm font-bold text-blue-600 mb-3">その価値を、どう翻訳するか。</p>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    戦略を「顧客に刺さる言葉とデザイン」に変換します。専門用語を並べるのではなく、顧客のベネフィット（未来）として直感的に伝わるクリエイティブを作ります。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center py-3 reveal delay-300">
+                        <i data-lucide="arrow-down" class="w-6 h-6 text-slate-300"></i>
+                    </div>
+
+                    <!-- Layer 4 -->
+                    <div class="relative p-8 bg-white border border-slate-200 rounded-sm shadow-sm reveal delay-300">
+                        <div class="flex flex-col md:flex-row gap-6 items-start">
+                            <div
+                                class="w-14 h-14 bg-slate-100 border border-slate-200 rounded-sm flex items-center justify-center shrink-0">
+                                <i data-lucide="route" class="w-6 h-6 text-slate-700"></i>
+                            </div>
+                            <div>
+                                <div class="flex items-baseline gap-3 mb-2">
+                                    <span class="text-sm font-bold text-slate-400">04.</span>
+                                    <h3 class="text-xl font-bold text-slate-900">顧客導線 (Funnel)</h3>
+                                </div>
+                                <p class="text-sm font-bold text-blue-600 mb-3">どうやって、摩擦なく行動させるか。</p>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    認知から比較、検討、そして問い合わせ（CV）に至るまでの道筋を設計します。広告媒体の選定、LPの構成、フォームのUIなど、すべての摩擦を排除します。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Value Proposition -->
+        <section class="py-24 bg-white border-t border-slate-200">
+            <div class="container mx-auto px-6 max-w-5xl">
+                <div class="flex flex-col md:flex-row gap-16 items-center">
+                    <div class="w-full md:w-1/2 space-y-8">
+                        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 leading-tight reveal">
+                            構造化が生み出す、<br>圧倒的な「再現性」。
+                        </h2>
+                        <div class="space-y-6 text-slate-600 reveal delay-200">
+                            <p>「たまたま当たった広告クリエイティブ」や「天才的な営業マン」に依存した売上は、長続きしません。環境が変わればすぐにCPAは高騰し、成約率は落ちます。</p>
+                            <p>しかし、売上構造を設計することは、企業に<strong>「なぜ売れているのか」「どこを直せばさらに売れるのか」という明確な地図</strong>をもたらします。</p>
+                            <p class="font-bold text-slate-900">再現性は、才能ではなく構造で決まるのです。</p>
+                        </div>
+
+                        <ul class="space-y-4 pt-4 reveal delay-400">
+                            <li class="flex items-center gap-3 text-sm font-medium text-slate-800">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-blue-600 shrink-0"></i>
+                                CPA（顧客獲得単価）の安定化と改善
+                            </li>
+                            <li class="flex items-center gap-3 text-sm font-medium text-slate-800">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-blue-600 shrink-0"></i>
+                                属人化の排除（誰がやっても売れる仕組み）
+                            </li>
+                            <li class="flex items-center gap-3 text-sm font-medium text-slate-800">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-blue-600 shrink-0"></i>
+                                LTV（顧客生涯価値）の向上
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="w-full md:w-1/2 reveal-scale delay-500">
+                        <div class="bg-slate-900 p-8 md:p-10 rounded-sm shadow-xl relative overflow-hidden">
+                            <div
+                                class="absolute top-0 right-0 w-32 h-32 bg-blue-600 opacity-20 blur-2xl rounded-full translate-x-1/2 -translate-y-1/2">
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-6">マケマケの約束</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                                私たちは、耳障りの良い「バズる」「爆増する」といった保証はしません。
+                                データと論理に基づき、貴社の市場における「勝てる構造」を愚直に設計・実装します。
+                            </p>
+                            <div class="border-t border-slate-700 pt-6">
+                                <p class="text-xs text-slate-400 uppercase tracking-widest font-bold mb-2">Next Step</p>
+                                <a href="/services"
+                                    class="inline-flex items-center gap-2 text-blue-400 font-bold hover:text-blue-300 transition-colors group">
+                                    支援モデル（顧問＋制作）を見る
+                                    <i data-lucide="chevron-right"
+                                        class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-24 bg-blue-600">
+            <div class="container mx-auto px-6 max-w-3xl text-center">
+                <h2 class="text-2xl md:text-3xl font-bold text-white mb-6 reveal">
+                    自社の構造を、診断しませんか。
+                </h2>
+                <p class="text-blue-100 mb-10 reveal delay-200">
+                    4つのレイヤーのどこに断絶があるのか、客観的な視点で分析します。<br>
+                    論理的な課題解決を求めるマーケティング担当者様からのご相談をお待ちしております。
+                </p>
+                <div class="reveal delay-400">
+                    <a href="/diagnosis"
+                        class="inline-flex bg-white text-blue-600 font-bold px-10 py-4 rounded-sm hover:bg-slate-50 transition-all shadow-lg items-center justify-center gap-2 group text-lg text-decoration-none">
+                        売上構造診断を受ける
+                        <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-12">
+        <div class="container mx-auto px-6 max-w-6xl flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <i data-lucide="layers" class="w-5 h-5 text-white"></i>
+                <span class="text-lg font-bold tracking-wider text-white">Makemake</span>
+            </div>
+            <div class="flex gap-6 text-sm text-slate-400">
+                <a href="/company" class="hover:text-white transition-colors">会社概要</a>
+                <a href="/privacy" class="hover:text-white transition-colors">プライバシーポリシー</a>
+                <a href="/contact" class="hover:text-white transition-colors">お問い合わせ</a>
+            </div>
+            <p class="text-xs text-slate-500">
+                &copy; <span id="year"></span> Makemake Inc. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Header Scroll
+        const header = document.getElementById('global-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('bg-white/90', 'backdrop-blur-md', 'border-b', 'border-slate-200', 'py-3');
+                header.classList.remove('bg-transparent', 'py-6');
+            } else {
+                header.classList.remove('bg-white/90', 'backdrop-blur-md', 'border-b', 'border-slate-200', 'py-3');
+                header.classList.add('bg-transparent', 'py-6');
+            }
+        });
+
+        // Intersection Observer for Animation
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Trigger once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal, .reveal-scale').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>

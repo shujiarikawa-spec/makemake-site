@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会社概要｜マケマケ</title>
+    <meta name="description" content="株式会社マケマケの会社概要ページです。所在地、設立、事業内容などをご確認いただけます。">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1',
+                            400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155',
+                            800: '#1e293b', 900: '#0f172a',
+                        },
+                        blue: {
+                            50: '#eff6ff', 100: '#dbeafe', 400: '#60a5fa', 500: '#3b82f6',
+                            600: '#2563eb', 700: '#1d4ed8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Helvetica Neue"', 'Arial', '"Hiragino Kaku Gothic ProN"', '"Hiragino Sans"', 'Meiryo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- SEO / SGE Schema (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://makenai-mark.com/",
+      "@type": "AboutPage",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "株式会社マケマケ",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "浦添",
+          "addressRegion": "沖縄",
+          "postalCode": "901-2122",
+          "streetAddress": "勢理客1-22-6"
+        }
+      }
+    }
+    </script>
+
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 selection:bg-blue-200">
+
+    <!-- Header -->
+    <header id="global-header"
+        class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white border-b border-slate-200 py-4">
+        <div class="container mx-auto px-6 max-w-6xl flex justify-between items-center">
+            <a href="/" class="flex items-center gap-2 group cursor-pointer text-decoration-none">
+                <div
+                    class="w-8 h-8 bg-slate-900 rounded-sm flex items-center justify-center transition-transform group-hover:scale-105">
+                    <i data-lucide="layers" class="w-5 h-5 text-white"></i>
+                </div>
+                <span class="text-xl font-bold tracking-wider text-slate-900">Makemake</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="/structure.html"
+                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">構造とは</a>
+                <a href="/theory.html"
+                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">理論</a>
+                <a href="/services.html"
+                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">支援モデル</a>
+                <a href="/case-studies.html"
+                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">事例</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <a href="/company.html"
+                    class="hidden md:flex text-sm font-medium text-blue-600 border-b-2 border-blue-600 pb-1">会社概要</a>
+                <a href="/diagnosis.html"
+                    class="bg-blue-600 text-white text-sm font-medium px-5 py-2.5 rounded-sm hover:bg-blue-700 transition-all shadow-sm flex items-center gap-2">
+                    売上構造診断 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24 pb-24">
+
+        <!-- Breadcrumbs -->
+        <div class="bg-slate-50 border-b border-slate-200">
+            <nav class="container mx-auto px-6 max-w-4xl py-4">
+                <ol class="flex items-center space-x-2 text-xs text-slate-500 font-medium">
+                    <li><a href="/" class="hover:text-blue-600 transition-colors">TOP</a></li>
+                    <li><i data-lucide="chevron-right" class="w-3 h-3"></i></li>
+                    <li class="text-slate-800">会社概要</li>
+                </ol>
+            </nav>
+        </div>
+
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6 max-w-3xl">
+
+                <div class="text-center mb-16 reveal">
+                    <h1 class="text-3xl font-bold text-slate-900 tracking-tight mb-4">会社概要</h1>
+                    <p class="text-slate-600">株式会社マケマケの企業情報をご案内します。</p>
+                </div>
+
+                <div class="bg-white border border-slate-200 rounded-sm shadow-sm reveal overflow-hidden">
+                    <dl class="divide-y divide-slate-100">
+                        <div
+                            class="px-6 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-8 hover:bg-slate-50 transition-colors">
+                            <dt class="text-sm font-bold text-slate-900">会社名</dt>
+                            <dd class="mt-1 text-sm text-slate-700 sm:col-span-2 sm:mt-0">株式会社マケマケ (Makemake Inc.)</dd>
+                        </div>
+                        <div
+                            class="px-6 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-8 hover:bg-slate-50 transition-colors">
+                            <dt class="text-sm font-bold text-slate-900">設立</dt>
+                            <dd class="mt-1 text-sm text-slate-700 sm:col-span-2 sm:mt-0">2023年4月</dd>
+                        </div>
+                        <div
+                            class="px-6 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-8 hover:bg-slate-50 transition-colors">
+                            <dt class="text-sm font-bold text-slate-900">代表者</dt>
+                            <dd class="mt-1 text-sm text-slate-700 sm:col-span-2 sm:mt-0">代表取締役　有川　秀治</dd>
+                        </div>
+                        <div
+                            class="px-6 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-8 hover:bg-slate-50 transition-colors">
+                            <dt class="text-sm font-bold text-slate-900">所在地</dt>
+                            <dd class="mt-1 text-sm text-slate-700 sm:col-span-2 sm:mt-0">
+                                〒901 2122<br>
+                                沖縄県浦添市勢理客1-22-6
+                            </dd>
+                        </div>
+                        <div
+                            class="px-6 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-8 hover:bg-slate-50 transition-colors">
+                            <dt class="text-sm font-bold text-slate-900">事業内容</dt>
+                            <dd class="mt-1 text-sm text-slate-700 sm:col-span-2 sm:mt-0">
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li>BtoBマーケティング戦略立案・顧問業</li>
+                                    <li>コーポレートサイト/LPの企画・制作・運用</li>
+                                    <li>Web広告の運用代行およびインハウス支援</li>
+                                    <li>MAツールの導入・運用支援</li>
+                                </ul>
+                            </dd>
+                        </div>
+                        <div
+                            class="px-6 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-8 hover:bg-slate-50 transition-colors">
+                            <dt class="text-sm font-bold text-slate-900">連絡先</dt>
+                            <dd class="mt-1 text-sm text-slate-700 sm:col-span-2 sm:mt-0">shuji.arikawa@gmail.com</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <div class="mt-12 text-center reveal">
+                    <a href="/ceo.html"
+                        class="inline-flex items-center gap-2 text-blue-600 font-medium hover:text-blue-800 transition-colors group">
+                        代表メッセージを読む
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-12">
+        <div class="container mx-auto px-6 max-w-6xl flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <i data-lucide="layers" class="w-5 h-5 text-slate-900"></i>
+                <span class="text-lg font-bold tracking-wider text-slate-900">Makemake</span>
+            </div>
+            <div class="flex gap-6 text-sm text-slate-500">
+                <a href="/company.html" class="hover:text-slate-900 transition-colors">会社概要</a>
+                <a href="/privacy.html" class="hover:text-slate-900 transition-colors">プライバシーポリシー</a>
+                <a href="/contact.html" class="hover:text-slate-900 transition-colors">お問い合わせ</a>
+            </div>
+            <p class="text-xs text-slate-400">
+                &copy; <span id="year"></span> Makemake Inc. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>

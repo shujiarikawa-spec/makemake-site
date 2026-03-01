@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>構造から売上を変える｜年商1〜10億専門 マケマケ</title>
+    <meta name="google-site-verification" content="0m4F4ClS_dunZyig7que3dHIP3k1oW4fXrLZMz5UVXg" />
+    <meta name="description" content="年商1億〜10億企業専門。マーケティング担当者とともに、売上停滞の原因を構造から再設計するハイブリッド型マーケティング会社です。">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1',
+                            400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155',
+                            800: '#1e293b', 900: '#0f172a',
+                        },
+                        blue: {
+                            50: '#eff6ff', 100: '#dbeafe', 400: '#60a5fa', 500: '#3b82f6',
+                            600: '#2563eb', 700: '#1d4ed8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Helvetica Neue"', 'Arial', '"Hiragino Kaku Gothic ProN"', '"Hiragino Sans"', 'Meiryo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- SEO / SGE Schema (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://makemake.example.com/#organization",
+          "name": "マケマケ",
+          "url": "https://makemake.example.com/",
+          "description": "年商1億〜10億企業の売上構造を再設計するハイブリッド型マーケティング会社。戦略顧問から制作、運用まで成果連動型で支援します。"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://makemake.example.com/#website",
+          "url": "https://makemake.example.com/",
+          "name": "マケマケ｜構造から、売上を変える。",
+          "publisher": {
+            "@id": "https://makemake.example.com/#organization"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-scale.is-visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .line-draw {
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .line-draw.is-visible {
+            transform: scaleY(1);
+        }
+
+        .delay-100 {
+            transition-delay: 100ms;
+        }
+
+        .delay-200 {
+            transition-delay: 200ms;
+        }
+
+        .delay-300 {
+            transition-delay: 300ms;
+        }
+
+        .delay-500 {
+            transition-delay: 500ms;
+        }
+
+        .delay-700 {
+            transition-delay: 700ms;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 selection:bg-blue-200">
+
+    <!-- Header -->
+    <header id="global-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent py-6">
+        <div class="container mx-auto px-6 max-w-6xl flex justify-between items-center">
+            <a href="/index.html" class="flex items-center gap-2 group cursor-pointer text-decoration-none">
+                <div
+                    class="w-8 h-8 bg-slate-900 rounded-sm flex items-center justify-center transition-transform group-hover:scale-105">
+                    <i data-lucide="layers" class="w-5 h-5 text-white"></i>
+                </div>
+                <span class="text-xl font-bold tracking-wider text-slate-900">Makemake</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="/structure.html"
+                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">構造とは</a>
+                <a href="/theory.html"
+                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">理論</a>
+                <a href="/services.html"
+                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">支援モデル</a>
+                <a href="/case-studies.html"
+                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">事例</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <a href="/contact.html"
+                    class="hidden md:flex text-sm font-medium text-slate-900 hover:text-blue-600 transition-colors">お問い合わせ</a>
+                <a href="/diagnosis.html"
+                    class="bg-blue-600 text-white text-sm font-medium px-5 py-2.5 rounded-sm hover:bg-blue-700 transition-all shadow-sm flex items-center gap-2">
+                    売上構造診断 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-slate-50">
+            <!-- Decorative Grid -->
+            <div class="absolute inset-0 pointer-events-none opacity-20">
+                <div class="absolute left-1/4 top-0 w-px h-full bg-slate-400"></div>
+                <div class="absolute left-1/2 top-0 w-px h-full bg-slate-400"></div>
+                <div class="absolute left-3/4 top-0 w-px h-full bg-slate-400"></div>
+                <div class="absolute top-1/3 left-0 w-full h-px bg-slate-400"></div>
+            </div>
+
+            <div class="container mx-auto px-6 max-w-6xl relative z-10">
+                <div class="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+                    <div class="w-full md:w-1/2 space-y-8">
+                        <div class="reveal delay-100">
+                            <span
+                                class="inline-block py-1 px-3 border border-slate-300 text-xs font-semibold tracking-widest text-slate-600 rounded-sm mb-6">
+                                FOR 100M - 1B YEN ENTERPRISES
+                            </span>
+                            <h1
+                                class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight tracking-tight">
+                                構造から、<br>売上を変える。
+                            </h1>
+                        </div>
+
+                        <p class="reveal delay-300 text-base md:text-lg text-slate-600 leading-relaxed max-w-lg">
+                            年商1億〜10億企業専門。マーケティング担当者とともに、売上停滞の原因を構造から再設計する。マケマケは、実行力と論理を兼ね備えたハイブリッド型マーケティング会社です。
+                        </p>
+
+                        <div class="reveal delay-500 flex flex-col sm:flex-row gap-4 pt-4">
+                            <a href="/diagnosis.html"
+                                class="bg-blue-600 text-white font-medium px-8 py-4 rounded-sm hover:bg-blue-700 transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2 group">
+                                売上構造診断を受ける
+                                <i data-lucide="arrow-right"
+                                    class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                            <a href="/theory.html"
+                                class="bg-white text-slate-900 border border-slate-200 font-medium px-8 py-4 rounded-sm hover:bg-slate-50 transition-all flex items-center justify-center gap-2 group">
+                                理論を見る
+                                <i data-lucide="chevron-right"
+                                    class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-1/2 relative reveal-scale delay-500">
+                        <!-- Abstract Image representing structure / CEO portrait placeholder -->
+                        <div
+                            class="relative w-full aspect-[4/5] bg-slate-200 rounded-sm overflow-hidden shadow-sm filter grayscale hover:grayscale-0 transition-all duration-700">
+                            <img src="images/ceo/profile-2.png" alt="代表写真"
+                                class="object-cover w-full h-full opacity-90 mix-blend-multiply" />
+                            <div class="absolute inset-0 border border-slate-900/10 rounded-sm"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Message Section -->
+        <section class="py-32 bg-white relative">
+            <div class="container mx-auto px-6 max-w-4xl text-center">
+                <!-- Line Animation -->
+                <div class="w-px h-16 bg-blue-600 mx-auto mb-12 line-draw reveal"></div>
+
+                <h2 class="reveal delay-200 text-3xl md:text-4xl font-bold text-slate-900 mb-10 tracking-tight">
+                    伸びない理由は、<br class="md:hidden">見えていない構造にある。
+                </h2>
+
+                <div class="reveal delay-300 space-y-6 text-lg text-slate-600 leading-relaxed">
+                    <p>
+                        施策を増やしても、CPAが悪化し、成果が積み上がらない。<br class="hidden md:block">
+                        問題は、あなたの努力不足ではありません。
+                    </p>
+                    <p class="font-medium text-slate-900">
+                        売上を生み出す『構造』そのものに欠陥があるからです。
+                    </p>
+                    <p>
+                        部分的なWeb広告やサイト改修だけでは、年商1億の壁、10億の壁は越えられません。<br class="hidden md:block">
+                        原因は努力ではなく、設計です。再現性は構造で決まります。
+                    </p>
+                </div>
+
+                <div class="reveal delay-500 mt-12">
+                    <a href="/structure.html"
+                        class="inline-flex items-center gap-2 text-blue-600 font-medium hover:text-blue-800 transition-colors group">
+                        まず構造を診断する
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diagram Section (3 layers) -->
+        <section class="py-24 bg-slate-50 border-y border-slate-200">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+                        売上停滞の3層構造
+                    </h2>
+                    <p class="text-slate-600">
+                        この3つが連動しない限り、売上は決して安定しません。
+                    </p>
+                </div>
+
+                <div
+                    class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-4 relative max-w-4xl mx-auto">
+                    <!-- Connecting Line for Desktop -->
+                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-px bg-slate-300 -z-10"></div>
+
+                    <!-- Layer 1 -->
+                    <div
+                        class="reveal delay-100 flex-1 bg-white p-8 border border-slate-200 rounded-sm shadow-sm relative group transition-all duration-700 w-full md:w-auto">
+                        <div class="md:hidden absolute -bottom-6 left-1/2 -translate-x-1/2 w-px h-6 bg-slate-300"></div>
+                        <div
+                            class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-sm flex items-center justify-center mb-6 group-hover:bg-blue-50 group-hover:border-blue-100 group-hover:text-blue-600 transition-colors">
+                            <i data-lucide="target"
+                                class="w-6 h-6 text-slate-700 group-hover:text-blue-600 transition-colors"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">① 戦略の欠落</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">市場選びとポジショニングが曖昧で明確に定義されていない状態</p>
+                    </div>
+
+                    <!-- Layer 2 -->
+                    <div
+                        class="reveal delay-300 flex-1 bg-white p-8 border border-slate-200 rounded-sm shadow-sm relative group transition-all duration-700 w-full md:w-auto">
+                        <div class="md:hidden absolute -bottom-6 left-1/2 -translate-x-1/2 w-px h-6 bg-slate-300"></div>
+                        <div
+                            class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-sm flex items-center justify-center mb-6 group-hover:bg-blue-50 group-hover:border-blue-100 group-hover:text-blue-600 transition-colors">
+                            <i data-lucide="bar-chart-3"
+                                class="w-6 h-6 text-slate-700 group-hover:text-blue-600 transition-colors"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">② 表現の誤認</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">顧客に刺さらないメッセージとクリエイティブ</p>
+                    </div>
+
+                    <!-- Layer 3 -->
+                    <div
+                        class="reveal delay-500 flex-1 bg-white p-8 border border-slate-200 rounded-sm shadow-sm relative group transition-all duration-700 w-full md:w-auto">
+                        <div
+                            class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-sm flex items-center justify-center mb-6 group-hover:bg-blue-50 group-hover:border-blue-100 group-hover:text-blue-600 transition-colors">
+                            <i data-lucide="layers"
+                                class="w-6 h-6 text-slate-700 group-hover:text-blue-600 transition-colors"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">③ 導線の断絶</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">点と点がつながっていない不完全なUX</p>
+                    </div>
+                </div>
+
+                <div class="reveal delay-700 text-center mt-16">
+                    <a href="/theory.html"
+                        class="inline-flex bg-slate-900 text-white font-medium px-8 py-3 rounded-sm hover:bg-slate-800 transition-all shadow-sm items-center justify-center gap-2 mx-auto group">
+                        理論を見る
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Definition Section -->
+        <section class="py-24 bg-white">
+            <div class="container mx-auto px-6 max-w-3xl text-center">
+                <div class="reveal-scale p-8 md:p-12 border border-slate-200 rounded-sm bg-slate-50">
+                    <h2 class="text-xl md:text-2xl font-bold text-slate-900 mb-6 tracking-wide">
+                        マケマケの定義
+                    </h2>
+                    <p class="text-lg md:text-xl text-slate-700 leading-relaxed font-medium mb-8">
+                        売上構造とは、<br class="md:hidden">
+                        <span class="text-blue-600">市場定義・戦略設計・価値表現・顧客導線</span><br class="md:hidden">
+                        の連動設計である。
+                    </p>
+                    <p class="text-sm text-slate-500 text-left md:text-center">
+                        マケマケとは、年商1億〜10億企業の売上構造を再設計するハイブリッド型マーケティング会社です。戦略を描くだけの顧問ではなく、作るだけの制作会社でもありません。構造全体を設計し、成果に連動して伴走します。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-32 bg-slate-900 relative overflow-hidden">
+            <!-- Decorative background lines -->
+            <div class="absolute inset-0 opacity-10 pointer-events-none">
+                <div class="absolute top-0 left-0 w-full h-px bg-blue-400"></div>
+                <div class="absolute top-1/2 left-0 w-full h-px bg-blue-400"></div>
+                <div class="absolute bottom-0 left-0 w-full h-px bg-blue-400"></div>
+                <div class="absolute top-0 left-1/4 w-px h-full bg-blue-400"></div>
+                <div class="absolute top-0 left-3/4 w-px h-full bg-blue-400"></div>
+            </div>
+
+            <div class="container mx-auto px-6 max-w-4xl text-center relative z-10">
+                <h2 class="reveal text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">
+                    自社の「売上構造」を可視化しませんか。
+                </h2>
+                <p class="reveal delay-200 text-slate-300 text-lg mb-10 max-w-2xl mx-auto">
+                    現状の施策と課題をヒアリングし、どこに構造のボトルネックがあるのかを診断します。<br>
+                    強引な営業は行いません。論理的な議論を求める企業様をお待ちしています。
+                </p>
+
+                <div class="reveal delay-400 flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="/diagnosis.html"
+                        class="bg-blue-600 text-white font-bold px-10 py-5 rounded-sm hover:bg-blue-500 transition-all shadow-lg flex items-center justify-center gap-2 group text-lg">
+                        売上構造診断を受ける
+                        <i data-lucide="arrow-up-right"
+                            class="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                    </a>
+                    <a href="/services.html"
+                        class="bg-transparent border border-slate-600 text-white font-medium px-8 py-5 rounded-sm hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
+                        支援モデルを見る
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-12">
+        <div class="container mx-auto px-6 max-w-6xl flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <i data-lucide="layers" class="w-5 h-5 text-slate-900"></i>
+                <span class="text-lg font-bold tracking-wider text-slate-900">Makemake</span>
+            </div>
+            <div class="flex gap-6 text-sm text-slate-500">
+                <a href="/company.html" class="hover:text-slate-900 transition-colors">会社概要</a>
+                <a href="/privacy.html" class="hover:text-slate-900 transition-colors">プライバシーポリシー</a>
+                <a href="/contact.html" class="hover:text-slate-900 transition-colors">お問い合わせ</a>
+            </div>
+            <p class="text-xs text-slate-400">
+                &copy; <span id="year"></span> Makemake Inc. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Header Scroll
+        const header = document.getElementById('global-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('bg-white/90', 'backdrop-blur-md', 'border-b', 'border-slate-200', 'py-3');
+                header.classList.remove('bg-transparent', 'py-6');
+            } else {
+                header.classList.remove('bg-white/90', 'backdrop-blur-md', 'border-b', 'border-slate-200', 'py-3');
+                header.classList.add('bg-transparent', 'py-6');
+            }
+        });
+
+        // Intersection Observer for Animation
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal, .reveal-scale, .line-draw').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>

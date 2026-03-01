@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マーケティング用語集｜マケマケ</title>
+    <meta name="description" content="マケマケが独自に定義するマーケティング用語集。「売上構造」「年商1億の壁」「CPA」など、BtoBマーケティングにおける重要語彙を論理的に解説します。">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a' },
+                        blue: { 50: '#eff6ff', 100: '#dbeafe', 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8' }
+                    },
+                    fontFamily: { sans: ['"Helvetica Neue"', 'Arial', '"Hiragino Kaku Gothic ProN"', '"Hiragino Sans"', 'Meiryo', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- SEO / SGE Schema (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "マーケティング用語集",
+      "description": "マケマケ独自の視点で定義するBtoBマーケティング用語集。",
+      "publisher": {
+        "@type": "Organization",
+        "name": "マケマケ"
+      }
+    }
+    </script>
+
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 {
+            transition-delay: 100ms;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 selection:bg-blue-200">
+
+    <!-- Header -->
+    <header id="global-header"
+        class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white border-b border-slate-200 py-4">
+        <div class="container mx-auto px-6 max-w-6xl flex justify-between items-center">
+            <a href="/" class="flex items-center gap-2 group cursor-pointer text-decoration-none">
+                <div
+                    class="w-8 h-8 bg-slate-900 rounded-sm flex items-center justify-center transition-transform group-hover:scale-105">
+                    <i data-lucide="layers" class="w-5 h-5 text-white"></i>
+                </div>
+                <span class="text-xl font-bold tracking-wider text-slate-900">Makemake</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="/structure.html"
+                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">構造とは</a>
+                <a href="/theory.html"
+                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">理論</a>
+                <a href="/services.html"
+                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">支援モデル</a>
+                <a href="/case-studies.html"
+                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">事例</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <a href="/diagnosis.html"
+                    class="bg-blue-600 text-white text-sm font-medium px-5 py-2.5 rounded-sm hover:bg-blue-700 transition-all shadow-sm flex items-center gap-2">
+                    売上構造診断 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24 pb-24">
+
+        <!-- Breadcrumbs -->
+        <div class="bg-slate-50 border-b border-slate-200 mb-12">
+            <nav class="container mx-auto px-6 max-w-4xl py-4">
+                <ol class="flex items-center space-x-2 text-xs text-slate-500 font-medium">
+                    <li><a href="/" class="hover:text-blue-600 transition-colors">TOP</a></li>
+                    <li><i data-lucide="chevron-right" class="w-3 h-3"></i></li>
+                    <li class="text-slate-800">マーケティング用語集</li>
+                </ol>
+            </nav>
+        </div>
+
+        <section class="container mx-auto px-6 max-w-4xl">
+
+            <!-- Page Title -->
+            <div class="text-center mb-16 reveal">
+                <span
+                    class="inline-block py-1 px-3 border border-slate-200 bg-white text-xs font-bold tracking-widest text-slate-500 rounded-sm mb-4">GLOSSARY</span>
+                <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-6">マーケティング用語集</h1>
+                <p class="text-slate-600 leading-relaxed max-w-2xl mx-auto">
+                    マケマケが提唱する独自の理論から、一般的なマーケティング用語まで。<br>
+                    表面的な意味だけでなく「事業成長においてどう捉えるべきか」という本質的な視点を含めて解説します。
+                </p>
+            </div>
+
+            <!-- Category Links -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12 reveal delay-100">
+                <a href="#makemake"
+                    class="px-6 py-3 bg-white border border-slate-200 text-slate-700 font-bold rounded-sm hover:border-blue-500 hover:text-blue-600 transition-colors shadow-sm">マケマケ独自理論</a>
+                <a href="#general"
+                    class="px-6 py-3 bg-white border border-slate-200 text-slate-700 font-bold rounded-sm hover:border-blue-500 hover:text-blue-600 transition-colors shadow-sm">一般マーケティング用語</a>
+            </div>
+
+            <!-- Section: Makemake Theory -->
+            <div id="makemake" class="mb-20 scroll-mt-32">
+                <h2
+                    class="text-2xl font-bold text-slate-900 mb-8 pb-4 border-b-2 border-slate-200 flex items-center gap-3 reveal">
+                    <i data-lucide="layers" class="w-6 h-6 text-blue-600"></i> マケマケ独自理論・概念
+                </h2>
+
+                <div class="space-y-6">
+                    <!-- Term -->
+                    <div class="bg-white p-6 md:p-8 rounded-sm border border-slate-200 shadow-sm reveal">
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 text-blue-600">売上構造（うりあげこうぞう）</h3>
+                        <p class="text-slate-700 leading-relaxed text-sm">
+                            マケマケが提唱する、事業の売上を安定的に生み出すための基盤。具体的には「市場定義」「戦略設計」「価値表現」「顧客導線」という4つのレイヤーの連動設計を指す。どれか1つでも断絶していると、LP改修や広告運用などの単発施策は効果を発揮しない。
+                        </p>
+                        <div class="mt-4 pt-4 border-t border-slate-100">
+                            <a href="/theory.html"
+                                class="text-blue-600 hover:text-blue-800 text-sm font-bold flex items-center gap-1"><i
+                                    data-lucide="arrow-right" class="w-4 h-4"></i> 売上構造理論について詳しく見る</a>
+                        </div>
+                    </div>
+
+                    <!-- Term -->
+                    <div class="bg-white p-6 md:p-8 rounded-sm border border-slate-200 shadow-sm reveal">
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">年商1億の壁 / 10億の壁</h3>
+                        <p class="text-slate-700 leading-relaxed text-sm">
+                            企業が成長過程で必ず直面する停滞期。1億の壁は「社長のトップセールスや属人的な営業」の限界地点。10億の壁は「既存の単一チャネルや単一商材」の限界地点を指す。この壁を越えるためには、気合や努力ではなく、マーケティングを「構造化」し、再現性を持たせることが必須となる。
+                        </p>
+                    </div>
+
+                    <!-- Term -->
+                    <div class="bg-white p-6 md:p-8 rounded-sm border border-slate-200 shadow-sm reveal">
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">成果連動型支援（せいかれんどうがたしえん）</h3>
+                        <p class="text-slate-700 leading-relaxed text-sm">
+                            「稼働時間」や「納品物」に対してではなく、クライアントの「売上や利益、リード獲得数」などの明確な成果指標に連動して報酬が決定する支援モデル。マケマケでは、一定の条件（データ開示や意思決定スピードなど）を満たした企業にのみ、このモデルを提供している。
+                        </p>
+                        <div class="mt-4 pt-4 border-t border-slate-100">
+                            <a href="/performance.html"
+                                class="text-blue-600 hover:text-blue-800 text-sm font-bold flex items-center gap-1"><i
+                                    data-lucide="arrow-right" class="w-4 h-4"></i> 成果連動型支援の条件を見る</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: General Marketing Terms -->
+            <div id="general" class="scroll-mt-32">
+                <h2
+                    class="text-2xl font-bold text-slate-900 mb-8 pb-4 border-b-2 border-slate-200 flex items-center gap-3 reveal">
+                    <i data-lucide="book-open" class="w-6 h-6 text-slate-600"></i> 一般マーケティング用語
+                </h2>
+
+                <div class="space-y-6">
+                    <!-- Term -->
+                    <div class="bg-white p-6 md:p-8 rounded-sm border border-slate-200 shadow-sm reveal">
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">CPA <span
+                                class="text-sm font-normal text-slate-500 ml-2">Cost Per Action (顧客獲得単価)</span></h3>
+                        <p class="text-slate-700 leading-relaxed text-sm">
+                            1件のコンバージョン（資料請求や問い合わせなど）を獲得するためにかかった費用のこと。CPAは単に「低ければ良い」というものではなく、LTV（顧客生涯価値）や粗利とのバランスで適正値を判断すべきである。CPAが高騰する原因の多くは、広告運用の調整不足ではなく、前段の「市場定義」のズレにある。
+                        </p>
+                    </div>
+
+                    <!-- Term -->
+                    <div class="bg-white p-6 md:p-8 rounded-sm border border-slate-200 shadow-sm reveal">
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">CVR <span
+                                class="text-sm font-normal text-slate-500 ml-2">Conversion Rate (顧客転換率)</span></h3>
+                        <p class="text-slate-700 leading-relaxed text-sm">
+                            Webサイトを訪れたユーザーのうち、実際にコンバージョン（目標行動）に至った割合。CVRの低下は、LP（ランディングページ）のデザインの古さよりも、「広告で謳っている約束」と「LPで提供している情報」の文脈が断絶していること（＝導線の断絶）に起因することが多い。
+                        </p>
+                    </div>
+
+                    <!-- Term -->
+                    <div class="bg-white p-6 md:p-8 rounded-sm border border-slate-200 shadow-sm reveal">
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">LTV <span
+                                class="text-sm font-normal text-slate-500 ml-2">Life Time Value (顧客生涯価値)</span></h3>
+                        <p class="text-slate-700 leading-relaxed text-sm">
+                            ある顧客が、取引を開始してから終了するまでの期間に、企業にもたらす利益の総額。BtoBのサブスクリプション（SaaS）モデル等において最も重要視される指標の1つ。LTVが高い事業ほど、新規獲得（CPA）にかけられる許容コストが上がり、競合に対して優位にマーケティングを展開できる。
+                        </p>
+                    </div>
+
+                    <!-- Term -->
+                    <div class="bg-white p-6 md:p-8 rounded-sm border border-slate-200 shadow-sm reveal">
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">ペイン <span
+                                class="text-sm font-normal text-slate-500 ml-2">Pain (痛み・悩み)</span></h3>
+                        <p class="text-slate-700 leading-relaxed text-sm">
+                            顧客が抱えている「今すぐ解決したい強烈な課題」のこと。「あったらいいな（Gain）」という欲求よりも、「これがないと困る（Pain）」という課題にフォーカスして市場を定義する方が、BtoBマーケティングにおいては圧倒的に成約率が高くなる。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- CTA -->
+        <section class="mt-24 pt-20 border-t border-slate-200 relative overflow-hidden">
+            <div class="container mx-auto px-6 max-w-3xl text-center relative z-10 reveal">
+                <div class="bg-slate-900 rounded-sm p-8 md:p-12 shadow-xl border-t-4 border-blue-600">
+                    <h2 class="text-2xl font-bold text-white mb-4 tracking-tight">自社のマーケティング構造を診断する</h2>
+                    <p class="text-slate-300 text-sm mb-8 leading-relaxed max-w-xl mx-auto">
+                        CPAの高騰やCVRの低下など、現在起きている現象の根本的な原因（ボトルネック）を客観的に可視化します。
+                    </p>
+                    <a href="/diagnosis.html"
+                        class="inline-flex bg-blue-600 text-white font-bold px-10 py-4 rounded-sm hover:bg-blue-500 transition-all flex items-center justify-center gap-2 group mx-auto">
+                        売上構造診断を受ける（無料）
+                        <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-12 mt-12">
+        <div class="container mx-auto px-6 max-w-6xl flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <i data-lucide="layers" class="w-5 h-5 text-slate-900"></i>
+                <span class="text-lg font-bold tracking-wider text-slate-900">Makemake</span>
+            </div>
+            <div class="flex gap-6 text-sm text-slate-500">
+                <a href="/company.html" class="hover:text-slate-900 transition-colors">会社概要</a>
+                <a href="/privacy.html" class="hover:text-slate-900 transition-colors">プライバシーポリシー</a>
+                <a href="/contact.html" class="hover:text-slate-900 transition-colors">お問い合わせ</a>
+            </div>
+            <p class="text-xs text-slate-400">&copy; <span id="year"></span> Makemake Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        document.getElementById('year').textContent = new Date().getFullYear();
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
+</body>
+
+</html>

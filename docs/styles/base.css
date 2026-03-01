@@ -1,0 +1,42 @@
+/* Tailwindのインポート（ビルドプロセスがある場合） */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        @apply bg-slate-50 text-slate-900;
+    }
+}
+
+/* スクロールアニメーション（Reveal）用の独自クラス */
+@layer utilities {
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .delay-100 {
+        transition-delay: 100ms;
+    }
+
+    .delay-300 {
+        transition-delay: 300ms;
+    }
+
+    .delay-500 {
+        transition-delay: 500ms;
+    }
+}

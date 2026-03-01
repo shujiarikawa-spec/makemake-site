@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【事例タイトルが入ります】市場定義をズラし、レッドオーシャンを脱出。CPAを半減させた構造設計｜マケマケ</title>
+    <meta name="description"
+        content="【事例ディスクリプションが入ります】BtoB SaaS企業（年商3億）のマーケティング成果事例。課題、構造分析、設計、実行、そして改善成果（数値）のプロセスを公開します。">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a' },
+                        blue: { 50: '#eff6ff', 100: '#dbeafe', 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8' }
+                    },
+                    fontFamily: { sans: ['"Helvetica Neue"', 'Arial', '"Hiragino Kaku Gothic ProN"', '"Hiragino Sans"', 'Meiryo', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 {
+            transition-delay: 100ms;
+        }
+
+        /* 構造化された本文スタイル */
+        .case-section {
+            margin-bottom: 4rem;
+        }
+
+        .case-section h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+
+        .case-section h2 span {
+            color: #2563eb;
+        }
+
+        .case-section p {
+            color: #334155;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 selection:bg-blue-200">
+
+    <!-- Header -->
+    <header id="global-header"
+        class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white border-b border-slate-200 py-4">
+        <div class="container mx-auto px-6 max-w-6xl flex justify-between items-center">
+            <a href="/" class="flex items-center gap-2 group cursor-pointer text-decoration-none">
+                <div
+                    class="w-8 h-8 bg-slate-900 rounded-sm flex items-center justify-center transition-transform group-hover:scale-105">
+                    <i data-lucide="layers" class="w-5 h-5 text-white"></i>
+                </div>
+                <span class="text-xl font-bold tracking-wider text-slate-900">Makemake</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="/structure.html"
+                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">構造とは</a>
+                <a href="/theory.html"
+                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">理論</a>
+                <a href="/services.html"
+                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">支援モデル</a>
+                <a href="/case-studies.html"
+                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">事例</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <a href="/diagnosis.html"
+                    class="bg-blue-600 text-white text-sm font-medium px-5 py-2.5 rounded-sm hover:bg-blue-700 transition-all shadow-sm flex items-center gap-2">
+                    売上構造診断 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24 pb-24">
+
+        <!-- Breadcrumbs -->
+        <div class="bg-slate-50 border-b border-slate-200 mb-12">
+            <nav class="container mx-auto px-6 max-w-5xl py-4">
+                <ol class="flex items-center space-x-2 text-xs text-slate-500 font-medium">
+                    <li><a href="/" class="hover:text-blue-600 transition-colors">TOP</a></li>
+                    <li><i data-lucide="chevron-right" class="w-3 h-3"></i></li>
+                    <li><a href="/case-studies.html" class="hover:text-blue-600 transition-colors">事例一覧</a></li>
+                    <li><i data-lucide="chevron-right" class="w-3 h-3"></i></li>
+                    <li class="text-slate-800 truncate max-w-[200px] md:max-w-none">市場定義をズラし、レッドオーシャンを脱出。CPAを半減させた構造設計
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
+        <article class="container mx-auto px-6 max-w-4xl">
+
+            <!-- Case Header -->
+            <header class="mb-16 reveal text-center max-w-3xl mx-auto">
+                <div class="flex justify-center gap-2 mb-6">
+                    <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-sm shadow-sm">BtoB
+                        SaaS</span>
+                    <span class="bg-slate-800 text-white text-xs font-bold px-3 py-1 rounded-sm shadow-sm">年商3億</span>
+                </div>
+                <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight mb-8">
+                    市場定義をズラし、レッドオーシャンを脱出。<br>CPAを半減させた構造設計。
+                </h1>
+
+                <!-- Main KPI Summary (Before/After) -->
+                <div class="grid grid-cols-2 gap-4 text-left border-t border-b border-slate-200 py-6 mb-8">
+                    <div>
+                        <p class="text-xs font-bold text-slate-500 mb-1">CPA (顧客獲得単価)</p>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-slate-400 line-through text-sm">35,000円</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-slate-400"></i>
+                            <span class="text-2xl font-bold text-slate-900">16,800円</span>
+                            <span
+                                class="text-xs font-bold text-green-600 bg-green-50 border border-green-200 px-1.5 py-0.5 ml-2">-52%</span>
+                        </div>
+                    </div>
+                    <div class="border-l border-slate-200 pl-4">
+                        <p class="text-xs font-bold text-slate-500 mb-1">月間商談獲得数</p>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-slate-400 text-sm">約20件</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-slate-400"></i>
+                            <span class="text-2xl font-bold text-slate-900">55件</span>
+                            <span
+                                class="text-xs font-bold text-blue-600 bg-blue-50 border border-blue-200 px-1.5 py-0.5 ml-2">+175%</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="flex flex-col md:flex-row gap-12">
+                <!-- Main Content (CMS) -->
+                <div class="w-full md:w-2/3 reveal delay-100">
+
+                    <!-- 1. 課題 -->
+                    <div class="case-section">
+                        <h2><span>01.</span> 相談時の課題（Facts）</h2>
+                        <p>クラウド型の人事労務システムを提供しているA社。プロダクト自体は優れているものの、市場には大手競合がひしめいており、リスティング広告のクリック単価は年々高騰していました。</p>
+                        <p>広告費を月額100万円から150万円に増額したものの、獲得リード数は比例して伸びず、CPAが35,000円まで悪化。このままでは利益が出ない「詰み」の状態でマケマケにご相談いただきました。
+                        </p>
+                    </div>
+
+                    <!-- 2. 構造分析 -->
+                    <div class="case-section">
+                        <h2><span>02.</span> 構造の分析とボトルネック</h2>
+                        <p>ヒアリングと既存のLPを分析した結果、ボトルネックは「広告の運用スキル」ではなく「市場定義と価値表現の断絶」にあることが判明しました。</p>
+                        <div class="bg-slate-50 border border-slate-200 p-6 rounded-sm mb-6">
+                            <h3 class="font-bold text-slate-900 mb-2">当時の断絶ポイント</h3>
+                            <ul class="list-disc list-inside text-slate-600 space-y-2 text-sm">
+                                <li><strong>市場定義の誤り：</strong> 大手と同じ「人事部向け」をターゲットにしていたため、資本力で負けていた。</li>
+                                <li><strong>表現の誤認：</strong> LPのファーストビューが「効率化」「DX推進」という、どの競合も使っているコモディティ化した言葉になっていた。</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 3. 設計 -->
+                    <div class="case-section">
+                        <h2><span>03.</span> 売上構造の再設計（Design）</h2>
+                        <p>マケマケは戦略顧問として、競合と真正面から戦わないためのポジショニングを再定義しました。</p>
+                        <p>過去の契約データを分析すると、最もLTVが高く導入がスムーズなのは「専任の人事担当者がおらず、社長や総務が兼任している従業員50名未満の企業」であることがわかりました。そこで、ターゲットを人事部ではなく「社長・総務」へ意図的にズラしました。
+                        </p>
+                    </div>
+
+                    <!-- 4. 実行 -->
+                    <div class="case-section">
+                        <h2><span>04.</span> クリエイティブ制作と実行（Execution）</h2>
+                        <p>新しい戦略に基づき、マケマケの制作チームがLPを全面リニューアルしました。訴求軸を「DX」から「総務の残業削減・属人化解消」へ変更し、広告の配信キーワードも「人事システム」というビッグワードから、よりニッチな課題解決型キーワードへシフトしました。
+                        </p>
+                        <!-- Before/After Image placeholder -->
+                        <div class="flex gap-4 my-6">
+                            <div
+                                class="w-1/2 bg-slate-200 aspect-[3/4] flex items-center justify-center relative text-slate-400 text-sm">
+                                <span class="absolute top-2 left-2 bg-slate-900 text-white text-xs px-2 py-1">Before
+                                    LP</span>
+                                旧LPイメージ
+                            </div>
+                            <div
+                                class="w-1/2 bg-blue-100 border border-blue-200 aspect-[3/4] flex items-center justify-center relative text-blue-600 text-sm font-bold">
+                                <span class="absolute top-2 left-2 bg-blue-600 text-white text-xs px-2 py-1">After
+                                    LP</span>
+                                新LPイメージ
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. 成果 -->
+                    <div class="case-section">
+                        <h2><span>05.</span> 改善成果（Results）</h2>
+                        <p>新しいLPを公開し、運用を改善した結果、わずか2ヶ月でCPAは35,000円から16,800円へと半減。同予算で獲得できる商談数は約3倍（月間55件）へと急増しました。</p>
+                        <p>「施策（デザインや広告運用）」だけをいじるのではなく、「構造（誰に何を言うか）」から直列化したことで、再現性のある成果を生み出すことができました。</p>
+                    </div>
+
+                </div>
+
+                <!-- Sidebar (Company Info & CTA) -->
+                <aside class="w-full md:w-1/3 reveal delay-200">
+                    <div class="sticky top-24 space-y-6">
+
+                        <!-- Client Info -->
+                        <div class="bg-white border border-slate-200 rounded-sm p-6 shadow-sm">
+                            <h3
+                                class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4 border-b border-slate-100 pb-2">
+                                Client Info</h3>
+                            <dl class="space-y-3 text-sm">
+                                <div>
+                                    <dt class="text-slate-500 mb-0.5">業種</dt>
+                                    <dd class="font-bold text-slate-900">BtoB SaaS（クラウド人事労務）</dd>
+                                </div>
+                                <div>
+                                    <dt class="text-slate-500 mb-0.5">年商規模</dt>
+                                    <dd class="font-bold text-slate-900">約3億円</dd>
+                                </div>
+                                <div>
+                                    <dt class="text-slate-500 mb-0.5">マケマケの支援内容</dt>
+                                    <dd class="font-bold text-slate-900">戦略顧問 / LP制作 / 広告運用</dd>
+                                </div>
+                            </dl>
+                        </div>
+
+                        <!-- Sticky CTA -->
+                        <div class="bg-slate-900 rounded-sm p-6 shadow-xl text-center border-t-4 border-blue-600">
+                            <h3 class="text-white font-bold text-lg mb-2">似たような課題を<br>お持ちですか？</h3>
+                            <p class="text-slate-400 text-xs mb-6">貴社のCPAが高騰している原因を、構造的な視点から無料で診断します。</p>
+                            <a href="/diagnosis.html"
+                                class="block w-full bg-blue-600 text-white font-bold py-3 rounded-sm hover:bg-blue-500 transition-colors text-sm shadow-md">
+                                売上構造診断を受ける
+                            </a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Related Cases -->
+            <div class="mt-20 pt-12 border-t border-slate-200 reveal">
+                <h3 class="text-xl font-bold text-slate-900 mb-6">関連する事例を見る</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Related Case Link (Simplified Card) -->
+                    <a href="#"
+                        class="group block bg-white border border-slate-200 rounded-sm p-4 hover:shadow-md transition-all">
+                        <span class="text-xs font-bold text-slate-500 mb-2 block">製造業（部品） / 年商8億</span>
+                        <h4
+                            class="font-bold text-slate-900 text-sm group-hover:text-blue-600 transition-colors line-clamp-2">
+                            「専門用語」を「顧客のベネフィット」に翻訳。問い合わせ経路を再構築。</h4>
+                    </a>
+                    <!-- Dummy items -->
+                    <a href="#"
+                        class="group block bg-white border border-slate-200 rounded-sm p-4 hover:shadow-md transition-all">
+                        <span class="text-xs font-bold text-slate-500 mb-2 block">人材紹介業 / 年商2.5億</span>
+                        <h4
+                            class="font-bold text-slate-900 text-sm group-hover:text-blue-600 transition-colors line-clamp-2">
+                            断絶していた広告とLPの導線を接続。CVRを劇的に改善した90日。</h4>
+                    </a>
+                </div>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-12">
+        <div class="container mx-auto px-6 max-w-6xl flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <i data-lucide="layers" class="w-5 h-5 text-slate-900"></i>
+                <span class="text-lg font-bold tracking-wider text-slate-900">Makemake</span>
+            </div>
+            <div class="flex gap-6 text-sm text-slate-500">
+                <a href="/company.html" class="hover:text-slate-900 transition-colors">会社概要</a>
+                <a href="/privacy.html" class="hover:text-slate-900 transition-colors">プライバシーポリシー</a>
+                <a href="/contact.html" class="hover:text-slate-900 transition-colors">お問い合わせ</a>
+            </div>
+            <p class="text-xs text-slate-400">&copy; <span id="year"></span> Makemake Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        document.getElementById('year').textContent = new Date().getFullYear();
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
+</body>
+
+</html>
