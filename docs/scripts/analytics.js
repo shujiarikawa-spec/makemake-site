@@ -23,7 +23,7 @@
     };
 
     document.addEventListener('click', function (event) {
-        const diagnosisLink = event.target.closest('a[href="/diagnosis.html"], a[href="/diagnosis"]');
+        const diagnosisLink = event.target.closest('a[href="/diagnosis/"], a[href="/diagnosis"]');
         if (diagnosisLink) {
             sendEvent('diagnosis_cta_click', {
                 link_text: diagnosisLink.textContent.trim().slice(0, 100)
@@ -44,7 +44,7 @@
         }
     });
 
-    if (window.location.pathname === '/thanks-diagnosis.html') {
+    if (window.location.pathname === '/thanks-diagnosis/') {
         sendEvent('generate_lead');
     }
 }());
