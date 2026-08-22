@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <script src="/scripts/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>売上が伸びない原因は？最初に確認すべき5つのポイントと改善手順｜マケマケ</title>
+  <meta name="description" content="売上が伸びないとき、広告・SEO・営業を増やす前に確認したい5つの原因を解説。市場、価値表現、顧客導線、商談、収益性を順に分解し、改善の優先順位を決める手順を紹介します。">
+  <link rel="canonical" href="https://makenai-mark.com/insights/sales-not-growing/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="マケマケ">
+  <meta property="og:title" content="売上が伸びない原因は？最初に確認すべき5つのポイントと改善手順｜マケマケ">
+  <meta property="og:description" content="施策を増やす前に、売上が止まっている場所を5つのポイントから見つける実務ガイド。">
+  <meta property="og:url" content="https://makenai-mark.com/insights/sales-not-growing/">
+  <meta name="twitter:card" content="summary">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { slate: { 50:'#f8fafc',100:'#f1f5f9',200:'#e2e8f0',300:'#cbd5e1',400:'#94a3b8',500:'#64748b',600:'#475569',700:'#334155',800:'#1e293b',900:'#0f172a' }, blue: { 50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8' } },
+      fontFamily: { sans:['"Helvetica Neue"','Arial','"Hiragino Kaku Gothic ProN"','"Hiragino Sans"','Meiryo','sans-serif'] }
+    } } };
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .article-copy p { margin-top: 1.1rem; line-height: 2; color: #475569; }
+    .article-copy h2 { margin-top: 4.5rem; scroll-margin-top: 6rem; font-size: 1.8rem; line-height: 1.45; font-weight: 800; letter-spacing: -.025em; color: #0f172a; }
+    .article-copy h3 { margin-top: 2.25rem; font-size: 1.2rem; line-height: 1.6; font-weight: 800; color: #0f172a; }
+    .article-copy strong { color: #0f172a; }
+    @media (min-width: 768px) { .article-copy h2 { font-size: 2.25rem; } }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"Article","@id":"https://makenai-mark.com/insights/sales-not-growing/#article","mainEntityOfPage":"https://makenai-mark.com/insights/sales-not-growing/","headline":"売上が伸びない原因は？最初に確認すべき5つのポイントと改善手順","description":"売上が伸びないときに、原因を5つのポイントから分解し、改善の優先順位を決める手順を解説します。","inLanguage":"ja","datePublished":"2026-08-22","dateModified":"2026-08-22","author":{"@type":"Organization","name":"マケマケ","url":"https://makenai-mark.com/"},"publisher":{"@type":"Organization","name":"マケマケ","url":"https://makenai-mark.com/"}},
+      {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://makenai-mark.com/"},{"@type":"ListItem","position":2,"name":"インサイト","item":"https://makenai-mark.com/insights/"},{"@type":"ListItem","position":3,"name":"売上が伸びない原因","item":"https://makenai-mark.com/insights/sales-not-growing/"}]},
+      {"@type":"FAQPage","mainEntity":[
+        {"@type":"Question","name":"売上が伸びないとき、最初に確認すべきことは何ですか？","acceptedAnswer":{"@type":"Answer","text":"施策を増やす前に、どの数字と顧客行動で売上が止まっているかを確認します。市場への到達、価値の伝達、問い合わせまでの導線、商談、価格と収益性の順に分けると、優先順位を決めやすくなります。"}},
+        {"@type":"Question","name":"広告を増やしても売上が伸びないのはなぜですか？","acceptedAnswer":{"@type":"Answer","text":"流入後に価値が伝わらない、問い合わせへの導線が弱い、商談で選ばれる理由が整理されていないなど、広告以外にボトルネックがある可能性があります。"}},
+        {"@type":"Question","name":"売上改善は何から始めればよいですか？","acceptedAnswer":{"@type":"Answer","text":"売上を新規顧客、成約、単価、継続などの数字と、顧客が進む過程に分け、最も大きい断絶を一つ選んで仮説と検証を始めます。"}}
+      ]}
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 selection:bg-blue-200">
+  <header id="global-header" class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur border-b border-slate-200 py-4">
+    <div class="container mx-auto px-6 max-w-6xl flex justify-between items-center">
+      <a href="/" class="flex items-center gap-2 group text-decoration-none">
+        <span class="w-8 h-8 bg-slate-900 rounded-sm flex items-center justify-center"><i data-lucide="layers" class="w-5 h-5 text-white"></i></span>
+        <span class="text-xl font-bold tracking-wider text-slate-900">Makemake</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="/structure/" class="text-sm font-medium text-slate-600 hover:text-blue-600">構造とは</a>
+        <a href="/theory/" class="text-sm font-medium text-slate-600 hover:text-blue-600">理論</a>
+        <a href="/services/" class="text-sm font-medium text-slate-600 hover:text-blue-600">支援モデル</a>
+        <a href="/case-studies/" class="text-sm font-medium text-slate-600 hover:text-blue-600">事例</a>
+      </nav>
+      <a href="/diagnosis/" class="bg-blue-600 text-white text-sm font-bold px-4 md:px-5 py-2.5 rounded-sm hover:bg-blue-700 transition-colors">売上構造診断</a>
+    </div>
+  </header>
+
+  <main class="pt-20">
+    <div class="border-b border-slate-200 bg-white">
+      <nav aria-label="パンくず" class="container mx-auto px-6 max-w-5xl py-4 text-xs text-slate-500 flex items-center gap-2">
+        <a href="/" class="hover:text-blue-600">TOP</a><i data-lucide="chevron-right" class="w-3 h-3"></i><a href="/insights/" class="hover:text-blue-600">インサイト</a><i data-lucide="chevron-right" class="w-3 h-3"></i><span class="text-slate-700">売上が伸びない原因</span>
+      </nav>
+    </div>
+
+    <article>
+      <header class="bg-white border-b border-slate-200">
+        <div class="container mx-auto px-6 max-w-4xl pt-16 pb-14 md:pt-24 md:pb-20">
+          <p class="reveal text-xs font-bold tracking-[.18em] text-blue-600 mb-6">SALES GROWTH / DIAGNOSIS</p>
+          <h1 class="reveal text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.25] text-slate-900">売上が伸びない原因は？<br><span class="text-slate-500">最初に確認すべき5つのポイント</span></h1>
+          <p class="reveal mt-8 text-lg md:text-xl leading-relaxed text-slate-600 max-w-3xl">広告、SEO、営業を増やす前に、どこで顧客が止まり、何が判断を止めているのかを分解します。改善の打ち手を増やすのではなく、優先順位を決めるための実務ガイドです。</p>
+          <div class="reveal mt-9 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-500"><span>公開日：2026年8月22日</span><span>更新日：2026年8月22日</span><a class="text-blue-600 font-bold hover:text-blue-700" href="/theory/">売上構造の考え方を読む →</a></div>
+        </div>
+      </header>
+
+      <div class="container mx-auto px-6 max-w-5xl py-12 md:py-16 grid lg:grid-cols-[minmax(0,1fr)_260px] gap-14">
+        <div class="min-w-0">
+          <section class="reveal bg-slate-900 text-white p-7 md:p-9 rounded-sm">
+            <p class="text-xs font-bold tracking-[.16em] text-blue-300">FIRST, FIND THE STOPPING POINT</p>
+            <h2 class="mt-4 text-2xl md:text-3xl font-bold leading-snug">「何を強化するか」より先に、<br>「どこで止まるか」を確認する。</h2>
+            <p class="mt-5 text-slate-300 leading-relaxed">売上が伸びないとき、集客、広告、営業など一つの施策に原因を決めつけると、改善の順番を誤りやすくなります。まずは顧客が知る、理解する、問い合わせる、比較する、購入を続けるまでを見渡してください。</p>
+          </section>
+
+          <div class="article-copy">
+            <h2 id="starting-point">売上が伸びないときに、最初に整理したいこと</h2>
+            <p>「売上が伸びない」は一つの症状であり、原因そのものではありません。新しい見込み客が減っているのか、問い合わせはあるのに商談にならないのか、商談はあるのに受注しないのか。症状が違えば、最初に確認する数字も、打つべき手も変わります。</p>
+            <p>売上を考えるときは、単純に売上額だけを見るのではなく、<strong>顧客が進む過程と、その各段階の数字</strong>を並べます。たとえば、新規顧客数、問い合わせ数、商談化率、受注率、受注単価、継続・再購入などです。数字が正確に取れていない場合も、現場の実感と照らして「どこから確認するか」の仮説を置くことはできます。</p>
+
+            <div class="not-prose mt-9 border border-slate-200 bg-white p-6 md:p-8 rounded-sm">
+              <p class="text-xs font-bold tracking-[.14em] text-blue-600">CHECK THE FLOW, NOT ONLY THE RESULT</p>
+              <div class="mt-5 grid sm:grid-cols-5 gap-2 text-center text-sm font-bold">
+                <div class="bg-blue-50 border border-blue-100 p-3">届く</div><div class="hidden sm:flex items-center justify-center text-slate-400">→</div><div class="bg-slate-50 border border-slate-200 p-3">伝わる</div><div class="hidden sm:flex items-center justify-center text-slate-400">→</div><div class="bg-slate-50 border border-slate-200 p-3 sm:col-span-5">問い合わせる → 比較する → 選ばれる → 続く</div>
+              </div>
+              <p class="mt-5 text-sm leading-relaxed text-slate-600">どこが弱いかを見ずに流入だけを増やすと、失注や離脱の量も増えることがあります。まず「止まる場所」を一つに絞ることが、次の投資判断の出発点です。</p>
+            </div>
+
+            <h2 id="five-causes">売上が伸びない主な5つの原因</h2>
+            <p>以下の5つは、どれか一つだけが問題とは限りません。ただし、同時にすべてを直そうとすると検証できなくなります。自社で最も強い症状から確認してください。</p>
+
+            <h3>1. 届くべき市場に届いていない</h3>
+            <p>認知やアクセスが少ない場合でも、単に量が足りないとは限りません。誰の、どの場面の、どんな困りごとに応えるのかが曖昧だと、発信、広告、営業リストのすべてが散らばります。まずは既存顧客に共通する課題、選ばれた理由、比較された相手を確認し、届ける相手を具体化します。</p>
+            <p><strong>確認する問い：</strong>「今、最も反応する顧客は誰か」「その人は何に困ったときに探し始めるか」「自社の入口はその場面にあるか」</p>
+
+            <h3>2. 価値が伝わらず、比較で選ばれない</h3>
+            <p>アクセスや商談の機会があっても、顧客が「自分の課題に関係がある」「他社ではなくここを選ぶ理由がある」と理解できなければ、次の行動には進みません。機能の説明だけで終わっていないか、導入後に何が変わるのかが具体的か、比較の判断材料があるかを見ます。</p>
+            <p><strong>確認する問い：</strong>「顧客の言葉で課題を説明できているか」「導入後の状態が想像できるか」「比較されたときに選ばれる理由が示されているか」</p>
+
+            <h3>3. 問い合わせ・購入までの導線に摩擦がある</h3>
+            <p>価値を理解しても、次に何をすればよいかが分からない、検討に必要な情報が足りない、行動の負担が大きいと、顧客は離脱します。Webサイトだけでなく、資料、問い合わせ後の案内、担当者からの連絡までを一つの導線として確認します。</p>
+            <p><strong>確認する問い：</strong>「次の行動が一つに定まっているか」「問い合わせ前の不安に答えているか」「問い合わせ後に商談へ進む理由を設計できているか」</p>
+
+            <h3>4. 商談・提案で期待値がつながっていない</h3>
+            <p>問い合わせ数があっても受注につながらないなら、営業の話し方だけを原因にしないことが大切です。サイトや広告で伝えた内容と、商談で提示する価値、価格、進め方にずれがあると、期待値が切れます。失注理由を「価格が高い」で止めず、比較対象、決裁条件、導入不安まで記録して振り返ります。</p>
+            <p><strong>確認する問い：</strong>「流入時の期待と提案内容はつながっているか」「失注の理由を再現性ある形で記録できているか」「選ばれなかった理由を商品・市場まで戻って見ているか」</p>
+
+            <h3>5. 商品・価格・収益性の設計が合っていない</h3>
+            <p>売上が増えても、粗利や継続性が低ければ、事業としては苦しくなります。値下げで受注を増やす前に、顧客にとっての価値と価格の関係、提供にかかる負荷、顧客構成への依存を確認します。これはマーケティングだけでは完結しないため、現場・営業・経営の認識を揃える必要があります。</p>
+            <p><strong>確認する問い：</strong>「売上だけでなく、粗利と継続を見ているか」「低採算の受注を増やしていないか」「特定の顧客・チャネルに依存しすぎていないか」</p>
+
+            <h2 id="priority">改善の優先順位を決める3ステップ</h2>
+            <h3>ステップ1：症状を一文で書く</h3>
+            <p>「売上が伸びない」ではなく、「月間の問い合わせはあるが商談化しない」「受注率は変わらないが新規接点が減った」のように、観測できる事実へ置き換えます。数字があれば期間をそろえ、前年同月・前月など比較の基準も決めます。</p>
+            <h3>ステップ2：原因を一つの仮説にする</h3>
+            <p>施策を先に決めず、「問い合わせ前に必要な比較情報が不足しているかもしれない」「届ける市場と発信テーマがずれているかもしれない」のように仮説にします。仮説なら、確認する数字・顧客の声・ページ・商談記録を決められます。</p>
+            <h3>ステップ3：小さく実行し、次の判断を残す</h3>
+            <p>一度に広告、サイト、営業資料、商品を変えると、何が効いたか分かりません。最も大きい断絶に対して一つの変更を行い、見る指標と期間を決めます。結果が想定と違っても、次に確認するべき場所が明確になれば前進です。</p>
+
+            <h2 id="avoid">売上が伸びないときに、先にやらない方がよいこと</h2>
+            <p><strong>原因が分からないまま、施策数だけを増やすこと</strong>です。広告、SEO、SNS、営業のいずれも有効になり得ますが、ボトルネックと合っていなければ改善効果は測れません。特に「アクセスが少ないから広告」「受注しないから値下げ」と即断すると、後から戻しにくい判断になります。</p>
+            <p>必要なのは、施策を否定することではありません。どの施策を、どの断絶に対して、何を改善するために行うのかを結び直すことです。この考え方を、マケマケでは<a class="font-bold text-blue-600 hover:text-blue-700" href="/theory/">売上構造</a>として整理しています。</p>
+
+            <h2 id="next-action">明日から始める、売上改善の確認リスト</h2>
+            <div class="not-prose mt-7 grid gap-3">
+              <div class="bg-white border border-slate-200 p-5 rounded-sm flex gap-4"><span class="shrink-0 w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-sm">1</span><p class="text-slate-700 leading-relaxed"><strong class="text-slate-900">直近の数字を並べる。</strong> 問い合わせ、商談、受注、単価、継続について、最低限の推移を同じ期間で見る。</p></div>
+              <div class="bg-white border border-slate-200 p-5 rounded-sm flex gap-4"><span class="shrink-0 w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-sm">2</span><p class="text-slate-700 leading-relaxed"><strong class="text-slate-900">止まる場所を一つ選ぶ。</strong> 5つの原因のうち、最も強い症状がある場所を仮説として選ぶ。</p></div>
+              <div class="bg-white border border-slate-200 p-5 rounded-sm flex gap-4"><span class="shrink-0 w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-sm">3</span><p class="text-slate-700 leading-relaxed"><strong class="text-slate-900">確認方法を決める。</strong> 数字、顧客の声、ページ、商談記録のどれで仮説を確かめるかを決める。</p></div>
+              <div class="bg-white border border-slate-200 p-5 rounded-sm flex gap-4"><span class="shrink-0 w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-sm">4</span><p class="text-slate-700 leading-relaxed"><strong class="text-slate-900">一つだけ改善する。</strong> 変更点と観測する指標を決め、次の判断に使える結果を残す。</p></div>
+            </div>
+
+            <h2 id="faq">よくある質問</h2>
+            <div class="not-prose mt-7 space-y-3">
+              <details class="bg-white border border-slate-200 p-5 rounded-sm"><summary class="font-bold cursor-pointer text-slate-900">売上が伸びないとき、最初に確認すべきことは何ですか？</summary><p class="mt-4 pt-4 border-t border-slate-100 text-sm text-slate-600 leading-relaxed">施策の量ではなく、顧客がどの段階で止まっているかを確認します。新規接点、価値の伝達、導線、商談、収益性のどこに症状があるかを分けることが出発点です。</p></details>
+              <details class="bg-white border border-slate-200 p-5 rounded-sm"><summary class="font-bold cursor-pointer text-slate-900">広告を増やしても売上が伸びないのはなぜですか？</summary><p class="mt-4 pt-4 border-t border-slate-100 text-sm text-slate-600 leading-relaxed">流入後に価値が伝わらない、問い合わせ導線に摩擦がある、商談時の期待値が切れているなど、広告以外に原因がある可能性があります。</p></details>
+              <details class="bg-white border border-slate-200 p-5 rounded-sm"><summary class="font-bold cursor-pointer text-slate-900">売上改善は何から始めればよいですか？</summary><p class="mt-4 pt-4 border-t border-slate-100 text-sm text-slate-600 leading-relaxed">現状の症状を一文にし、原因の仮説を一つ置きます。その仮説を確かめる数字や記録を決めてから、小さな変更を行います。</p></details>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hidden lg:block">
+          <div class="sticky top-28 border border-slate-200 bg-white p-6 rounded-sm">
+            <p class="text-xs font-bold tracking-[.14em] text-slate-500">CONTENTS</p>
+            <ol class="mt-5 space-y-3 text-sm leading-snug">
+              <li><a href="#starting-point" class="text-slate-600 hover:text-blue-600">最初に整理したいこと</a></li>
+              <li><a href="#five-causes" class="text-slate-600 hover:text-blue-600">主な5つの原因</a></li>
+              <li><a href="#priority" class="text-slate-600 hover:text-blue-600">優先順位を決める手順</a></li>
+              <li><a href="#avoid" class="text-slate-600 hover:text-blue-600">先にやらない方がよいこと</a></li>
+              <li><a href="#next-action" class="text-slate-600 hover:text-blue-600">確認リスト</a></li>
+              <li><a href="#faq" class="text-slate-600 hover:text-blue-600">よくある質問</a></li>
+            </ol>
+          </div>
+        </aside>
+      </div>
+
+      <section class="border-y border-slate-200 bg-white py-16 md:py-20">
+        <div class="container mx-auto px-6 max-w-5xl">
+          <p class="text-xs font-bold tracking-[.16em] text-blue-600">RELATED</p>
+          <h2 class="mt-4 text-3xl font-bold tracking-tight">あわせて読みたいページ</h2>
+          <div class="mt-8 grid md:grid-cols-3 gap-4">
+            <a href="/theory/" class="group border border-slate-200 p-6 rounded-sm hover:border-blue-300 hover:bg-blue-50 transition-colors"><p class="text-xs font-bold text-blue-600">THEORY</p><h3 class="mt-4 text-lg font-bold">売上構造とは？</h3><p class="mt-3 text-sm text-slate-600 leading-relaxed">市場・戦略・価値表現・顧客導線を連動して考える基本を解説。</p><span class="mt-5 block text-sm font-bold text-slate-700 group-hover:text-blue-700">理論を読む →</span></a>
+            <a href="/structure/" class="group border border-slate-200 p-6 rounded-sm hover:border-blue-300 hover:bg-blue-50 transition-colors"><p class="text-xs font-bold text-blue-600">STRUCTURE</p><h3 class="mt-4 text-lg font-bold">売上が止まる構造とは</h3><p class="mt-3 text-sm text-slate-600 leading-relaxed">施策ごとの問題ではなく、つながりの断絶として売上停滞を捉えるページ。</p><span class="mt-5 block text-sm font-bold text-slate-700 group-hover:text-blue-700">構造を読む →</span></a>
+            <a href="/glossary/" class="group border border-slate-200 p-6 rounded-sm hover:border-blue-300 hover:bg-blue-50 transition-colors"><p class="text-xs font-bold text-blue-600">GLOSSARY</p><h3 class="mt-4 text-lg font-bold">マーケティング用語集</h3><p class="mt-3 text-sm text-slate-600 leading-relaxed">施策や数字を確認するときに使う用語を整理しています。</p><span class="mt-5 block text-sm font-bold text-slate-700 group-hover:text-blue-700">用語を確認する →</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-blue-600 py-18 md:py-24">
+        <div class="container mx-auto px-6 max-w-3xl text-center py-16 md:py-20">
+          <p class="text-xs font-bold tracking-[.16em] text-blue-200">NEXT STEP</p>
+          <h2 class="mt-4 text-3xl md:text-4xl font-bold text-white tracking-tight">自社の売上が、どこで止まっているかを整理する。</h2>
+          <p class="mt-6 text-blue-100 leading-relaxed">施策を増やす前に、いまの状況を構造から確認したい方は、売上構造診断をご利用ください。</p>
+          <a href="/diagnosis/" class="inline-flex mt-9 bg-white text-blue-600 font-bold px-8 py-4 rounded-sm hover:bg-blue-50 shadow-lg">売上構造診断を受ける <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i></a>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="bg-slate-900 border-t border-slate-800 py-12"><div class="container mx-auto px-6 max-w-6xl flex flex-col md:flex-row justify-between items-center gap-6"><div class="flex items-center gap-2"><i data-lucide="layers" class="w-5 h-5 text-white"></i><span class="text-lg font-bold tracking-wider text-white">Makemake</span></div><div class="flex gap-6 text-sm text-slate-400"><a href="/company/" class="hover:text-white">会社概要</a><a href="/privacy/" class="hover:text-white">プライバシーポリシー</a><a href="/contact/" class="hover:text-white">お問い合わせ</a></div><p class="text-xs text-slate-500">&copy; <span id="year"></span> Makemake Inc. All rights reserved.</p></div></footer>
+  <script>
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+    document.getElementById('year').textContent = new Date().getFullYear();
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, obs) => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); obs.unobserve(entry.target); } }), { threshold: .1 });
+      document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+    } else { document.querySelectorAll('.reveal').forEach(element => element.classList.add('is-visible')); }
+  </script>
+</body>
+</html>
