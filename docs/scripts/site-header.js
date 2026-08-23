@@ -1,5 +1,69 @@
 /* Shared global header. The page body remains responsible for its own content header. */
 (function () {
+    const brandFontHref = 'https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,700&display=swap';
+    const brandStyleId = 'makemake-brand-lockup-styles';
+
+    const installBrandStyles = function () {
+        if (!document.querySelector(`link[href="${brandFontHref}"]`)) {
+            const fontLink = document.createElement('link');
+            fontLink.rel = 'stylesheet';
+            fontLink.href = brandFontHref;
+            document.head.appendChild(fontLink);
+        }
+        if (document.getElementById(brandStyleId)) return;
+
+        const styles = document.createElement('style');
+        styles.id = brandStyleId;
+        styles.textContent = `
+            .brand-lockup { display: inline-flex; align-items: center; gap: 9px; color: inherit; text-decoration: none; }
+            .brand-lockup:focus-visible { outline: 2px solid #3165dc; outline-offset: 5px; }
+            .brand-lockup__mark { width: auto; height: 32px; flex: 0 0 auto; }
+            .brand-wordmark { color: #0f172a; font-family: "DM Sans", "Helvetica Neue", Arial, sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -.108em; line-height: .78; white-space: nowrap; }
+            .brand-wordmark__m { color: #3165dc; display: inline-block; margin-right: .08em; }
+            .brand-wordmark__ake { display: inline-block; margin-left: -.035em; margin-right: -.055em; }
+            .brand-wordmark__m--second { margin-left: .08em; }
+            .brand-lockup--footer .brand-lockup__mark { height: 24px; }
+            .brand-lockup--footer .brand-wordmark { font-size: 18px; }
+            .brand-lockup--on-dark .brand-wordmark { color: #fff; }
+            .brand-lockup--on-dark .brand-wordmark__m { color: #60a5fa; }
+            .site-footer--with-brand { align-items: center; display: flex; flex-direction: column; gap: 14px; justify-content: center; }
+            @media (max-width: 767px) {
+                .brand-lockup__mark { height: 28px; }
+                .brand-wordmark { font-size: 18px; }
+            }
+        `;
+        document.head.appendChild(styles);
+    };
+
+    const installFavicon = function () {
+        if (!document.querySelector('link[data-makemake-favicon="icon"]')) {
+            const favicon = document.createElement('link');
+            favicon.rel = 'icon';
+            favicon.type = 'image/x-icon';
+            favicon.href = '/favicon.ico';
+            favicon.dataset.makemakeFavicon = 'icon';
+            document.head.appendChild(favicon);
+        }
+        if (!document.querySelector('link[data-makemake-favicon="apple-touch"]')) {
+            const appleTouchIcon = document.createElement('link');
+            appleTouchIcon.rel = 'apple-touch-icon';
+            appleTouchIcon.sizes = '180x180';
+            appleTouchIcon.href = '/apple-touch-icon.png';
+            appleTouchIcon.dataset.makemakeFavicon = 'apple-touch';
+            document.head.appendChild(appleTouchIcon);
+        }
+    };
+
+    const wordmarkMarkup = function () {
+        return `<span class="brand-wordmark" aria-hidden="true"><span class="brand-wordmark__m">M</span><span class="brand-wordmark__ake">ake</span><span class="brand-wordmark__m brand-wordmark__m--second">m</span><span class="brand-wordmark__ake">ake</span></span>`;
+    };
+
+    const brandLockupMarkup = function (options) {
+        const footerClass = options.footer ? ' brand-lockup--footer' : '';
+        const contrastClass = options.dark ? ' brand-lockup--on-dark' : '';
+        return `<a href="/" class="brand-lockup${footerClass}${contrastClass}" aria-label="マケマケ トップページ"><img src="/images/brand/makemake-mark-blue.png" class="brand-lockup__mark" width="45" height="32" alt="" aria-hidden="true">${wordmarkMarkup()}</a>`;
+    };
+
     const currentPath = window.location.pathname;
     const sectionForPath = function (path) {
         if (path === '/structure/' || path === '/structure') return 'structure';
@@ -27,10 +91,7 @@
     const headerMarkup = `
         <header id="global-header" class="fixed top-0 left-0 w-full z-50 bg-white border-b border-slate-200 py-4">
             <div class="container mx-auto px-6 max-w-6xl flex justify-between items-center">
-                <a href="/" class="flex items-center gap-2 no-underline" aria-label="マケマケ トップページ">
-                    <img src="/images/brand/makemake-mark-blue.png" class="h-8 w-auto shrink-0" width="45" height="32" alt="" aria-hidden="true">
-                    <span class="text-xl font-bold tracking-wider text-slate-900">Makemake</span>
-                </a>
+                ${brandLockupMarkup({ footer: false, dark: false })}
                 <nav class="hidden md:flex items-center gap-8" aria-label="メインナビゲーション">${navLinks}</nav>
                 <div class="flex items-center gap-4">
                     <a href="/contact/" class="hidden md:flex text-sm font-medium text-slate-900 hover:text-blue-600 transition-colors">お問い合わせ</a>
@@ -48,9 +109,33 @@
         document.body.insertAdjacentHTML('afterbegin', headerMarkup);
     };
 
+    const mountFooterBrands = function () {
+        document.querySelectorAll('footer').forEach(function (footer) {
+            if (footer.querySelector('.brand-lockup')) return;
+            const isDark = footer.classList.contains('bg-slate-900') || footer.classList.contains('bg-slate-950');
+            const brandMount = footer.querySelector('.flex.items-center.gap-2');
+            const markup = brandLockupMarkup({ footer: true, dark: isDark });
+
+            if (brandMount) {
+                brandMount.innerHTML = markup;
+                return;
+            }
+
+            footer.classList.add('site-footer--with-brand');
+            footer.insertAdjacentHTML('afterbegin', markup);
+        });
+    };
+
+    installBrandStyles();
+    installFavicon();
+
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', mountHeader, { once: true });
+        document.addEventListener('DOMContentLoaded', function () {
+            mountHeader();
+            mountFooterBrands();
+        }, { once: true });
     } else {
         mountHeader();
+        mountFooterBrands();
     }
 }());
