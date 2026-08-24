@@ -18,7 +18,7 @@ Worker は、GSC の `query / page / clicks / impressions / ctr / position / dat
 1. Cloudflare で Worker / KV namespace を作ります。`workers.dev` のダッシュボードは、Worker 内の **Basic認証**で保護します。`run_worker_first = true` により、HTML・JavaScript・APIの全リクエストで認証を確認します。無料枠では閲覧リクエストもWorker実行回数に含まれるため、運用者だけが使う内部画面に限定します。
 2. `dashboard/wrangler.toml` に KV ID を設定します。認証情報はこのファイルやGitには入れません。
 3. Google Cloud で同一プロジェクトの **Google Sheets API**、GA4 Data API、Search Console APIを有効化し、サービスアカウントのJSONキーを発行します。GA4プロパティ **`G-4BL0WG5Y3T` の測定IDではなく、数値の Property ID** にサービスアカウントへ「閲覧者」以上を付与します。Search Consoleは対象プロパティに同じサービスアカウントを**制限付き**ユーザーとして追加します。指定スプレッドシートには、サービスアカウントのメールアドレスを**編集者**として共有します。
-4. `GOOGLE_SERVICE_ACCOUNT_JSON`、`DASHBOARD_ACCESS_PASSWORD_V2`、必要に応じて`DASHBOARD_REFRESH_TOKEN`は Worker の**シークレット**として設定します。`DASHBOARD_ACCESS_USERNAME`、`GA4_PROPERTY_ID`、`SEARCH_CONSOLE_SITE_URL`、`GOOGLE_SHEETS_SPREADSHEET_ID`、`PUBLIC_SITE_ORIGIN`は環境変数として設定します。`keep_vars = true` が有効なため、GitHub連携の後続デプロイでもCloudflare画面で設定した環境変数を削除しません。
+4. `GOOGLE_SERVICE_ACCOUNT_JSON`、`DASHBOARD_ACCESS_PASSWORD_V3`、必要に応じて`DASHBOARD_REFRESH_TOKEN`は Worker の**シークレット**として設定します。`DASHBOARD_ACCESS_USERNAME`、`GA4_PROPERTY_ID`、`SEARCH_CONSOLE_SITE_URL`、`GOOGLE_SHEETS_SPREADSHEET_ID`、`PUBLIC_SITE_ORIGIN`は環境変数として設定します。`keep_vars = true` が有効なため、GitHub連携の後続デプロイでもCloudflare画面で設定した環境変数を削除しません。
 
 ```sh
 cd dashboard

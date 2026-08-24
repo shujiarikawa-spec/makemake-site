@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { dashboardAuthRequired, hasDashboardAccess } from "../auth.js";
 
-const env = { DASHBOARD_ACCESS_USERNAME: "makemake-admin", DASHBOARD_ACCESS_PASSWORD_V2: "test-password" };
+const env = { DASHBOARD_ACCESS_USERNAME: "makemake-admin", DASHBOARD_ACCESS_PASSWORD_V3: "test-password" };
 const header = `Basic ${btoa("makemake-admin:test-password")}`;
 
 test("dashboard access requires the dedicated Basic credentials", () => {

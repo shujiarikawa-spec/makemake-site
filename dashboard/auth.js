@@ -6,7 +6,7 @@ const challengeHeaders = {
 
 export function hasDashboardAccess(request, env) {
   const username = env.DASHBOARD_ACCESS_USERNAME;
-  const password = env.DASHBOARD_ACCESS_PASSWORD_V2;
+  const password = env.DASHBOARD_ACCESS_PASSWORD_V3;
   if (!username || !password) return false;
   return request.headers.get("authorization") === `Basic ${btoa(`${username}:${password}`)}`;
 }
