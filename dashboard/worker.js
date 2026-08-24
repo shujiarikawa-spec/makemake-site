@@ -1,12 +1,21 @@
-import { buildDashboard, dateRange } from "./lib.js";
+import { buildDashboard } from "./lib.js";
+import { makeSheetRows, syncSheets } from "./sheets.js";
 
 const CACHE_KEY = "seo-dashboard/raw-v1";
+const SHEETS_STATE_KEY = "seo-dashboard/sheets-sync-state-v1";
 const GOOGLE_TOKEN_URL = "https://oauth2.googleapis.com/token";
-const GOOGLE_SCOPES = ["https://www.googleapis.com/auth/analytics.readonly", "https://www.googleapis.com/auth/webmasters.readonly"];
+const GOOGLE_SCOPES = ["https://www.googleapis.com/auth/analytics.readonly", "https://www.googleapis.com/auth/webmasters.readonly", "https://www.googleapis.com/auth/spreadsheets"];
 
 const json = (body, status = 200) => new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" } });
 const base64url = (value) => btoa(typeof value === "string" ? value : String.fromCharCode(...new Uint8Array(value))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
 const text = (value) => new TextEncoder().encode(value);
+
+function mergeHistory(previous, fresh, refreshedStartDate, key) {
+  const before = (previous || []).filter(row => !row.date || row.date < refreshedStartDate);
+  const merged = new Map(before.map(row => [key(row), row]));
+  fresh.forEach(row => merged.set(key(row), row));
+  return [...merged.values()];
+}
 
 async function googleAccessToken(serviceAccountText) {
   const serviceAccount = JSON.parse(serviceAccountText);
@@ -73,29 +82,62 @@ async function siteArticles(origin) {
 
 async function refresh(env) {
   const token = await googleAccessToken(env.GOOGLE_SERVICE_ACCOUNT_JSON);
+  const cachedRaw = await env.SEO_CACHE.get(CACHE_KEY, "json");
   const end = new Date(); end.setUTCDate(end.getUTCDate() - 3); // GSC final data delay
-  const start = new Date(end); start.setUTCDate(start.getUTCDate() - 729); // enough for 365d + comparison
+  const historyDays = Math.max(28, Number(env.DASHBOARD_HISTORY_DAYS || 730));
+  const reconcileDays = Math.max(1, Number(env.SHEETS_RECONCILE_DAYS || 7));
+  const collectionDays = cachedRaw?.latestDate ? reconcileDays : historyDays;
+  const start = new Date(end); start.setUTCDate(start.getUTCDate() - collectionDays + 1);
   const startDate = start.toISOString().slice(0, 10); const endDate = end.toISOString().slice(0, 10);
   const targetQueries = (env.SEO_TARGET_QUERIES || "").split(",").map(value => value.trim()).filter(Boolean).slice(0, 10);
-  const [searchDaily, searchQueryRows, searchPageRows, gaDaily, acquisitionRows, landingPageRows, pageRows, articleAcquisitionRows, eventRows, articles, ...targetReports] = await Promise.all([
+  const [searchDaily, searchQueryRows, searchPageRows, gaDaily, acquisitionRows, landingPageRows, pageRows, pageRollupRows, articleAcquisitionRows, eventRows, articles, ...targetReports] = await Promise.all([
     scReport(env, token, ["date"], startDate, endDate),
     scReport(env, token, ["date", "query"], startDate, endDate),
     scReport(env, token, ["date", "page"], startDate, endDate),
     gaReport(env, token, ["date", "sessionDefaultChannelGroup"], ["activeUsers", "sessions", "screenPageViews", "keyEvents"], startDate, endDate),
-    gaReport(env, token, ["date", "sessionSource", "sessionMedium", "sessionCampaignName", "sessionManualAdContent"], ["activeUsers", "sessions"], startDate, endDate),
+    gaReport(env, token, ["date", "sessionSource", "sessionMedium", "sessionCampaignName", "sessionManualAdContent"], ["activeUsers", "sessions", "screenPageViews", "keyEvents"], startDate, endDate),
     gaReport(env, token, ["date", "landingPagePlusQueryString", "sessionDefaultChannelGroup"], ["activeUsers", "sessions"], startDate, endDate),
     gaReport(env, token, ["date", "pagePath", "pageTitle", "sessionDefaultChannelGroup"], ["activeUsers", "sessions", "screenPageViews"], startDate, endDate),
+    gaReport(env, token, ["date", "pagePath"], ["activeUsers", "sessions", "screenPageViews", "keyEvents"], startDate, endDate),
     gaReport(env, token, ["date", "pagePath", "sessionSource", "sessionMedium", "sessionCampaignName", "sessionManualAdContent"], ["activeUsers", "sessions"], startDate, endDate),
     gaReport(env, token, ["date", "eventName", "pagePath"], ["keyEvents", "eventCount"], startDate, endDate),
     siteArticles(env.PUBLIC_SITE_ORIGIN || "https://makenai-mark.com"),
     ...targetQueries.map(query => scReport(env, token, ["date", "query"], startDate, endDate, [{ filters: [{ dimension: "query", operator: "equals", expression: query }] }]))
   ]);
-  const raw = { version: 1, generatedAt: new Date().toISOString(), latestDate: endDate, searchDaily, searchQueryRows, searchPageRows,
+  const fresh = { searchDaily, searchQueryRows, searchPageRows,
     gaDaily: gaDaily.map(row => ({ ...row, users: row.activeUsers, pageviews: row.screenPageViews })),
-    acquisitionRows: acquisitionRows.map(row => ({ ...row, users: row.activeUsers })), landingPageRows: landingPageRows.map(row => ({ ...row, users: row.activeUsers })), pageRows: pageRows.map(row => ({ ...row, users: row.activeUsers, pageviews: row.screenPageViews })),
+    acquisitionRows: acquisitionRows.map(row => ({ ...row, users: row.activeUsers, pageviews: row.screenPageViews })), landingPageRows: landingPageRows.map(row => ({ ...row, users: row.activeUsers })), pageRows: pageRows.map(row => ({ ...row, users: row.activeUsers, pageviews: row.screenPageViews })), pageRollupRows: pageRollupRows.map(row => ({ ...row, users: row.activeUsers, pageviews: row.screenPageViews })),
     articleAcquisitionRows: articleAcquisitionRows.map(row => ({ ...row, users: row.activeUsers })), eventRows: eventRows.map(row => ({ ...row, events: row.eventCount })),
-    articles, targetQueries, targetQueryRows: targetReports.flat(), importantPaths: (env.SEO_IMPORTANT_PATHS || "").split(",").map(value => value.trim()).filter(Boolean), warnings: [] };
-  await env.SEO_CACHE.put(CACHE_KEY, JSON.stringify(raw), { expirationTtl: 60 * 60 * 36 });
+    targetQueryRows: targetReports.flat() };
+  const raw = { version: 1, generatedAt: new Date().toISOString(), latestDate: endDate,
+    searchDaily: mergeHistory(cachedRaw?.searchDaily, fresh.searchDaily, startDate, row => row.date),
+    searchQueryRows: mergeHistory(cachedRaw?.searchQueryRows, fresh.searchQueryRows, startDate, row => `${row.date}\u0001${row.query}`),
+    searchPageRows: mergeHistory(cachedRaw?.searchPageRows, fresh.searchPageRows, startDate, row => `${row.date}\u0001${row.page}`),
+    gaDaily: mergeHistory(cachedRaw?.gaDaily, fresh.gaDaily, startDate, row => `${row.date}\u0001${row.sessionDefaultChannelGroup}`),
+    acquisitionRows: mergeHistory(cachedRaw?.acquisitionRows, fresh.acquisitionRows, startDate, row => [row.date, row.sessionSource, row.sessionMedium, row.sessionCampaignName, row.sessionManualAdContent].join("\u0001")),
+    landingPageRows: mergeHistory(cachedRaw?.landingPageRows, fresh.landingPageRows, startDate, row => [row.date, row.landingPagePlusQueryString, row.sessionDefaultChannelGroup].join("\u0001")),
+    pageRows: mergeHistory(cachedRaw?.pageRows, fresh.pageRows, startDate, row => [row.date, row.pagePath, row.pageTitle, row.sessionDefaultChannelGroup].join("\u0001")),
+    pageRollupRows: mergeHistory(cachedRaw?.pageRollupRows, fresh.pageRollupRows, startDate, row => [row.date, row.pagePath].join("\u0001")),
+    articleAcquisitionRows: mergeHistory(cachedRaw?.articleAcquisitionRows, fresh.articleAcquisitionRows, startDate, row => [row.date, row.pagePath, row.sessionSource, row.sessionMedium, row.sessionCampaignName, row.sessionManualAdContent].join("\u0001")),
+    eventRows: mergeHistory(cachedRaw?.eventRows, fresh.eventRows, startDate, row => [row.date, row.eventName, row.pagePath].join("\u0001")),
+    articles, targetQueries, targetQueryRows: mergeHistory(cachedRaw?.targetQueryRows, fresh.targetQueryRows, startDate, row => `${row.date}\u0001${row.query}`), importantPaths: (env.SEO_IMPORTANT_PATHS || "").split(",").map(value => value.trim()).filter(Boolean), warnings: [] };
+  const priorSync = await env.SEO_CACHE.get(SHEETS_STATE_KEY, "json");
+  const initialDays = Math.max(1, Number(env.SHEETS_INITIAL_BACKFILL_DAYS || 28));
+  const backfillDays = priorSync?.completedAt ? reconcileDays : initialDays;
+  const sheetStart = new Date(`${endDate}T00:00:00.000Z`); sheetStart.setUTCDate(sheetStart.getUTCDate() - backfillDays + 1);
+  const sheetStartDate = sheetStart.toISOString().slice(0, 10);
+  try {
+    raw.sheets = await syncSheets({ spreadsheetId: env.GOOGLE_SHEETS_SPREADSHEET_ID, token, rows: makeSheetRows(raw, sheetStartDate, endDate, env.ARTICLE_TARGET_KEYWORDS || "") });
+    if (!raw.sheets.skipped) await env.SEO_CACHE.put(SHEETS_STATE_KEY, JSON.stringify({ completedAt: new Date().toISOString(), lastStartDate: sheetStartDate, lastEndDate: endDate, ...raw.sheets }));
+    if (raw.sheets.skipped) raw.warnings.push(`Google Sheets保存は未設定です: ${raw.sheets.reason}`);
+  } catch (error) {
+    raw.sheets = { failed: true, message: error instanceof Error ? error.message : "Google Sheets sync failed" };
+    raw.warnings.push(`Google Sheets保存エラー: ${raw.sheets.message}`);
+    console.error("SEO Sheets sync failed", error);
+  }
+  // Keep the historical cache beyond the current reporting window. Daily runs
+  // merge only the reconciliation window, which avoids re-querying old data.
+  await env.SEO_CACHE.put(CACHE_KEY, JSON.stringify(raw));
   return raw;
 }
 
@@ -114,7 +156,7 @@ export default {
     }
     if (url.pathname === "/api/admin/refresh" && request.method === "POST") {
       if (!authorized(request, env)) return json({ error: "unauthorized" }, 401);
-      try { const raw = await refresh(env); return json({ ok: true, generatedAt: raw.generatedAt, latestDate: raw.latestDate }); }
+      try { const raw = await refresh(env); return json({ ok: true, generatedAt: raw.generatedAt, latestDate: raw.latestDate, sheets: raw.sheets }); }
       catch (error) { return json({ error: "refresh_failed", message: error instanceof Error ? error.message : "Unknown error" }, 502); }
     }
     return env.ASSETS.fetch(request);
