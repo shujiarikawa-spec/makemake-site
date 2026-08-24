@@ -1,6 +1,9 @@
 name = "makemake-seo-dashboard"
 main = "worker.js"
 compatibility_date = "2026-08-24"
+# The Worker is deployed from GitHub while non-secret operational settings are
+# managed in the Cloudflare dashboard. Preserve those settings on every build.
+keep_vars = true
 
 [assets]
 directory = "./public"

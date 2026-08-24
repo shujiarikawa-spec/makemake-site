@@ -1,6 +1,7 @@
 name = "makemake-seo-dashboard"
 main = "worker.js"
 compatibility_date = "2026-08-24"
+keep_vars = true
 
 # This project is deliberately separate from the GitHub Pages site.  Deploy it
 # to a protected hostname such as seo.makenai-mark.com, behind Cloudflare Access.
