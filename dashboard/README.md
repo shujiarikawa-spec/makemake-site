@@ -8,27 +8,23 @@
 Google Search Console ─┐
                        ├─ Cloudflare Worker（毎日 11:15 JST に収集） ─ KV（履歴キャッシュ） ─ Google Sheets
 GA4 Data API ──────────┘                                      │
-                                                                  └─ Cloudflare Access 保護下のダッシュボード
+                                                                  └─ Basic認証保護下のダッシュボード
 ```
 
 Worker は、GSC の `query / page / clicks / impressions / ctr / position / date` と、GA4 の `activeUsers / sessions / screenPageViews / landingPagePlusQueryString に相当するページ到達分析 / sessionSource / sessionMedium / sessionCampaignName / sessionManualAdContent / keyEvents` を取得します。初回だけ最大2年分を取得してダッシュボードの比較基準を作り、以後は直近7日だけ再取得して履歴キャッシュへ統合します。Google Sheetsは初回28日、以後7日の再照合を自然キーで更新します。閲覧のたびに Google API は呼びません。
 
 ## 初回設定（秘密情報を Git に置かない）
 
-1. Cloudflare で Worker / KV namespace / Access application を作ります。Access の対象はダッシュボードの独自ホスト名（例: `seo.makenai-mark.com`）全体にしてください。Workers の `workers.dev` URL を公開運用に使わないでください。
-2. `dashboard/wrangler.toml.example` をローカルで `dashboard/wrangler.toml` に複製し、KV ID を入れます。このファイルは `.gitignore` の対象にします。
-3. Google Cloud で同一プロジェクトの **Google Sheets API**、GA4 Data API、Search Console APIを有効化し、サービスアカウントのJSONキーを発行します。GA4プロパティ **`G-4BL0WG5Y3T` の測定IDではなく、数値の Property ID** にサービスアカウントへ「閲覧者」以上を付与します。Search Consoleは対象プロパティに同じサービスアカウントを「フル」以上でユーザー追加します。指定スプレッドシートには、サービスアカウントのメールアドレスを**編集者**として共有します。
-4. 値をそれぞれ秘密情報として設定します。`GOOGLE_SERVICE_ACCOUNT_JSON`、`GA4_PROPERTY_ID`、`SEARCH_CONSOLE_SITE_URL`、`DASHBOARD_REFRESH_TOKEN` は必ず `wrangler secret put` を使います。`GOOGLE_SHEETS_SPREADSHEET_ID`、`PUBLIC_SITE_ORIGIN`、`SEO_TARGET_QUERIES`、`SEO_IMPORTANT_PATHS` は Worker の環境変数で構いません。
+1. Cloudflare で Worker / KV namespace を作ります。`workers.dev` のダッシュボードは、Worker 内の **Basic認証**で保護します。Cloudflare Zero Trust Free の有効化が決済手段登録を求める場合でも、カード登録は不要です。
+2. `dashboard/wrangler.toml` に KV ID を設定します。認証情報はこのファイルやGitには入れません。
+3. Google Cloud で同一プロジェクトの **Google Sheets API**、GA4 Data API、Search Console APIを有効化し、サービスアカウントのJSONキーを発行します。GA4プロパティ **`G-4BL0WG5Y3T` の測定IDではなく、数値の Property ID** にサービスアカウントへ「閲覧者」以上を付与します。Search Consoleは対象プロパティに同じサービスアカウントを**制限付き**ユーザーとして追加します。指定スプレッドシートには、サービスアカウントのメールアドレスを**編集者**として共有します。
+4. `GOOGLE_SERVICE_ACCOUNT_JSON`、`DASHBOARD_ACCESS_PASSWORD`、必要に応じて`DASHBOARD_REFRESH_TOKEN`は Worker の**シークレット**として設定します。`DASHBOARD_ACCESS_USERNAME`、`GA4_PROPERTY_ID`、`SEARCH_CONSOLE_SITE_URL`、`GOOGLE_SHEETS_SPREADSHEET_ID`、`PUBLIC_SITE_ORIGIN`は環境変数として設定します。
 
 ```sh
 cd dashboard
 npx wrangler secret put GOOGLE_SERVICE_ACCOUNT_JSON
-npx wrangler secret put GA4_PROPERTY_ID
-npx wrangler secret put SEARCH_CONSOLE_SITE_URL
+npx wrangler secret put DASHBOARD_ACCESS_PASSWORD
 npx wrangler secret put DASHBOARD_REFRESH_TOKEN
-npx wrangler secret put GOOGLE_SHEETS_SPREADSHEET_ID
-npx wrangler secret put PUBLIC_SITE_ORIGIN
-npx wrangler secret put SEO_TARGET_QUERIES
 npx wrangler deploy
 ```
 
@@ -66,4 +62,4 @@ npm test
 npm run check
 ```
 
-実 API の接続確認は、Access と Google 権限を設定してから `/api/admin/refresh` で行います。認証情報がない状態でダミー数値を画面へ書き込むことはしません。
+実 API の接続確認は、Basic認証とGoogle権限を設定してから `/api/admin/refresh` で行います。認証情報がない状態でダミー数値を画面へ書き込むことはしません。
