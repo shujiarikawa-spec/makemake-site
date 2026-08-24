@@ -6,12 +6,12 @@ const challengeHeaders = {
 
 export function hasDashboardAccess(request, env) {
   const username = env.DASHBOARD_ACCESS_USERNAME;
-  const password = env.DASHBOARD_ACCESS_PASSWORD;
+  const password = env.DASHBOARD_ACCESS_PASSWORD_V2;
   if (!username || !password) return false;
   return request.headers.get("authorization") === `Basic ${btoa(`${username}:${password}`)}`;
 }
 
 export function dashboardAuthRequired(env) {
-  const state = !env.DASHBOARD_ACCESS_USERNAME ? "username-missing" : !env.DASHBOARD_ACCESS_PASSWORD ? "password-missing" : "credentials-mismatch";
+  const state = !env.DASHBOARD_ACCESS_USERNAME ? "username-missing" : !env.DASHBOARD_ACCESS_PASSWORD_V2 ? "password-missing" : "credentials-mismatch";
   return new Response("Dashboard authentication required.", { status: 401, headers: { ...challengeHeaders, "x-dashboard-auth-state": state } });
 }
