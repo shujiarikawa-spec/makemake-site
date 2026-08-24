@@ -1,0 +1,12 @@
+{
+  "name": "makemake-seo-dashboard",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "check": "node --check worker.js && node --check public/dashboard.js && node --check lib.js"
+  },
+  "devDependencies": {
+    "wrangler": "^4.31.0"
+  }
+}

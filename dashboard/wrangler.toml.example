@@ -1,0 +1,18 @@
+name = "makemake-seo-dashboard"
+main = "worker.js"
+compatibility_date = "2026-08-24"
+
+# This project is deliberately separate from the GitHub Pages site.  Deploy it
+# to a protected hostname such as seo.makenai-mark.com, behind Cloudflare Access.
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+
+[[kv_namespaces]]
+binding = "SEO_CACHE"
+id = "REPLACE_WITH_A_PRIVATE_KV_NAMESPACE_ID"
+
+[triggers]
+# 02:15 UTC = 11:15 JST.  The refresh endpoint can also be called manually.
+crons = ["15 2 * * *"]

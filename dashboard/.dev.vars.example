@@ -1,0 +1,8 @@
+# Never commit dashboard/.dev.vars. Use `wrangler secret put` in production.
+GOOGLE_SERVICE_ACCOUNT_JSON={"type":"service_account","project_id":"..."}
+GA4_PROPERTY_ID=123456789
+SEARCH_CONSOLE_SITE_URL=sc-domain:makenai-mark.com
+PUBLIC_SITE_ORIGIN=https://makenai-mark.com
+SEO_TARGET_QUERIES=売上が伸びない 原因
+SEO_IMPORTANT_PATHS=/,/theory/,/structure/,/services/,/diagnosis/,/glossary/,/performance/,/ceo/,/company/
+DASHBOARD_REFRESH_TOKEN=replace-with-a-long-random-secret

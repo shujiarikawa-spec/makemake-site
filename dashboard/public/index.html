@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Makemake SEO Dashboard</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">本文へ移動</a>
+  <header class="topbar"><div><p class="eyebrow">MAKEMAKE / INTERNAL</p><h1>SEO Dashboard</h1></div><div class="updated" id="updated">データを読み込んでいます</div></header>
+  <main id="main" class="shell">
+    <section class="controls" aria-label="期間選択"><div class="periods" role="group">
+      <button data-period="7">7日</button><button data-period="28" class="active">28日</button><button data-period="90">90日</button><button data-period="183">6か月</button><button data-period="365">1年</button>
+    </div><button class="refresh" id="reload">表示を更新</button></section>
+    <section class="health" id="health" aria-live="polite"><div><p class="eyebrow">SEO HEALTH</p><h2>読み込み中</h2><p class="health-reason"></p></div><div class="health-signals" id="health-signals"></div></section>
+    <section aria-labelledby="overview-title"><div class="section-heading"><div><p class="eyebrow">MONTH OVER MONTH</p><h2 id="overview-title">SEO概要</h2></div><p id="range"></p></div><div class="metric-grid" id="metrics"></div></section>
+    <section class="flow" aria-labelledby="flow-title"><div class="section-heading"><div><p class="eyebrow">FROM DISCOVERY TO INQUIRY</p><h2 id="flow-title">事業成果までの流れ</h2></div><p>クリックだけで止まらず、診断・問い合わせまでを確認します。</p></div><div class="flow-steps" id="flow-steps"></div></section>
+    <section aria-labelledby="trend-title"><div class="section-heading"><div><p class="eyebrow">TIME SERIES</p><h2 id="trend-title">推移</h2></div></div><div class="chart-grid" id="charts"></div></section>
+    <section class="split" aria-label="検索パフォーマンス"><div class="panel"><div class="section-heading"><div><p class="eyebrow">SEARCH CONSOLE</p><h2>検索クエリ</h2></div></div><div class="table-wrap"><table><thead><tr><th>検索語</th><th>クリック</th><th>表示</th><th>CTR</th><th>順位</th></tr></thead><tbody id="queries"></tbody></table></div></div><div class="panel"><div class="section-heading"><div><p class="eyebrow">SEARCH CONSOLE</p><h2>重要ページ</h2></div></div><div class="table-wrap"><table><thead><tr><th>URL</th><th>クリック</th><th>表示</th><th>CTR</th><th>順位</th></tr></thead><tbody id="important-pages"></tbody></table></div></div></section>
+    <section aria-labelledby="pages-title"><div class="section-heading"><div><p class="eyebrow">SEARCH CONSOLE</p><h2 id="pages-title">全ページ</h2></div></div><div class="panel"><div class="table-wrap"><table><thead><tr><th>URL</th><th>クリック</th><th>表示</th><th>CTR</th><th>順位</th></tr></thead><tbody id="pages"></tbody></table></div></div></section>
+    <section id="targets-section" aria-labelledby="targets-title" hidden><div class="section-heading"><div><p class="eyebrow">TARGET KEYWORDS</p><h2 id="targets-title">重要キーワードの順位推移</h2></div></div><div class="chart-grid" id="targets"></div></section>
+    <section aria-labelledby="articles-title"><div class="section-heading"><div><p class="eyebrow">COLUMN PERFORMANCE</p><h2 id="articles-title">コラム別分析</h2></div><p>サイトマップから公開コラムを自動検出します。</p></div><div class="panel"><div class="table-wrap wide"><table><thead><tr><th>記事</th><th>公開日</th><th>検索クリック</th><th>表示</th><th>順位</th><th>GA4ユーザー</th><th>セッション</th><th>PV</th><th>自然検索</th><th>SNS</th><th>診断遷移</th></tr></thead><tbody id="articles"></tbody></table></div></div></section>
+    <section aria-labelledby="social-title"><div class="section-heading"><div><p class="eyebrow">UTM ACQUISITION</p><h2 id="social-title">SNS流入</h2></div><p>source / medium / campaign / content をGA4で集計します。</p></div><div class="social-grid" id="social"></div></section>
+    <section id="initiatives-section" aria-labelledby="initiatives-title"><div class="section-heading"><div><p class="eyebrow">CONTENT CHANGES</p><h2 id="initiatives-title">記事公開と観測</h2></div></div><div class="initiative-list" id="initiatives"></div></section>
+    <section class="notice" id="warnings" hidden><h2>確認が必要な点</h2><ul></ul></section>
+  </main>
+  <template id="empty-row"><tr><td colspan="5">この期間のデータはありません。</td></tr></template>
+  <script type="module" src="/dashboard.js"></script>
+</body>
+</html>
