@@ -84,7 +84,10 @@ async function refresh(env) {
   const token = await googleAccessToken(env.GOOGLE_SERVICE_ACCOUNT_JSON);
   const cachedRaw = await env.SEO_CACHE.get(CACHE_KEY, "json");
   const end = new Date(); end.setUTCDate(end.getUTCDate() - 3); // GSC final data delay
-  const historyDays = Math.max(28, Number(env.DASHBOARD_HISTORY_DAYS || 730));
+  // Workers Free has a 10 ms CPU budget for a cron invocation. Start with a
+  // small, useful window and let the daily reconciliation build history over
+  // time instead of attempting a costly two-year import in one invocation.
+  const historyDays = Math.max(28, Number(env.DASHBOARD_HISTORY_DAYS || 28));
   const reconcileDays = Math.max(1, Number(env.SHEETS_RECONCILE_DAYS || 7));
   const collectionDays = cachedRaw?.latestDate ? reconcileDays : historyDays;
   const start = new Date(end); start.setUTCDate(start.getUTCDate() - collectionDays + 1);
