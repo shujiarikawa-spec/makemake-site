@@ -1,474 +1,511 @@
-<!DOCTYPE html>
-<html lang="ja" class="scroll-smooth">
-
+<!doctype html>
+<html lang="ja">
 <head>
-    
-    <script src="/scripts/analytics.js"></script>
-    <script src="/scripts/site-header.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>構造から売上を変える｜年商1〜10億専門 マケマケ</title>
-    <meta name="google-site-verification" content="0m4F4ClS_dunZyig7que3dHIP3k1oW4fXrLZMz5UVXg" />
-    <meta name="description" content="年商1億〜10億企業専門。マーケティング担当者とともに、売上停滞の原因を構造から再設計するハイブリッド型マーケティング会社です。">
-    <link rel="canonical" href="https://makenai-mark.com/">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        slate: {
-                            50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1',
-                            400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155',
-                            800: '#1e293b', 900: '#0f172a',
-                        },
-                        blue: {
-                            50: '#eff6ff', 100: '#dbeafe', 400: '#60a5fa', 500: '#3b82f6',
-                            600: '#2563eb', 700: '#1d4ed8',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['"Helvetica Neue"', 'Arial', '"Hiragino Kaku Gothic ProN"', '"Hiragino Sans"', 'Meiryo', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- SEO / SGE Schema (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "https://makenai-mark.com/#organization",
-          "name": "マケマケ",
-          "url": "https://makenai-mark.com/",
-          "description": "年商1億〜10億企業の売上構造を再設計するハイブリッド型マーケティング会社。戦略顧問から制作、運用まで成果連動型で支援します。"
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://makenai-mark.com/#website",
-          "url": "https://makenai-mark.com/",
-          "name": "マケマケ｜構造から、売上を変える。",
-          "publisher": {
-            "@id": "https://makenai-mark.com/#organization"
-          }
-        }
-      ]
-    }
-    </script>
-
-    <style>
-        body {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Scroll Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reveal.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .reveal-scale {
-            opacity: 0;
-            transform: scale(0.95);
-            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reveal-scale.is-visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .line-draw {
-            transform: scaleY(0);
-            transform-origin: top;
-            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .line-draw.is-visible {
-            transform: scaleY(1);
-        }
-
-        .delay-100 {
-            transition-delay: 100ms;
-        }
-
-        .delay-200 {
-            transition-delay: 200ms;
-        }
-
-        .delay-300 {
-            transition-delay: 300ms;
-        }
-
-        .delay-500 {
-            transition-delay: 500ms;
-        }
-
-        .delay-700 {
-            transition-delay: 700ms;
-        }
-    </style>
-    <script type="text/javascript">
-            (function (c, l, a, r, i, t, y) {
-                c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-                t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-                y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-            })(window, document, "clarity", "script", "vskizk512i");
-    </script>
+  <script src="/scripts/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>構造から、売上を変える。｜年商1〜10億専門 マケマケ</title>
+  <meta name="google-site-verification" content="0m4F4ClS_dunZyig7que3dHIP3k1oW4fXrLZMz5UVXg">
+  <meta name="description" content="年商1億〜10億企業専門。マーケティング担当者とともに、売上停滞の原因を構造から再設計するハイブリッド型マーケティング会社です。">
+  <link rel="canonical" href="https://makenai-mark.com/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://makenai-mark.com/#organization",
+        "name": "マケマケ",
+        "url": "https://makenai-mark.com/",
+        "description": "年商1億〜10億企業の売上構造を再設計するハイブリッド型マーケティング会社。戦略顧問から制作、運用まで成果連動型で支援します。"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://makenai-mark.com/#website",
+        "url": "https://makenai-mark.com/",
+        "name": "マケマケ｜構造から、売上を変える。",
+        "publisher": { "@id": "https://makenai-mark.com/#organization" }
+      }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,700&family=Zen+Maru+Gothic:wght@700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Dela+Gothic+One&family=Shippori+Mincho+B1:wght@700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <script>
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "vskizk512i");
+  </script>
+  <style>
+    :root { --cream:#f5f1e6; --signal:#c4451c; --ocean-deep:#081c5c; --ocean-mid:#1240c4; --ocean-light:#2e63ec; }
+    * { box-sizing:border-box; }
+    html,body { margin:0; min-height:100%; }
+    body { background:var(--ocean-mid); color:var(--cream); font-feature-settings:"palt"; -webkit-font-smoothing:antialiased; }
+    .prose-phrase { white-space:nowrap; }
+    .mobile-break { display:none; }
+    .story { position:relative; isolation:isolate; overflow:clip; }
+    .site-header { position:fixed; z-index:50; top:0; right:0; left:0; padding:16px 0; border-bottom:1px solid #e2e8f0; background:#fff; }
+    .site-header__inner { display:flex; width:min(100% - 48px,1152px); align-items:center; justify-content:space-between; margin:0 auto; }
+    .site-brand { display:inline-flex; align-items:center; gap:9px; color:#0f172a; text-decoration:none; }
+    .site-brand:focus-visible,.site-nav a:focus-visible,.site-header__contact:focus-visible,.site-header__diagnosis:focus-visible,.site-footer a:focus-visible { outline:2px solid #3165dc; outline-offset:5px; }
+    .site-brand__mark { width:auto; height:32px; flex:0 0 auto; }
+    .site-brand__word { color:#0f172a; font:700 20px/.78 "DM Sans","Helvetica Neue",Arial,sans-serif; letter-spacing:-.108em; white-space:nowrap; }
+    .site-brand__m { display:inline-block; margin-right:.08em; color:#3165dc; }
+    .site-brand__ake { display:inline-block; margin-right:-.055em; margin-left:-.035em; }
+    .site-brand__m--second { margin-left:.08em; }
+    .site-nav { display:flex; align-items:center; gap:32px; }
+    .site-nav a,.site-header__contact { color:#475569; font:700 14px/1 "DM Sans","Zen Kaku Gothic New",sans-serif; letter-spacing:-.025em; text-decoration:none; transition:color .2s ease; }
+    .site-nav a:hover,.site-header__contact:hover { color:#2563eb; }
+    .site-header__actions { display:flex; align-items:center; gap:16px; }
+    .site-header__diagnosis { display:inline-flex; align-items:center; gap:8px; padding:10px 20px; color:#fff; background:#2563eb; border-radius:2px; font:500 14px/1 "Zen Kaku Gothic New",sans-serif; text-decoration:none; box-shadow:0 1px 2px rgba(15,23,42,.12); transition:background .2s ease; }
+    .site-header__diagnosis:hover { background:#1d4ed8; }
+    .site-header__diagnosis svg { width:16px; height:16px; }
+    .story-grid { position:absolute; inset:-56px; z-index:1; pointer-events:none; background-image:linear-gradient(to right,rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.16) 1px,transparent 1px); background-size:56px 56px; animation:grid-drift 42s cubic-bezier(.65,0,.35,1) infinite alternate; }
+    .story-grid--large { background-image:linear-gradient(to right,rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.08) 1px,transparent 1px); background-size:168px 168px; animation:grid-drift 65s cubic-bezier(.65,0,.35,1) infinite alternate-reverse; }
+    .story-grid--dark { background-image:linear-gradient(to right,rgba(8,28,92,.12) 1px,transparent 1px),linear-gradient(to bottom,rgba(8,28,92,.12) 1px,transparent 1px); }
+    .story-grid--dark.story-grid--large { background-image:linear-gradient(to right,rgba(8,28,92,.055) 1px,transparent 1px),linear-gradient(to bottom,rgba(8,28,92,.055) 1px,transparent 1px); }
+    .story.is-reason-parallax .story-grid:not(.story-grid--dark),.story.is-reason-parallax .story-scan-beam { opacity:0; }
+    .story.is-reason-parallax .story-grid--dark { position:fixed; inset:0; }
+    .story-scan-beam { position:absolute; z-index:1; top:0; left:-18%; width:18%; height:calc(100svh + 720px); pointer-events:none; background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent); animation:scan-sweep 8s cubic-bezier(.65,0,.35,1) infinite; -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 calc(100svh - 96px),rgba(0,0,0,.68) calc(100svh + 120px),rgba(0,0,0,.18) calc(100svh + 420px),transparent calc(100svh + 720px)); mask-image:linear-gradient(to bottom,#000 0,#000 calc(100svh - 96px),rgba(0,0,0,.68) calc(100svh + 120px),rgba(0,0,0,.18) calc(100svh + 420px),transparent calc(100svh + 720px)); }
+    .hero { position:relative; display:flex; flex-direction:column; width:100%; min-height:100svh; overflow:hidden; background:radial-gradient(120% 100% at 75% 0%,var(--ocean-light) 0%,var(--ocean-mid) 38%,var(--ocean-deep) 100%); }
+    .hero > .grid { display:none; }
+    .hero > .beam { display:none; }
+    .grid { position:absolute; inset:-56px; background-image:linear-gradient(to right,rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.16) 1px,transparent 1px); background-size:56px 56px; animation:grid-drift 42s cubic-bezier(.65,0,.35,1) infinite alternate; }
+    .grid--large { background-image:linear-gradient(to right,rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.08) 1px,transparent 1px); background-size:168px 168px; animation: grid-drift 65s cubic-bezier(.65,0,.35,1) infinite alternate-reverse; }
+    .beam { position:absolute; top:0; left:-18%; width:18%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent); animation:scan-sweep 8s cubic-bezier(.65,0,.35,1) infinite; }
+    .grain::after { content:""; position:absolute; inset:0; z-index:1; pointer-events:none; opacity:.05; mix-blend-mode:overlay; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+    @keyframes grid-drift { from { background-position:0 0; } to { background-position:336px 336px; } }
+    @keyframes scan-sweep { 0% { left:-18%; } 45%,100% { left:100%; } }
+    .header { position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; padding:24px 7vw 24px 10vw; }
+    .brand { display:flex; align-items:center; gap:12px; font:700 18px/1 "Zen Maru Gothic",sans-serif; letter-spacing:.06em; }
+    .brand-mark { width:30px; height:30px; flex:0 0 auto; }
+    .header-actions { display:flex; align-items:center; gap:12px; }
+    .menu { display:grid; place-content:center; gap:4px; width:44px; height:44px; padding:0; color:var(--cream); background:rgba(8,28,92,.6); border:1px solid rgba(255,255,255,.2); border-radius:999px; }
+    .menu span { display:block; width:16px; height:1px; background:currentColor; }
+    .diagnosis { display:inline-flex; align-items:center; min-height:44px; padding:11px 24px; border-radius:999px; color:var(--ocean-deep); background:var(--cream); text-decoration:none; font:700 14px/1 "Zen Maru Gothic",sans-serif; transition:background .2s; }
+    .diagnosis:hover { background:#fff; }
+    .main { position:relative; z-index:2; display:flex; flex:1; flex-direction:column; justify-content:center; padding:0 7vw 0 10vw; }
+    .headline { --hs:clamp(4.5rem,10.2vw,8.25rem); margin:0; color:var(--cream); line-height:1.06; }
+    .hero-action,.hero-change { display:inline-block; white-space:nowrap; }
+    .clip { position:relative; display:inline-block; overflow:hidden; vertical-align:baseline; }
+    .wipe { position:absolute; top:0; left:0; width:0; height:100%; pointer-events:none; }
+    .wipe--front { z-index:3; background:#fff; animation:wipe-front .5s cubic-bezier(.65,0,.35,1) var(--delay) forwards; }
+    .wipe--back { z-index:2; background:var(--signal); animation:wipe-back .55s cubic-bezier(.65,0,.35,1) calc(var(--delay) + .15s) forwards; }
+    .kanji { position:relative; z-index:1; display:inline-block; opacity:0; transform:translateY(14px) scale(.94); font:400 calc(var(--hs) * 2)/1 "Dela Gothic One",sans-serif; letter-spacing:.08em; animation:text-pop .35s cubic-bezier(.34,1.56,.64,1) calc(var(--delay) + .7s) forwards; }
+    .kana { display:inline-block; font:800 var(--hs)/1 "Shippori Mincho B1",serif; letter-spacing:.06em; opacity:0; transform:translateY(28px); animation:kana-intro .7s cubic-bezier(.65,0,.35,1) var(--kana-delay) forwards; }
+    @keyframes wipe-front { 0% { left:0;width:0; } 30% { left:0;width:100%; } 100% { left:100%;width:0; } }
+    @keyframes wipe-back { 0% { left:0;width:0; } 20%,70% { left:0;width:100%; } 100% { left:100%;width:0; } }
+    @keyframes text-pop { 0% { opacity:0;transform:translateY(10px) scale(.94); } 60% { opacity:1;transform:translateY(-3px) scale(1.04); } 100% { opacity:1;transform:translateY(0) scale(1); } }
+    @keyframes kana-intro { from { opacity:0;transform:translateY(28px); } to { opacity:1;transform:translateY(0); } }
+    .subline { display:flex; align-items:center; gap:12px; margin-top:clamp(40px,5vw,56px); opacity:0; animation:fade-up .5s cubic-bezier(.65,0,.35,1) 2.35s forwards; }
+    .subline p { margin:0; font:700 clamp(18px,2vw,24px)/1.5 "Zen Maru Gothic",sans-serif; letter-spacing:.06em; }
+    .rule { width:min(320px,70vw); height:1px; margin:16px 0 0 36px; background:rgba(245,241,230,.4); opacity:0; animation:fade-up .5s cubic-bezier(.65,0,.35,1) 2.55s forwards; }
+    .scroll { position:absolute; z-index:2; bottom:32px; left:10vw; display:flex; flex-direction:column; align-items:center; gap:12px; color:rgba(245,241,230,.7); opacity:0; animation:fade-up .5s cubic-bezier(.65,0,.35,1) 2.75s forwards; }
+    .scroll-label { writing-mode:vertical-rl; font:500 10px/1 "JetBrains Mono",monospace; letter-spacing:.16em; }
+    .scroll-line { width:1px; height:56px; background:rgba(245,241,230,.4); }
+    @keyframes fade-up { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+    .reason { --transition-height:clamp(384px,48vw,720px); position:relative; z-index:0; min-height:1450px; overflow:hidden; padding:clamp(416px,52vw,760px) 7vw clamp(112px,14vw,208px) 10vw; color:var(--ocean-deep); background-color:var(--cream); background-image:linear-gradient(180deg,#081c5c 0%,#0a2370 9%,#173b92 23%,#4669b1 43%,#8fa4d1 62%,#c7d1e6 79%,#e9e9e5 93%,var(--cream) 100%); background-size:100% var(--transition-height); background-position:0 0; background-repeat:no-repeat; }
+    .reason::after { content:""; position:absolute; z-index:1; top:0; right:11vw; width:1px; height:100%; background:linear-gradient(180deg,rgba(245,241,230,.55) 0%,rgba(196,69,28,.52) 31%,rgba(8,28,92,.15) 66%,transparent 100%); }
+    .reason-copy { position:relative; z-index:2; width:min(1120px,83vw); }
+    .reason-line { position:relative; display:block; box-sizing:border-box; width:fit-content; max-width:100%; margin:0 0 clamp(30px,3.4vw,52px) -.14em; padding-left:.14em; overflow:hidden; font:700 clamp(30px,3.05vw,44px)/1.55 "Zen Maru Gothic",sans-serif; letter-spacing:.045em; }
+    .reason-line--intro { margin-bottom:clamp(28px,3.2vw,46px); }
+    .reason-line--large { margin-bottom:clamp(42px,4.8vw,70px); font:400 clamp(40px,6.1vw,88px)/1.05 "Dela Gothic One",sans-serif; letter-spacing:.04em; }
+    .reason-line--structure { margin-top:clamp(26px,3vw,46px); padding-bottom:.3em; font:400 clamp(40px,6.1vw,88px)/1.08 "Dela Gothic One",sans-serif; letter-spacing:.03em; }
+    .reason-line--last { margin-top:clamp(28px,3vw,46px); font:400 clamp(40px,6.1vw,88px)/1.14 "Dela Gothic One",sans-serif; letter-spacing:.035em; }
+    .reason-wipe { position:absolute; top:0; left:0; width:0; height:100%; pointer-events:none; }
+    .reason-wipe--front { z-index:3; background:#fff; box-shadow:0 0 0 1px rgba(8,28,92,.06); }
+    .reason-wipe--back { z-index:2; background:var(--signal); }
+    .reason-text { position:relative; z-index:1; display:block; opacity:0; transform:translateY(14px) scale(.94); }
+    .reason-line.is-visible .reason-wipe--front { animation:wipe-front .5s cubic-bezier(.65,0,.35,1) forwards; }
+    .reason-line.is-visible .reason-wipe--back { animation:wipe-back .55s cubic-bezier(.65,0,.35,1) .15s forwards; }
+    .reason-line.is-visible .reason-text { animation:text-pop .35s cubic-bezier(.34,1.56,.64,1) .7s forwards; }
+    .reason-cta { display:inline-flex; align-items:center; gap:18px; margin-top:clamp(18px,2.6vw,38px); padding:0 0 10px; color:var(--signal); border-bottom:1px solid currentColor; font:700 clamp(18px,2vw,28px)/1.25 "Zen Maru Gothic",sans-serif; letter-spacing:.045em; text-decoration:none; opacity:0; transform:translateY(14px); transition:color .2s ease; }
+    .reason-cta:hover { color:var(--ocean-deep); }
+    .reason-cta-arrow { font:500 1.3em/1 "JetBrains Mono",monospace; }
+    .reason-cta.is-visible { animation:fade-up .5s cubic-bezier(.65,0,.35,1) .25s forwards; }
+    .stack-wrapper { position:relative; z-index:2; height:500vh; }
+    .stack-sticky { position:sticky; top:0; display:flex; flex-direction:column; height:100svh; overflow:hidden; isolation:isolate; background:radial-gradient(120% 100% at 75% 0%,var(--ocean-light) 0%,var(--ocean-mid) 38%,var(--ocean-deep) 100%); }
+    .stack-diagram-marquee { position:absolute; z-index:1; inset:0; display:flex; align-items:center; overflow:hidden; pointer-events:none; opacity:.05; }
+    .stack-diagram-track { display:flex; width:max-content; animation:stack-diagram-slide 52s linear infinite; will-change:transform; }
+    .stack-diagram-set { display:flex; flex:0 0 auto; gap:90px; padding-right:90px; }
+    .stack-diagram-track span { flex:0 0 auto; color:var(--cream); font:900 60svh/.78 "Zen Kaku Gothic New",sans-serif; letter-spacing:60px; white-space:nowrap; }
+    @keyframes stack-diagram-slide { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+    .stack-intro { position:relative; z-index:2; padding:clamp(72px,9vw,112px) 7vw 0; }
+    .stack-eyebrow { display:block; color:var(--signal); font:500 12px/1 "JetBrains Mono",monospace; letter-spacing:.15em; }
+    .stack-title { margin:14px 0 0; color:var(--cream); font:400 clamp(1.5rem,2.5vw,2.25rem)/1.3 "Zen Kaku Gothic New",sans-serif; }
+    .stack-title .stack-kanji { font-family:"Dela Gothic One",sans-serif; font-size:1.3em; letter-spacing:.04em; }
+    .stack-title .stack-kana { font-family:"Shippori Mincho B1",serif; font-weight:800; letter-spacing:.04em; }
+    .stack-lead { margin:10px 0 0; color:rgba(245,241,230,.62); font:500 clamp(.875rem,1.2vw,1rem)/1.65 "Zen Kaku Gothic New",sans-serif; line-break:strict; overflow-wrap:normal; text-wrap:pretty; }
+    .stack-body { position:relative; z-index:2; flex:1; min-height:0; }
+    .stack-stage { position:absolute; top:0; left:50%; width:76vw; height:100%; transform:translateX(-50%); }
+    .stack-card { position:absolute; width:62vw; height:42svh; will-change:transform; }
+    .stack-card[data-i="0"] { top:3svh; left:0; }
+    .stack-card[data-i="1"] { top:6svh; left:7vw; }
+    .stack-card[data-i="2"] { top:9svh; left:14vw; }
+    .stack-card-inner { display:flex; height:100%; align-items:center; padding:clamp(28px,4vw,56px); border-top:1px solid rgba(245,241,230,.25); box-shadow:0 30px 80px rgba(0,0,0,.45); }
+    .stack-card--strategy .stack-card-inner { background:rgba(8,28,92,.95); }
+    .stack-card--messaging .stack-card-inner { background:#0b1230; }
+    .stack-card--ux .stack-card-inner { background:var(--signal); }
+    .stack-card-content { display:flex; align-items:flex-start; gap:clamp(24px,5vw,80px); }
+    .stack-num { flex:0 0 auto; color:rgba(245,241,230,.14); font:400 clamp(3.5rem,9vw,8rem)/.9 "Dela Gothic One",sans-serif; -webkit-text-stroke:1.5px rgba(245,241,230,.35); }
+    .stack-card--ux .stack-num { color:rgba(245,241,230,.2); -webkit-text-stroke-color:rgba(245,241,230,.5); }
+    .stack-card h3 { margin:0; color:var(--cream); font:400 clamp(1.75rem,3.5vw,3rem)/1.25 "Dela Gothic One",sans-serif; letter-spacing:.04em; }
+    .stack-card h3 .stack-kana { font-family:"Shippori Mincho B1",serif; font-size:.5em; font-weight:800; }
+    .stack-card p { max-width:42rem; margin:16px 0 0; color:rgba(245,241,230,.7); font:500 clamp(1rem,1.55vw,1.25rem)/1.7 "Zen Kaku Gothic New",sans-serif; line-break:strict; overflow-wrap:normal; text-wrap:pretty; }
+    .stack-card--ux p { color:rgba(245,241,230,.9); }
+    .stack-tag { display:inline-block; margin-top:16px; color:var(--signal); font:500 12px/1 "JetBrains Mono",monospace; letter-spacing:.15em; }
+    .stack-card--ux .stack-tag { color:var(--cream); }
+    .stack-progress { position:relative; z-index:2; display:flex; align-items:center; gap:12px; padding:0 7vw clamp(72px,9vw,112px); }
+    .stack-dots { display:flex; gap:8px; }
+    .stack-dots span { display:block; width:34px; height:3px; background:rgba(245,241,230,.25); transition:background .4s ease; }
+    .stack-dots span.active { background:var(--signal); }
+    .stack-progress-label { color:rgba(245,241,230,.4); font:500 10px/1 "JetBrains Mono",monospace; letter-spacing:.15em; }
+    .stack-theory-cta { margin-left:auto; padding:7px 0; color:var(--cream); border-bottom:1px solid rgba(245,241,230,.65); font:700 clamp(14px,1.3vw,18px)/1 "Zen Kaku Gothic New",sans-serif; letter-spacing:.045em; text-decoration:none; opacity:0; pointer-events:none; transform:translateY(10px); transition:opacity .5s cubic-bezier(.65,0,.35,1),transform .5s cubic-bezier(.65,0,.35,1),color .2s ease; }
+    .stack-theory-cta:hover { color:var(--signal); }
+    .stack-theory-cta.is-visible { opacity:1; pointer-events:auto; transform:translateY(0); }
+    .definition-section { position:relative; z-index:3; overflow:hidden; margin-top:-100svh; color:#102563; background:#fff; padding:clamp(112px,14vw,208px) 0 clamp(96px,12vw,168px); }
+    .definition-copy { width:min(100% - 14vw,1120px); margin:0 auto; }
+    .definition-eyebrow { display:block; margin:0 0 18px; color:var(--ocean-mid); font:700 11px/1 "JetBrains Mono",monospace; letter-spacing:.16em; }
+    .definition-title { margin:0; font:400 clamp(2rem,4.5vw,4.5rem)/1.15 "Dela Gothic One",sans-serif; letter-spacing:.025em; }
+    .definition-statement { max-width:970px; margin:clamp(34px,5vw,64px) 0 0; font:700 clamp(1.55rem,3.1vw,3.25rem)/1.52 "Zen Kaku Gothic New",sans-serif; letter-spacing:-.045em; line-break:strict; overflow-wrap:normal; text-wrap:pretty; }
+    .definition-statement strong { font-weight:700; }
+    .definition-statement .definition-term { color:var(--signal); font-family:"Dela Gothic One",sans-serif; font-size:.93em; letter-spacing:.01em; white-space:nowrap; }
+    .definition-body { max-width:720px; margin:28px 0 0; color:rgba(16,37,99,.72); font:500 clamp(1rem,1.45vw,1.2rem)/2 "Zen Kaku Gothic New",sans-serif; letter-spacing:.025em; line-break:strict; overflow-wrap:normal; text-wrap:pretty; }
+    .definition-visual { position:relative; width:min(100% - 32px,1120px); min-height:720px; margin:clamp(38px,6vw,74px) auto 0; display:grid; place-items:center; perspective:1300px; perspective-origin:50% 47%; overflow:hidden; isolation:isolate; }
+    .definition-visual::before { content:""; position:absolute; width:min(68vw,620px); aspect-ratio:1; border-radius:50%; background:radial-gradient(circle,rgba(46,99,236,.17),transparent 66%); filter:blur(4px); z-index:-1; opacity:.8; }
+    .definition-world { position:relative; width:min(92vw,920px); aspect-ratio:1.34; transform-style:preserve-3d; will-change:transform; transform:rotateX(var(--tilt-x,-7deg)) rotateY(var(--tilt-y,10deg)); transition:transform 1.1s cubic-bezier(.16,1,.3,1); }
+    .definition-world[data-active="true"] { transition-duration:.35s; }
+    .definition-world::before { content:""; position:absolute; inset:16% 26%; border:1px solid rgba(16,37,99,.12); border-radius:50%; transform:translateZ(-92px); }
+    .definition-orbit,.definition-connector,.definition-core-wrap { position:absolute; transform-style:preserve-3d; }
+    .definition-orbit { transform:translate(-50%,-50%); }
+    .definition-orbit--market { top:14%; left:50%; }
+    .definition-orbit--strategy { top:50%; left:84%; }
+    .definition-orbit--journey { top:86%; left:50%; }
+    .definition-orbit--expression { top:50%; left:16%; }
+    .definition-connector { top:50%; left:50%; width:18px; height:38.5%; border-radius:999px; transform:var(--connector-transform); transform-origin:50% 100%; background:linear-gradient(90deg,#0b1d52 0 22%,#315ed2 22% 69%,#0b1d52 69% 100%); box-shadow:0 2px 8px rgba(16,37,99,.18),inset 1px 0 rgba(255,255,255,.34); opacity:0; z-index:-1; }
+    .definition-connector::after { content:""; position:absolute; top:12px; left:50%; width:8px; height:8px; background:#fff; transform:translateX(-50%) rotate(45deg) translateZ(6px); box-shadow:0 0 0 3px rgba(16,37,99,.12); }
+    .definition-connector--market { --connector-transform:translate(-50%,-100%) rotate(0deg) translateZ(-56px); }
+    .definition-connector--strategy { --connector-transform:translate(-50%,-100%) rotate(90deg) translateZ(-56px); }
+    .definition-connector--journey { --connector-transform:translate(-50%,-100%) rotate(180deg) translateZ(-56px); }
+    .definition-connector--expression { --connector-transform:translate(-50%,-100%) rotate(270deg) translateZ(-56px); }
+    .definition-node { position:relative; width:clamp(132px,16vw,186px); aspect-ratio:1; display:grid; place-items:center; border:2px solid #102563; border-radius:50%; color:#102563; background:rgba(255,255,255,.92); box-shadow:inset 0 0 0 8px rgba(255,255,255,.97),0 15px 28px rgba(16,37,99,.12); transform-style:preserve-3d; will-change:transform; }
+    .definition-node::before { content:""; position:absolute; inset:-2px; border:2px solid rgba(46,99,236,.28); border-radius:inherit; background:#e8edf7; transform:translateZ(-16px); }
+    .definition-node::after { content:""; position:absolute; inset:12px; border:1px solid rgba(196,69,28,.42); border-radius:inherit; transform:translateZ(3px); pointer-events:none; }
+    .definition-node > span,.definition-core > span { position:relative; transform:translateZ(24px); }
+    .definition-node__label { font:800 clamp(18px,2.15vw,28px)/1 "Zen Kaku Gothic New",sans-serif; letter-spacing:-.07em; white-space:nowrap; }
+    .definition-node--market { animation:definition-float-market 8s ease-in-out infinite paused; }
+    .definition-node--strategy { animation:definition-float-strategy 8s ease-in-out infinite paused; }
+    .definition-node--journey { animation:definition-float-journey 8s ease-in-out infinite paused; }
+    .definition-node--expression { animation:definition-float-expression 8s ease-in-out infinite paused; }
+    .definition-world[data-active="true"] .definition-node,.definition-world[data-active="true"] .definition-core { animation-play-state:running; }
+    .definition-world[data-active="true"] .definition-connector { animation:definition-connector-reveal .8s cubic-bezier(.16,1,.3,1) both; }
+    .definition-world[data-active="true"] .definition-connector--market { animation-delay:.05s; }
+    .definition-world[data-active="true"] .definition-connector--strategy { animation-delay:.18s; }
+    .definition-world[data-active="true"] .definition-connector--journey { animation-delay:.31s; }
+    .definition-world[data-active="true"] .definition-connector--expression { animation-delay:.44s; }
+    .definition-core-wrap { top:50%; left:50%; transform:translate(-50%,-50%); }
+    .definition-core { position:relative; width:clamp(188px,23vw,266px); aspect-ratio:1; display:grid; place-items:center; border-radius:50%; color:#fff; text-align:center; background:radial-gradient(circle at 38% 28%,#343640,#151519 61%); box-shadow:0 28px 42px rgba(11,15,27,.28); transform:translateZ(88px); transform-style:preserve-3d; animation:definition-core-pulse 8s ease-in-out infinite paused; }
+    .definition-core::before,.definition-core::after { content:""; position:absolute; border-radius:50%; pointer-events:none; }
+    .definition-core::before { inset:-14px; border:1px solid rgba(196,69,28,.72); transform:translateZ(-12px); }
+    .definition-core::after { inset:-28px; border:1px solid rgba(16,37,99,.2); transform:translateZ(-24px); }
+    .definition-core__label { font:700 clamp(31px,4vw,48px)/1 "Shippori Mincho B1",serif; letter-spacing:-.1em; }
+    .definition-caption { position:absolute; right:3%; bottom:2%; margin:0; color:rgba(16,37,99,.55); font:700 11px/1 "JetBrains Mono",monospace; letter-spacing:.1em; }
+    @keyframes definition-connector-reveal { from { opacity:0; transform:var(--connector-transform) scaleY(.25); } to { opacity:1; transform:var(--connector-transform) scaleY(1); } }
+    @keyframes definition-float-market { 0%,100% { transform:translate3d(0,0,18px) rotateX(0deg); } 50% { transform:translate3d(0,-10px,43px) rotateX(-5deg); } }
+    @keyframes definition-float-strategy { 0%,100% { transform:translate3d(0,0,8px) rotateY(0deg); } 50% { transform:translate3d(10px,0,38px) rotateY(5deg); } }
+    @keyframes definition-float-journey { 0%,100% { transform:translate3d(0,0,14px) rotateX(0deg); } 50% { transform:translate3d(0,10px,42px) rotateX(5deg); } }
+    @keyframes definition-float-expression { 0%,100% { transform:translate3d(0,0,2px) rotateY(0deg); } 50% { transform:translate3d(-10px,0,33px) rotateY(-5deg); } }
+    @keyframes definition-core-pulse { 0%,100% { transform:translateZ(88px) scale(1); } 50% { transform:translateZ(103px) scale(1.025); } }
+    @media (max-width:680px) { .definition-section { margin-top:-100svh; padding-top:clamp(76px,20.7vw,113px); } .definition-copy { width:min(100% - 12vw,560px); } .definition-title { font-size:clamp(1.8rem,10vw,2.5rem); } .definition-statement { margin-top:30px; font-size:clamp(1.45rem,7vw,2rem); line-height:1.62; } .definition-body { margin-top:22px; font-size:1rem; line-height:1.95; } .definition-visual { width:100%; min-height:590px; margin-top:34px; perspective:900px; } .definition-world { width:106vw; max-width:none; margin-left:-3vw; aspect-ratio:1; } .definition-node { width:clamp(102px,28vw,138px); } .definition-node__label { font-size:clamp(16px,4.5vw,21px); } .definition-core { width:clamp(152px,43vw,188px); } .definition-core__label { font-size:clamp(28px,8vw,36px); } .definition-caption { display:none; } }
+    @media (prefers-reduced-motion:reduce) { .definition-world { transform:none!important; } .definition-node,.definition-core,.definition-connector { animation:none!important; } .definition-connector { opacity:1; } }
+    .site-footer { display:flex; min-height:145px; align-items:center; padding:48px 0; color:#64748b; border-top:1px solid #e2e8f0; background:#fff; }
+    .site-footer__inner { display:flex; width:min(100% - 48px,1152px); align-items:center; justify-content:space-between; gap:24px; margin:0 auto; }
+    .site-footer .site-brand__mark { height:24px; }
+    .site-footer .site-brand__word { font-size:18px; }
+    .site-footer__links { display:flex; gap:24px; }
+    .site-footer__links a { color:#64748b; font:700 14px/1 "DM Sans","Zen Kaku Gothic New",sans-serif; letter-spacing:-.025em; text-decoration:none; transition:color .2s ease; }
+    .site-footer__links a:hover { color:#0f172a; }
+    .site-footer__copyright { margin:0; color:#94a3b8; font:500 12px/1 "Zen Kaku Gothic New",sans-serif; white-space:nowrap; }
+    .cta-section { position:relative; z-index:2; display:flex; min-height:100svh; align-items:center; overflow:hidden; isolation:isolate; background:radial-gradient(120% 100% at 50% 100%,#1b4fd6 0%,#0f339e 45%,var(--ocean-deep) 100%); }
+    .cta-particles { position:absolute; inset:0; z-index:0; width:100%; height:100%; }
+    .cta-content { position:relative; z-index:2; width:100%; padding:72px 7vw; text-align:center; opacity:0; transform:translateY(24px); transition:opacity 1s cubic-bezier(.65,0,.35,1),transform 1s cubic-bezier(.65,0,.35,1); }
+    .cta-content.is-visible { opacity:1; transform:translateY(0); }
+    .cta-eyebrow { display:block; color:var(--signal); font:500 12px/1 "JetBrains Mono",monospace; letter-spacing:.15em; }
+    .cta-title { margin:22px auto 0; color:var(--cream); font:400 clamp(1.8rem,4vw,3.2rem)/1.4 "Zen Kaku Gothic New",sans-serif; }
+    .cta-title .cta-kanji { font-family:"Dela Gothic One",sans-serif; font-size:1.15em; letter-spacing:.03em; }
+    .cta-title .cta-kana { font-family:"Shippori Mincho B1",serif; font-size:.65em; font-weight:800; letter-spacing:.03em; }
+    .cta-copy { max-width:42rem; margin:32px auto 0; color:rgba(245,241,230,.7); font:500 clamp(1rem,1.55vw,1.25rem)/1.8 "Zen Kaku Gothic New",sans-serif; line-break:strict; overflow-wrap:normal; text-wrap:pretty; }
+    .cta-actions { display:flex; align-items:center; justify-content:center; gap:clamp(24px,4vw,40px); margin-top:48px; }
+    .cta-primary { position:relative; display:inline-flex; align-items:center; justify-content:center; min-height:62px; padding:18px 40px; color:var(--cream); background:var(--signal); border-radius:999px; text-decoration:none; font:700 18px/1 "Zen Kaku Gothic New",sans-serif; will-change:transform; }
+    .cta-ring { position:absolute; inset:-10px; border:1.5px solid rgba(245,241,230,.5); border-radius:999px; opacity:0; animation:cta-pulse-ring 2.6s cubic-bezier(.65,0,.35,1) infinite; }
+    .cta-ring:nth-child(2) { animation-delay:1.3s; }
+    .cta-primary-label { position:relative; z-index:1; }
+    .cta-secondary { color:rgba(245,241,230,.6); font:500 14px/1 "JetBrains Mono",monospace; letter-spacing:.06em; text-underline-offset:5px; transition:color .2s ease; }
+    .cta-secondary:hover { color:var(--cream); }
+    @keyframes cta-pulse-ring { 0% { transform:scale(.85); opacity:.55; } 70%,100% { transform:scale(1.35); opacity:0; } }
+    @media (max-width: 767px) { .site-header { padding:14px 0; } .site-header__inner,.site-footer__inner { width:min(100% - 40px,560px); } .site-brand__mark { height:28px; } .site-brand__word { font-size:18px; } .site-nav,.site-header__contact { display:none; } .site-header__actions { gap:0; } .site-header__diagnosis { padding:10px 12px; font-size:12px; } .site-footer { min-height:0; padding:42px 0; } .site-footer__inner { flex-direction:column; justify-content:center; gap:20px; text-align:center; } .site-footer__links { flex-wrap:wrap; justify-content:center; gap:16px 24px; } .site-footer__links a { font-size:13px; } .site-footer__copyright { font-size:11px; } .header { padding:20px 6vw; } .menu { display:none; } .main { padding:0 6vw; } .headline { --hs:clamp(1.85rem,8vw,2.25rem); } .subline { align-items:flex-start; margin-top:38px; } .subline p { font-size:16px; } .scroll { left:6vw; bottom:22px; } .scroll-line { height:36px; } }
+    @media (max-width: 767px) { .mobile-break { display:block; } .reason { min-height:0; padding:384px 6vw 116px; } .reason::after { right:6vw; } .reason-copy { width:100%; } .reason-line { margin-bottom:36px; font-size:30px; line-height:1.55; letter-spacing:.02em; } .reason-line--intro { margin-bottom:54px; } .reason-line--large { margin-bottom:44px; font-size:40px; line-height:1.15; } .reason-line--structure { margin-top:34px; font-size:40px; line-height:1.18; } .reason-line--last { margin-top:38px; font-size:40px; line-height:1.18; } .reason-cta { margin-top:24px; font-size:20px; } .stack-intro { padding:64px 6vw 0; } .stack-eyebrow { font-size:10px; } .stack-title { margin-top:10px; font-size:1.35rem; text-wrap:balance; } .stack-lead { margin-top:8px; font-size:.82rem; } .stack-stage { width:92vw; } .stack-card { width:84vw; height:34svh; } .stack-card[data-i="0"] { top:4svh; left:0; } .stack-card[data-i="1"] { top:6svh; left:4vw; } .stack-card[data-i="2"] { top:8svh; left:8vw; } .stack-card-inner { padding:22px 20px; } .stack-card-content { gap:18px; } .stack-num { font-size:3.3rem; } .stack-card h3 { font-size:1.65rem; text-wrap:balance; } .stack-card p { margin-top:10px; font-size:.9rem; line-height:1.55; } .stack-tag { margin-top:10px; font-size:10px; } .stack-progress { padding:0 6vw 64px; } .stack-dots span { width:24px; } .stack-progress-label { font-size:8px; } .stack-theory-cta { font-size:13px; } .cta-content { padding:64px 6vw; } .cta-eyebrow { font-size:10px; } .cta-title { margin-top:16px; font-size:1.65rem; text-wrap:balance; } .cta-copy { margin-top:26px; font-size:.95rem; } .cta-actions { flex-direction:column; gap:28px; margin-top:38px; } .cta-primary { min-height:58px; padding:16px 30px; font-size:16px; } .cta-secondary { font-size:12px; } }
+    @media (prefers-reduced-motion:reduce) { .grid,.story-grid,.story-scan-beam,.beam,.wipe,.kanji,.kana,.subline,.rule,.scroll,.reason-wipe,.reason-text,.cta-ring { animation:none!important; } .stack-diagram-track { animation:none!important; transform:translateX(-15%); } .wipe,.reason-wipe { opacity:0; } .kanji,.kana,.subline,.rule,.scroll,.reason-text,.reason-cta,.cta-content,.stack-theory-cta { opacity:1; transform:none; } .stack-wrapper { height:auto; } .stack-sticky { position:relative; height:auto; min-height:100svh; } .stack-body { min-height:0; padding:36px 0; } .stack-stage { position:relative; left:auto; display:grid; width:auto; height:auto; margin:0 6vw; transform:none; gap:18px; } .stack-card,.stack-card[data-i] { position:relative; top:auto; left:auto; width:100%; height:auto; transform:none!important; } .stack-card-inner { min-height:240px; } }
+  </style>
 </head>
-
-<body class="bg-slate-50 text-slate-900 selection:bg-blue-200">
-
-    <!-- Header -->
-    <header id="global-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent py-6">
-        <div class="container mx-auto px-6 max-w-6xl flex justify-between items-center">
-            <a href="/" class="flex items-center gap-2 group cursor-pointer text-decoration-none">
-                <div
-                    class="w-8 h-8 bg-slate-900 rounded-sm flex items-center justify-center transition-transform group-hover:scale-105">
-                    <i data-lucide="layers" class="w-5 h-5 text-white"></i>
-                </div>
-                <span class="text-xl font-bold tracking-wider text-slate-900">Makemake</span>
-            </a>
-            <nav class="hidden md:flex items-center gap-8">
-                <a href="/structure/"
-                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">構造とは</a>
-                <a href="/theory/"
-                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">理論</a>
-                <a href="/services/"
-                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">支援モデル</a>
-                <a href="/insights/"
-                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">コラム</a>
-                <a href="/case-studies/"
-                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">事例</a>
-            </nav>
-            <div class="flex items-center gap-4">
-                <a href="/contact/"
-                    class="hidden md:flex text-sm font-medium text-slate-900 hover:text-blue-600 transition-colors">お問い合わせ</a>
-                <a href="/diagnosis/"
-                    class="bg-blue-600 text-white text-sm font-medium px-5 py-2.5 rounded-sm hover:bg-blue-700 transition-all shadow-sm flex items-center gap-2">
-                    売上構造診断 <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <!-- Hero Section -->
-        <section class="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-slate-50">
-            <!-- Decorative Grid -->
-            <div class="absolute inset-0 pointer-events-none opacity-20">
-                <div class="absolute left-1/4 top-0 w-px h-full bg-slate-400"></div>
-                <div class="absolute left-1/2 top-0 w-px h-full bg-slate-400"></div>
-                <div class="absolute left-3/4 top-0 w-px h-full bg-slate-400"></div>
-                <div class="absolute top-1/3 left-0 w-full h-px bg-slate-400"></div>
-            </div>
-
-            <div class="container mx-auto px-6 max-w-6xl relative z-10">
-                <div class="flex flex-col md:flex-row items-center gap-12 md:gap-20">
-                    <div class="w-full md:w-1/2 space-y-8">
-                        <div class="reveal delay-100">
-                            <span
-                                class="inline-block py-1 px-3 border border-slate-300 text-xs font-semibold tracking-widest text-slate-600 rounded-sm mb-6">
-                                FOR 100M - 1B YEN ENTERPRISES
-                            </span>
-                            <h1
-                                class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight tracking-tight">
-                                構造から、<br>売上を変える。
-                            </h1>
-                        </div>
-
-                        <p class="reveal delay-300 text-base md:text-lg text-slate-600 leading-relaxed max-w-lg">
-                            年商1億〜10億企業専門。マーケティング担当者とともに、売上停滞の原因を構造から再設計する。マケマケは、実行力と論理を兼ね備えたハイブリッド型マーケティング会社です。
-                        </p>
-
-                        <div class="reveal delay-500 flex flex-col sm:flex-row gap-4 pt-4">
-                            <a href="/diagnosis/"
-                                class="bg-blue-600 text-white font-medium px-8 py-4 rounded-sm hover:bg-blue-700 transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2 group">
-                                売上構造診断を受ける
-                                <i data-lucide="arrow-right"
-                                    class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                            </a>
-                            <a href="/theory/"
-                                class="bg-white text-slate-900 border border-slate-200 font-medium px-8 py-4 rounded-sm hover:bg-slate-50 transition-all flex items-center justify-center gap-2 group">
-                                理論を見る
-                                <i data-lucide="chevron-right"
-                                    class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="w-full md:w-1/2 relative reveal-scale delay-500">
-                        <!-- Abstract Image representing structure / CEO portrait placeholder -->
-                        <div
-                            class="relative w-full aspect-[4/5] bg-slate-200 rounded-sm overflow-hidden shadow-sm filter grayscale hover:grayscale-0 transition-all duration-700">
-                            <img src="/images/ceo/profile-2.png" alt="代表写真"
-                                class="object-cover w-full h-full opacity-90 mix-blend-multiply" />
-                            <div class="absolute inset-0 border border-slate-900/10 rounded-sm"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Message Section -->
-        <section class="py-32 bg-white relative">
-            <div class="container mx-auto px-6 max-w-4xl text-center">
-                <!-- Line Animation -->
-                <div class="w-px h-16 bg-blue-600 mx-auto mb-12 line-draw reveal"></div>
-
-                <h2 class="reveal delay-200 text-3xl md:text-4xl font-bold text-slate-900 mb-10 tracking-tight">
-                    伸びない理由は、<br class="md:hidden">見えていない構造にある。
-                </h2>
-
-                <div class="reveal delay-300 space-y-6 text-lg text-slate-600 leading-relaxed">
-                    <p>
-                        施策を増やしても、CPAが悪化し、成果が積み上がらない。<br class="hidden md:block">
-                        問題は、あなたの努力不足ではありません。
-                    </p>
-                    <p class="font-medium text-slate-900">
-                        売上を生み出す『構造』そのものに欠陥があるからです。
-                    </p>
-                    <p>
-                        部分的なWeb広告やサイト改修だけでは、年商1億の壁、10億の壁は越えられません。<br class="hidden md:block">
-                        原因は努力ではなく、設計です。再現性は構造で決まります。
-                    </p>
-                </div>
-
-                <div class="reveal delay-500 mt-12">
-                    <a href="/structure/"
-                        class="inline-flex items-center gap-2 text-blue-600 font-medium hover:text-blue-800 transition-colors group">
-                        まず構造を診断する
-                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Diagram Section (3 layers) -->
-        <section class="py-24 bg-slate-50 border-y border-slate-200">
-            <div class="container mx-auto px-6 max-w-6xl">
-                <div class="text-center mb-16 reveal">
-                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
-                        売上停滞の3層構造
-                    </h2>
-                    <p class="text-slate-600">
-                        この3つが連動しない限り、売上は決して安定しません。
-                    </p>
-                </div>
-
-                <div
-                    class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-4 relative max-w-4xl mx-auto">
-                    <!-- Connecting Line for Desktop -->
-                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-px bg-slate-300 -z-10"></div>
-
-                    <!-- Layer 1 -->
-                    <div
-                        class="reveal delay-100 flex-1 bg-white p-8 border border-slate-200 rounded-sm shadow-sm relative group transition-all duration-700 w-full md:w-auto">
-                        <div class="md:hidden absolute -bottom-6 left-1/2 -translate-x-1/2 w-px h-6 bg-slate-300"></div>
-                        <div
-                            class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-sm flex items-center justify-center mb-6 group-hover:bg-blue-50 group-hover:border-blue-100 group-hover:text-blue-600 transition-colors">
-                            <i data-lucide="target"
-                                class="w-6 h-6 text-slate-700 group-hover:text-blue-600 transition-colors"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">① 戦略の欠落</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">市場選びとポジショニングが曖昧で明確に定義されていない状態</p>
-                    </div>
-
-                    <!-- Layer 2 -->
-                    <div
-                        class="reveal delay-300 flex-1 bg-white p-8 border border-slate-200 rounded-sm shadow-sm relative group transition-all duration-700 w-full md:w-auto">
-                        <div class="md:hidden absolute -bottom-6 left-1/2 -translate-x-1/2 w-px h-6 bg-slate-300"></div>
-                        <div
-                            class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-sm flex items-center justify-center mb-6 group-hover:bg-blue-50 group-hover:border-blue-100 group-hover:text-blue-600 transition-colors">
-                            <i data-lucide="bar-chart-3"
-                                class="w-6 h-6 text-slate-700 group-hover:text-blue-600 transition-colors"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">② 表現の誤認</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">顧客に刺さらないメッセージとクリエイティブ</p>
-                    </div>
-
-                    <!-- Layer 3 -->
-                    <div
-                        class="reveal delay-500 flex-1 bg-white p-8 border border-slate-200 rounded-sm shadow-sm relative group transition-all duration-700 w-full md:w-auto">
-                        <div
-                            class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-sm flex items-center justify-center mb-6 group-hover:bg-blue-50 group-hover:border-blue-100 group-hover:text-blue-600 transition-colors">
-                            <i data-lucide="layers"
-                                class="w-6 h-6 text-slate-700 group-hover:text-blue-600 transition-colors"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">③ 導線の断絶</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">点と点がつながっていない不完全なUX</p>
-                    </div>
-                </div>
-
-                <div class="reveal delay-700 text-center mt-16">
-                    <a href="/theory/"
-                        class="inline-flex bg-slate-900 text-white font-medium px-8 py-3 rounded-sm hover:bg-slate-800 transition-all shadow-sm items-center justify-center gap-2 mx-auto group">
-                        理論を見る
-                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Definition Section -->
-        <section class="py-24 bg-white">
-            <div class="container mx-auto px-6 max-w-3xl text-center">
-                <div class="reveal-scale p-8 md:p-12 border border-slate-200 rounded-sm bg-slate-50">
-                    <h2 class="text-xl md:text-2xl font-bold text-slate-900 mb-6 tracking-wide">
-                        マケマケの定義
-                    </h2>
-                    <p class="text-lg md:text-xl text-slate-700 leading-relaxed font-medium mb-8">
-                        売上構造とは、<br class="md:hidden">
-                        <span class="text-blue-600">市場定義・戦略設計・価値表現・顧客導線</span><br class="md:hidden">
-                        の連動設計である。
-                    </p>
-                    <p class="text-sm text-slate-500 text-left md:text-center">
-                        マケマケとは、年商1億〜10億企業の売上構造を再設計するハイブリッド型マーケティング会社です。戦略を描くだけの顧問ではなく、作るだけの制作会社でもありません。構造全体を設計し、成果に連動して伴走します。
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Insights Section -->
-        <section class="py-24 md:py-28 bg-slate-50 border-y border-slate-200">
-            <div class="container mx-auto px-6 max-w-6xl">
-                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 reveal">
-                    <div>
-                        <p class="text-xs font-bold tracking-widest text-blue-600 mb-4">INSIGHTS</p>
-                        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">コラム</h2>
-                        <p class="text-lg text-slate-600 leading-relaxed">売上を「施策」ではなく「構造」から考える。</p>
-                    </div>
-                    <a href="/insights/" class="inline-flex items-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors group">
-                        コラム一覧を見る
-                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-5 reveal delay-100">
-                    <a href="/insights/sales-not-growing/" class="group flex flex-col min-h-full bg-white border border-slate-200 p-6 md:p-7 rounded-sm hover:border-blue-300 hover:shadow-md transition-all">
-                        <p class="text-xs font-bold tracking-widest text-blue-600 mb-5">SALES DIAGNOSIS</p>
-                        <h3 class="text-xl font-bold text-slate-900 leading-relaxed mb-4">売上が伸びない原因は？<br>最初に確認すべき5つのポイント</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed mb-7">集客の前に、売上が止まっている場所を5つの観点から確認します。</p>
-                        <span class="mt-auto inline-flex items-center gap-2 text-sm font-bold text-slate-700 group-hover:text-blue-700">記事を読む <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></span>
-                    </a>
-                    <a href="/insights/btob-positioning/" class="group flex flex-col min-h-full bg-white border border-slate-200 p-6 md:p-7 rounded-sm hover:border-blue-300 hover:shadow-md transition-all">
-                        <p class="text-xs font-bold tracking-widest text-blue-600 mb-5">BTOB / POSITIONING</p>
-                        <h3 class="text-xl font-bold text-slate-900 leading-relaxed mb-4">BtoBポジショニングとは？<br>選ばれる理由をつくる5つの手順</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed mb-7">市場・顧客・競合・自社を整理し、選ばれる理由を言語化します。</p>
-                        <span class="mt-auto inline-flex items-center gap-2 text-sm font-bold text-slate-700 group-hover:text-blue-700">記事を読む <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></span>
-                    </a>
-                    <a href="/insights/btob-inquiry-increase/" class="group flex flex-col min-h-full bg-white border border-slate-200 p-6 md:p-7 rounded-sm hover:border-blue-300 hover:shadow-md transition-all">
-                        <p class="text-xs font-bold tracking-widest text-blue-600 mb-5">BTOB / INQUIRY</p>
-                        <h3 class="text-xl font-bold text-slate-900 leading-relaxed mb-4">BtoBの問い合わせを増やすには？<br>施策の前に確認する4つの断絶</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed mb-7">流入から商談まで、どこで見込み顧客が止まるのかを分解します。</p>
-                        <span class="mt-auto inline-flex items-center gap-2 text-sm font-bold text-slate-700 group-hover:text-blue-700">記事を読む <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="py-32 bg-slate-900 relative overflow-hidden">
-            <!-- Decorative background lines -->
-            <div class="absolute inset-0 opacity-10 pointer-events-none">
-                <div class="absolute top-0 left-0 w-full h-px bg-blue-400"></div>
-                <div class="absolute top-1/2 left-0 w-full h-px bg-blue-400"></div>
-                <div class="absolute bottom-0 left-0 w-full h-px bg-blue-400"></div>
-                <div class="absolute top-0 left-1/4 w-px h-full bg-blue-400"></div>
-                <div class="absolute top-0 left-3/4 w-px h-full bg-blue-400"></div>
-            </div>
-
-            <div class="container mx-auto px-6 max-w-4xl text-center relative z-10">
-                <h2 class="reveal text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">
-                    自社の「売上構造」を可視化しませんか。
-                </h2>
-                <p class="reveal delay-200 text-slate-300 text-lg mb-10 max-w-2xl mx-auto">
-                    現状の施策と課題をヒアリングし、どこに構造のボトルネックがあるのかを診断します。<br>
-                    強引な営業は行いません。論理的な議論を求める企業様をお待ちしています。
-                </p>
-
-                <div class="reveal delay-400 flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="/diagnosis/"
-                        class="bg-blue-600 text-white font-bold px-10 py-5 rounded-sm hover:bg-blue-500 transition-all shadow-lg flex items-center justify-center gap-2 group text-lg">
-                        売上構造診断を受ける
-                        <i data-lucide="arrow-up-right"
-                            class="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
-                    </a>
-                    <a href="/services/"
-                        class="bg-transparent border border-slate-600 text-white font-medium px-8 py-5 rounded-sm hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
-                        支援モデルを見る
-                    </a>
-                </div>
-            </div>
-        </section>
+<body>
+  <header class="site-header" aria-label="サイトヘッダー">
+    <div class="site-header__inner">
+      <a class="site-brand" href="/" aria-label="マケマケ トップページ"><img class="site-brand__mark" src="/images/brand/makemake-mark-blue.png" width="45" height="32" alt="" aria-hidden="true"><span class="site-brand__word" aria-hidden="true"><span class="site-brand__m">M</span><span class="site-brand__ake">ake</span><span class="site-brand__m site-brand__m--second">m</span><span class="site-brand__ake">ake</span></span></a>
+      <nav class="site-nav" aria-label="メインナビゲーション"><a href="/structure/">構造とは</a><a href="/theory/">理論</a><a href="/services/">支援モデル</a><a href="/insights/">コラム</a><a href="/case-studies/">事例</a></nav>
+      <div class="site-header__actions"><a class="site-header__contact" href="/contact/">お問い合わせ</a><a class="site-header__diagnosis" href="/diagnosis/">売上構造診断<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    </div>
+  </header>
+  <main class="story">
+  <div class="story-grid" aria-hidden="true"></div>
+  <div class="story-grid story-grid--large" aria-hidden="true"></div>
+  <div class="story-grid story-grid--dark" aria-hidden="true"></div>
+  <div class="story-grid story-grid--dark story-grid--large" aria-hidden="true"></div>
+  <div class="story-scan-beam" aria-hidden="true"></div>
+  <section class="hero grain" aria-labelledby="hero-title">
+    <div class="grid" aria-hidden="true"></div>
+    <div class="grid grid--large" aria-hidden="true"></div>
+    <div class="beam" aria-hidden="true"></div>
+    <main class="main">
+      <h1 class="headline" id="hero-title"><span class="clip" style="--delay:.6s"><span class="wipe wipe--front"></span><span class="wipe wipe--back"></span><span class="kanji">構造</span></span><span class="kana" id="kara" style="--kana-delay:0s"></span><br><span class="hero-action"><span class="clip" style="--delay:.9s"><span class="wipe wipe--front"></span><span class="wipe wipe--back"></span><span class="kanji">売上</span></span><span class="kana" id="wo" style="--kana-delay:.3s"></span><span class="hero-change"><span class="clip" style="--delay:1.2s"><span class="wipe wipe--front"></span><span class="wipe wipe--back"></span><span class="kanji">変</span></span><span class="kana" id="eru" style="--kana-delay:.6s"></span></span></span></h1>
+      <div class="subline"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="9" y="9" width="8" height="8" fill="none" stroke="currentColor" stroke-width="1.2" transform="rotate(45 13 13)"/></svg><p>Where structure leads, sales follow.</p></div>
+      <div class="rule"></div>
     </main>
-
-    <!-- Footer -->
-    <footer class="bg-white border-t border-slate-200 py-12">
-        <div class="container mx-auto px-6 max-w-6xl flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-2">
-                <i data-lucide="layers" class="w-5 h-5 text-slate-900"></i>
-                <span class="text-lg font-bold tracking-wider text-slate-900">Makemake</span>
-            </div>
-            <div class="flex gap-6 text-sm text-slate-500">
-                <a href="/company/" class="hover:text-slate-900 transition-colors">会社概要</a>
-                <a href="/privacy/" class="hover:text-slate-900 transition-colors">プライバシーポリシー</a>
-                <a href="/contact/" class="hover:text-slate-900 transition-colors">お問い合わせ</a>
-            </div>
-            <p class="text-xs text-slate-400">
-                &copy; <span id="year"></span> Makemake Inc. All rights reserved.
-            </p>
+    <div class="scroll" aria-hidden="true"><span class="scroll-label">Scroll Down</span><span class="scroll-line"></span></div>
+  </section>
+  <section class="reason grain" aria-label="伸びない理由">
+    <div class="reason-copy">
+      <p class="reason-line reason-line--intro" style="--i:0"><span class="reason-wipe reason-wipe--front"></span><span class="reason-wipe reason-wipe--back"></span><span class="reason-text">伸びない理由は、</span></p>
+      <p class="reason-line reason-line--large" style="--i:1"><span class="reason-wipe reason-wipe--front"></span><span class="reason-wipe reason-wipe--back"></span><span class="reason-text">見えていない<br class="mobile-break">構造にある。</span></p>
+      <p class="reason-line" style="--i:2"><span class="reason-wipe reason-wipe--front"></span><span class="reason-wipe reason-wipe--back"></span><span class="reason-text">施策を増やしても、</span></p>
+      <p class="reason-line" style="--i:3"><span class="reason-wipe reason-wipe--front"></span><span class="reason-wipe reason-wipe--back"></span><span class="reason-text">CPAが悪化し、</span></p>
+      <p class="reason-line" style="--i:4"><span class="reason-wipe reason-wipe--front"></span><span class="reason-wipe reason-wipe--back"></span><span class="reason-text">成果が積み上がらない。</span></p>
+      <p class="reason-line" style="--i:5"><span class="reason-wipe reason-wipe--front"></span><span class="reason-wipe reason-wipe--back"></span><span class="reason-text">問題は、</span></p>
+      <p class="reason-line" style="--i:6"><span class="reason-wipe reason-wipe--front"></span><span class="reason-wipe reason-wipe--back"></span><span class="reason-text">あなたの努力不足では<br class="mobile-break">ありません。</span></p>
+      <p class="reason-line reason-line--structure" style="--i:7"><span class="reason-wipe reason-wipe--front"></span><span class="reason-wipe reason-wipe--back"></span><span class="reason-text">売上を生み出す<br class="mobile-break">『構造』</span></p>
+      <p class="reason-line" style="--i:8"><span class="reason-wipe reason-wipe--front"></span><span class="reason-wipe reason-wipe--back"></span><span class="reason-text">そのものに欠陥がある<br class="mobile-break">からです。</span></p>
+      <p class="reason-line" style="--i:9"><span class="reason-wipe reason-wipe--front"></span><span class="reason-wipe reason-wipe--back"></span><span class="reason-text">部分的なWeb広告や<br class="mobile-break">サイト改修だけでは、</span></p>
+      <p class="reason-line" style="--i:10"><span class="reason-wipe reason-wipe--front"></span><span class="reason-wipe reason-wipe--back"></span><span class="reason-text">年商1億の壁、</span></p>
+      <p class="reason-line" style="--i:11"><span class="reason-wipe reason-wipe--front"></span><span class="reason-wipe reason-wipe--back"></span><span class="reason-text">10億の壁は<br class="mobile-break">越えられません。</span></p>
+      <p class="reason-line" style="--i:12"><span class="reason-wipe reason-wipe--front"></span><span class="reason-wipe reason-wipe--back"></span><span class="reason-text">原因は努力ではなく、</span></p>
+      <p class="reason-line" style="--i:13"><span class="reason-wipe reason-wipe--front"></span><span class="reason-wipe reason-wipe--back"></span><span class="reason-text">設計です。</span></p>
+      <p class="reason-line reason-line--last" style="--i:14"><span class="reason-wipe reason-wipe--front"></span><span class="reason-wipe reason-wipe--back"></span><span class="reason-text">再現性は構造で<br class="mobile-break">決まります。</span></p>
+      <a class="reason-cta" href="https://makenai-mark.com/structure/"><span>まず構造を診断する</span><span class="reason-cta-arrow" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+  <section class="stack-wrapper" id="stackWrapper" aria-labelledby="stack-title">
+    <div class="stack-sticky">
+      <div class="stack-diagram-marquee" aria-hidden="true"><div class="stack-diagram-track"><div class="stack-diagram-set"><span>DIAGRAM</span><span>DIAGRAM</span><span>DIAGRAM</span></div><div class="stack-diagram-set"><span>DIAGRAM</span><span>DIAGRAM</span><span>DIAGRAM</span></div></div></div>
+      <header class="stack-intro">
+        <span class="stack-eyebrow">DIAGRAM — 断面図</span>
+        <h2 class="stack-title" id="stack-title"><span class="stack-kanji">売上停滞</span><span class="stack-kana">の</span><span class="stack-kanji">3層構造</span></h2>
+        <p class="stack-lead"><span class="prose-phrase">この3つが連動しない限り、</span><span class="prose-phrase">売上は決して安定しません。</span></p>
+      </header>
+      <div class="stack-body">
+        <div class="stack-stage">
+          <article class="stack-card stack-card--strategy" data-i="0">
+            <div class="stack-card-inner"><div class="stack-card-content"><span class="stack-num">01</span><div><h3>戦略<span class="stack-kana">の</span>欠落</h3><p><span class="prose-phrase">市場選びとポジショニングが曖昧で、</span><br class="mobile-break"><span class="prose-phrase">明確に定義されていない状態。</span></p><span class="stack-tag">STRATEGY</span></div></div></div>
+          </article>
+          <article class="stack-card stack-card--messaging" data-i="1">
+            <div class="stack-card-inner"><div class="stack-card-content"><span class="stack-num">02</span><div><h3>表現<span class="stack-kana">の</span>誤認</h3><p><span class="prose-phrase">顧客に刺さらない</span><span class="prose-phrase">メッセージと</span><span class="prose-phrase">クリエイティブ。</span></p><span class="stack-tag">MESSAGING</span></div></div></div>
+          </article>
+          <article class="stack-card stack-card--ux" data-i="2">
+            <div class="stack-card-inner"><div class="stack-card-content"><span class="stack-num">03</span><div><h3>導線<span class="stack-kana">の</span>断絶</h3><p><span class="prose-phrase">点と点がつながっていない、</span><span class="prose-phrase">不完全なUX。</span></p><span class="stack-tag">UX FLOW</span></div></div></div>
+          </article>
         </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script>
-        lucide.createIcons();
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Header Scroll
-        const header = document.getElementById('global-header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                header.classList.add('bg-white/90', 'backdrop-blur-md', 'border-b', 'border-slate-200', 'py-3');
-                header.classList.remove('bg-transparent', 'py-6');
-            } else {
-                header.classList.remove('bg-white/90', 'backdrop-blur-md', 'border-b', 'border-slate-200', 'py-3');
-                header.classList.add('bg-transparent', 'py-6');
-            }
+      </div>
+      <div class="stack-progress"><div class="stack-dots" id="stackDots" aria-hidden="true"><span data-i="0"></span><span data-i="1"></span><span data-i="2"></span></div><span class="stack-progress-label">SCROLL TO REVEAL</span><a class="stack-theory-cta" id="stackTheoryCta" href="https://makenai-mark.com/theory/">理論を見る</a></div>
+    </div>
+  </section>
+  <section class="definition-section" aria-labelledby="definition-title">
+    <div class="definition-copy">
+      <span class="definition-eyebrow">MAKEMAKE / DEFINITION</span>
+      <h2 class="definition-title" id="definition-title">マケマケの定義</h2>
+      <p class="definition-statement"><strong><span class="prose-phrase">売上構造とは、</span><br class="mobile-break"><span class="definition-term">市場定義・戦略設計・</span><br class="mobile-break"><span class="definition-term">価値表現・顧客導線</span><span class="prose-phrase">の</span><br class="mobile-break"><span class="prose-phrase">連動設計である。</span></strong></p>
+      <p class="definition-body"><span class="prose-phrase">マケマケとは、年商1億〜10億企業の</span><br class="mobile-break"><span class="prose-phrase">売上構造を再設計する</span><br class="mobile-break"><span class="prose-phrase">ハイブリッド型</span><br class="mobile-break"><span class="prose-phrase">マーケティング会社です。</span><br class="mobile-break"><span class="prose-phrase">戦略を描くだけの顧問ではなく、</span><br class="mobile-break"><span class="prose-phrase">作るだけの制作会社でもありません。</span><br class="mobile-break"><span class="prose-phrase">構造全体を設計し、成果に連動して</span><br class="mobile-break"><span class="prose-phrase">伴走します。</span></p>
+    </div>
+    <div class="definition-visual" aria-label="市場定義、戦略設計、価値表現、顧客導線が売上構造へ連動する図解">
+      <div class="definition-world" data-definition-world data-active="false">
+        <div class="definition-connector definition-connector--market" aria-hidden="true"></div>
+        <div class="definition-connector definition-connector--strategy" aria-hidden="true"></div>
+        <div class="definition-connector definition-connector--journey" aria-hidden="true"></div>
+        <div class="definition-connector definition-connector--expression" aria-hidden="true"></div>
+        <div class="definition-orbit definition-orbit--market"><div class="definition-node definition-node--market"><span class="definition-node__label">市場定義</span></div></div>
+        <div class="definition-orbit definition-orbit--strategy"><div class="definition-node definition-node--strategy"><span class="definition-node__label">戦略設計</span></div></div>
+        <div class="definition-orbit definition-orbit--journey"><div class="definition-node definition-node--journey"><span class="definition-node__label">顧客導線</span></div></div>
+        <div class="definition-orbit definition-orbit--expression"><div class="definition-node definition-node--expression"><span class="definition-node__label">価値表現</span></div></div>
+        <div class="definition-core-wrap"><div class="definition-core"><span class="definition-core__label">売上構造</span></div></div>
+        <p class="definition-caption" aria-hidden="true">INTERLOCKING DESIGN</p>
+      </div>
+    </div>
+  </section>
+  <section class="cta-section" id="ctaSection" aria-labelledby="cta-title">
+    <canvas class="cta-particles" id="particleCanvas" aria-hidden="true"></canvas>
+    <div class="cta-content" id="ctaContent">
+      <span class="cta-eyebrow">NEXT STEP — 診断結果</span>
+      <h2 class="cta-title" id="cta-title">自社の<span class="cta-kanji">「売上構造」</span>を<span class="cta-kanji">可視化</span><span class="cta-kana">しませんか。</span></h2>
+      <p class="cta-copy"><span class="prose-phrase">現状の施策と課題をヒアリングし、</span><span class="prose-phrase">どこに構造のボトルネックがあるのかを</span><span class="prose-phrase">診断します。</span><br><span class="prose-phrase">強引な営業は行いません。</span><span class="prose-phrase">論理的な議論を求める企業様を</span><span class="prose-phrase">お待ちしています。</span></p>
+      <div class="cta-actions">
+        <a class="cta-primary" href="https://makenai-mark.com/diagnosis/" data-magnetic><span class="cta-ring"></span><span class="cta-ring"></span><span class="cta-primary-label">売上構造診断を受ける</span></a>
+        <a class="cta-secondary" href="https://makenai-mark.com/services/">支援モデルを見る</a>
+      </div>
+    </div>
+  </section>
+  </main>
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <a class="site-brand" href="/" aria-label="マケマケ トップページ"><img class="site-brand__mark" src="/images/brand/makemake-mark-blue.png" width="34" height="24" alt="" aria-hidden="true"><span class="site-brand__word" aria-hidden="true"><span class="site-brand__m">M</span><span class="site-brand__ake">ake</span><span class="site-brand__m site-brand__m--second">m</span><span class="site-brand__ake">ake</span></span></a>
+      <nav class="site-footer__links" aria-label="フッターナビゲーション"><a href="/company/">会社概要</a><a href="/privacy/">プライバシーポリシー</a><a href="/contact/">お問い合わせ</a></nav>
+      <p class="site-footer__copyright">© <span id="previewYear"></span> Makemake Inc. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    class TextScramble {
+      constructor(element) { this.element = element; this.chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン'; this.frame = null; this.update = this.update.bind(this); }
+      setText(text, flickerEnd, settleWindow = 300) { this.queue = [...text].map((to, index, all) => ({ to, settleAt:flickerEnd + ((index + 1) / all.length) * settleWindow, char:'' })); cancelAnimationFrame(this.frame); this.startedAt = performance.now(); this.update(); }
+      update() { const elapsed = performance.now() - this.startedAt; let complete = 0; this.element.replaceChildren(...this.queue.map(item => { const span = document.createElement('span'); if (elapsed >= item.settleAt) { complete++; span.textContent = item.to; } else { if (!item.char || Math.random() < .5) item.char = this.chars[Math.floor(Math.random() * this.chars.length)]; span.textContent = item.char; span.style.opacity = '.55'; } return span; })); if (complete < this.queue.length) this.frame = requestAnimationFrame(this.update); }
+    }
+    addEventListener('DOMContentLoaded', () => {
+      document.querySelector('#previewYear').textContent = new Date().getFullYear();
+      const targets = [[document.querySelector('#kara'),'から、',0],[document.querySelector('#wo'),'を',300],[document.querySelector('#eru'),'える。',600]];
+      const reasonLines = document.querySelectorAll('.reason-line, .reason-cta');
+      const story = document.querySelector('.story');
+      const reason = document.querySelector('.reason');
+      const stackWrapper = document.querySelector('#stackWrapper');
+      const stackCards = [...document.querySelectorAll('.stack-card')];
+      const stackDots = [...document.querySelectorAll('#stackDots span')];
+      const stackTheoryCta = document.querySelector('#stackTheoryCta');
+      let parallaxFrame;
+      const updateReasonParallax = () => {
+        parallaxFrame = null;
+        const bounds = reason.getBoundingClientRect();
+        const transitionHeight = Math.min(Math.max(384, innerWidth * .48), 720);
+        story.classList.toggle('is-reason-parallax', bounds.top + transitionHeight <= 0 && bounds.bottom > 0);
+      };
+      const scheduleReasonParallax = () => {
+        if (parallaxFrame) return;
+        parallaxFrame = requestAnimationFrame(updateReasonParallax);
+      };
+      addEventListener('scroll', scheduleReasonParallax, { passive:true });
+      addEventListener('resize', scheduleReasonParallax);
+      scheduleReasonParallax();
+      const setupDefinitionVisualization = () => {
+        const world = document.querySelector('[data-definition-world]');
+        if (!world) return;
+        const section = world.closest('.definition-visual');
+        const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+        const narrowScreen = matchMedia('(max-width: 680px)');
+        let visible = false;
+        let pointerX = 0;
+        let pointerY = 0;
+        let frame = 0;
+        const render = (time) => {
+          if (!visible || reduceMotion.matches || narrowScreen.matches) return;
+          const driftX = Math.sin(time / 3800) * 1.5;
+          const driftY = Math.cos(time / 4200);
+          world.style.setProperty('--tilt-x', `${-5 + driftY + pointerY * 14}deg`);
+          world.style.setProperty('--tilt-y', `${7 + driftX + pointerX * 20}deg`);
+          frame = requestAnimationFrame(render);
+        };
+        const start = () => { if (!frame && !reduceMotion.matches && !narrowScreen.matches) frame = requestAnimationFrame(render); };
+        const stop = () => { if (frame) cancelAnimationFrame(frame); frame = 0; };
+        new IntersectionObserver(([entry]) => {
+          visible = entry.isIntersecting;
+          world.dataset.active = String(visible);
+          if (visible) start(); else stop();
+        }, { threshold:.35 }).observe(world);
+        section.addEventListener('pointermove', (event) => {
+          if (reduceMotion.matches || narrowScreen.matches) return;
+          const rect = world.getBoundingClientRect();
+          pointerX = ((event.clientX - rect.left) / rect.width - .5) * 2;
+          pointerY = ((event.clientY - rect.top) / rect.height - .5) * -2;
         });
-
-        // Intersection Observer for Animation
-        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal, .reveal-scale, .line-draw').forEach((el) => {
-            observer.observe(el);
+        section.addEventListener('pointerleave', () => { pointerX = 0; pointerY = 0; });
+        const respectPreferences = () => {
+          if (reduceMotion.matches || narrowScreen.matches) {
+            stop();
+            world.style.removeProperty('--tilt-x');
+            world.style.removeProperty('--tilt-y');
+          } else if (visible) start();
+        };
+        reduceMotion.addEventListener('change', respectPreferences);
+        narrowScreen.addEventListener('change', respectPreferences);
+      };
+      setupDefinitionVisualization();
+      const setupCtaVisualization = () => {
+        const section = document.querySelector('#ctaSection');
+        const canvas = document.querySelector('#particleCanvas');
+        const content = document.querySelector('#ctaContent');
+        if (!section || !canvas || !content) return;
+        const ctx = canvas.getContext('2d');
+        const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const particleCount = 130;
+        let width = 0, height = 0, particles = [], barTargets = [], logoTargets = [], started = false;
+        const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+        const randomTriangle = (a, b, c) => { let u = Math.random(), v = Math.random(); if (u + v > 1) { u = 1 - u; v = 1 - v; } return { x:a.x + u * (b.x - a.x) + v * (c.x - a.x), y:a.y + u * (b.y - a.y) + v * (c.y - a.y) }; };
+        const randomDiamond = (cx, cy, rx, ry) => { let x, y; do { x = Math.random() * 2 - 1; y = Math.random() * 2 - 1; } while (Math.abs(x) + Math.abs(y) > 1); return { x:cx + x * rx, y:cy + y * ry }; };
+        const buildBars = () => {
+          const ratios = [.22,.4,.56,.76,1], chartWidth = Math.min(width * .56, 760), chartHeight = Math.min(height * .42, 380), baseY = height * .6, startX = (width - chartWidth) / 2, gap = chartWidth / 5, barWidth = gap * .52, perBar = Math.floor(particleCount / 5), targets = [];
+          ratios.forEach((ratio, index) => { for (let i = 0; i < perBar; i++) targets.push({ x:startX + index * gap + (gap - barWidth) / 2 + Math.random() * barWidth, y:baseY - Math.random() * chartHeight * ratio, color:index === 4 && Math.random() < .4 ? 'signal' : 'cream' }); });
+          while (targets.length < particleCount) targets.push({ ...targets[targets.length - 1] });
+          return targets;
+        };
+        const buildLogo = () => {
+          const logoWidth = Math.min(width, height * 1.3) * .5, logoHeight = logoWidth * .73, originX = (width - logoWidth) / 2, originY = height * .5 - logoHeight * .52, point = (x,y) => ({ x:originX + x * logoWidth, y:originY + y * logoHeight }), shapes = [[32,[point(0,0),point(0,.62),point(.44,.3)]],[28,[point(1,0),point(1,.52),point(.56,.3)]],[24,[point(.16,1),point(.42,1),point(.31,.66)]],[24,[point(.48,1),point(.82,1),point(.63,.64)]]], targets = [];
+          shapes.forEach(([count, shape]) => { for (let i = 0; i < count; i++) targets.push({ ...randomTriangle(...shape), color:'cream' }); });
+          const center = point(.5,.3); for (let i = 0; i < 22; i++) targets.push({ ...randomDiamond(center.x, center.y, logoWidth * .1, logoHeight * .15), color:Math.random() < .6 ? 'signal' : 'cream' });
+          while (targets.length < particleCount) targets.push({ ...targets[targets.length - 1] });
+          return targets;
+        };
+        const draw = (progress) => {
+          ctx.clearRect(0, 0, width, height);
+          const linesOpacity = Math.max(0, progress - .65) / .35;
+          if (linesOpacity) { ctx.strokeStyle = `rgba(245,241,230,${.12 * linesOpacity})`; ctx.lineWidth = 1; for (let i = 0; i < particles.length; i++) for (let j = i + 1; j < particles.length; j++) { const a = particles[i], b = particles[j], dx = a.x - b.x, dy = a.y - b.y; if (Math.hypot(dx, dy) < 46) { ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); } } }
+          particles.forEach((particle) => { const local = clamp((progress - particle.delay) / (1 - particle.delay), 0, 1), eased = local < .5 ? 4 * local ** 3 : 1 - (-2 * local + 2) ** 3 / 2; particle.x = particle.sx + (particle.tx - particle.sx) * eased; particle.y = particle.sy + (particle.ty - particle.sy) * eased; const alpha = particle.color === 'signal' ? .5 + .5 * progress : .35 + .35 * progress; ctx.beginPath(); ctx.fillStyle = particle.color === 'signal' ? `rgba(196,69,28,${alpha})` : `rgba(245,241,230,${alpha})`; ctx.arc(particle.x, particle.y, particle.r, 0, Math.PI * 2); ctx.fill(); });
+        };
+        const resize = () => { const dpr = Math.min(devicePixelRatio || 1, 2); width = section.offsetWidth; height = section.offsetHeight; canvas.width = width * dpr; canvas.height = height * dpr; canvas.style.width = `${width}px`; canvas.style.height = `${height}px`; ctx.setTransform(dpr,0,0,dpr,0,0); barTargets = buildBars(); logoTargets = buildLogo(); particles = barTargets.map((target) => { const x = Math.random() * width, y = Math.random() * height; return { x, y, sx:x, sy:y, tx:target.x, ty:target.y, r:1.2 + Math.random() * 1.6, color:'cream', delay:Math.random() * .25 }; }); draw(0); };
+        const morphTo = (targets, duration) => new Promise((resolve) => { particles.forEach((particle, index) => { particle.sx = particle.x; particle.sy = particle.y; particle.tx = targets[index].x; particle.ty = targets[index].y; particle.color = targets[index].color; }); const startedAt = performance.now(); const tick = (now) => { const progress = clamp((now - startedAt) / duration, 0, 1); draw(progress); if (progress < 1) requestAnimationFrame(tick); else resolve(); }; requestAnimationFrame(tick); });
+        const wait = (duration) => new Promise((resolve) => setTimeout(resolve, duration));
+        const run = async () => { if (started) return; started = true; if (reduceMotion) { particles.forEach((particle) => { particle.sx = particle.tx; particle.sy = particle.ty; particle.x = particle.tx; particle.y = particle.ty; }); draw(1); content.classList.add('is-visible'); return; } await wait(1000); const reveal = morphTo(barTargets, 2000); setTimeout(() => content.classList.add('is-visible'), 1100); await reveal; while (true) { await wait(2600); await morphTo(logoTargets, 3600); await wait(2600); await morphTo(barTargets, 3600); } };
+        resize();
+        addEventListener('resize', () => { if (!started) resize(); });
+        new IntersectionObserver((entries, observer) => { if (entries.some((entry) => entry.isIntersecting)) { run(); observer.disconnect(); } }, { threshold:.35 }).observe(section);
+        document.querySelectorAll('[data-magnetic]').forEach((button) => { if (reduceMotion) return; button.addEventListener('mousemove', (event) => { const rect = button.getBoundingClientRect(), strength = .35; button.style.transition = 'none'; button.style.transform = `translate(${(event.clientX - rect.left - rect.width / 2) * strength}px, ${(event.clientY - rect.top - rect.height / 2) * strength}px)`; }); button.addEventListener('mouseleave', () => { button.style.transition = 'transform .4s cubic-bezier(.65,0,.35,1)'; button.style.transform = 'translate(0,0)'; }); });
+      };
+      setupCtaVisualization();
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) { targets.forEach(([element,text]) => element.textContent = text); reasonLines.forEach((line) => line.classList.add('is-visible')); stackCards.forEach((card, index) => { card.style.transform = 'none'; if (stackDots[index]) stackDots[index].classList.add('active'); }); stackTheoryCta.classList.add('is-visible'); return; }
+      targets.forEach(([element,text,delay]) => setTimeout(() => new TextScramble(element).setText(text,1300,300), delay));
+      const observer = new IntersectionObserver((entries, currentObserver) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          currentObserver.unobserve(entry.target);
         });
-    </script>
+      }, { threshold:.55, rootMargin:'0px 0px -10% 0px' });
+      reasonLines.forEach((line) => observer.observe(line));
+      let stackFrame;
+      const updateStack = () => {
+        stackFrame = null;
+        const rect = stackWrapper.getBoundingClientRect();
+        const distance = stackWrapper.offsetHeight - innerHeight;
+        const progress = Math.min(Math.max(-rect.top / distance, 0), 1);
+        const revealProgress = Math.min(progress / .70, 1);
+        stackCards.forEach((card, index) => {
+          const local = Math.min(Math.max((revealProgress - index / stackCards.length) * stackCards.length, 0), 1);
+          card.style.transform = `translateX(${(1 - local) * 100}vw)`;
+          card.style.zIndex = String(10 + index);
+          if (stackDots[index]) stackDots[index].classList.toggle('active', local >= .98);
+        });
+        stackTheoryCta.classList.toggle('is-visible', stackDots.every((dot) => dot.classList.contains('active')));
+      };
+      const scheduleStack = () => { if (!stackFrame) stackFrame = requestAnimationFrame(updateStack); };
+      addEventListener('scroll', scheduleStack, { passive:true });
+      addEventListener('resize', scheduleStack);
+      scheduleStack();
+    });
+  </script>
 </body>
-
 </html>
