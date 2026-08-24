@@ -12,7 +12,7 @@ test("dashboard access requires the dedicated Basic credentials", () => {
 });
 
 test("unauthenticated dashboard responses request Basic authentication without caching", async () => {
-  const response = dashboardAuthRequired({});
+  const response = dashboardAuthRequired();
   assert.equal(response.status, 401);
   assert.match(response.headers.get("www-authenticate"), /^Basic /);
   assert.equal(response.headers.get("cache-control"), "no-store");

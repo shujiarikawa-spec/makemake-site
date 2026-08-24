@@ -155,7 +155,7 @@ export default {
     // The worker.dev deployment has no Cloudflare Access application because
     // the account's free checkout requires a billing method. Fail closed until
     // the dedicated dashboard credentials are configured in Worker secrets.
-    if (!hasDashboardAccess(request, env)) return dashboardAuthRequired(env);
+    if (!hasDashboardAccess(request, env)) return dashboardAuthRequired();
     const url = new URL(request.url);
     if (url.pathname === "/api/dashboard") {
       const raw = await env.SEO_CACHE.get(CACHE_KEY, "json");
