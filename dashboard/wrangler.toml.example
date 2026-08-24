@@ -7,7 +7,8 @@ compatibility_date = "2026-08-24"
 [assets]
 directory = "./public"
 binding = "ASSETS"
-run_worker_first = ["/api/*"]
+# Authentication must run before any HTML, JS, CSS, or API response is served.
+run_worker_first = true
 
 [[kv_namespaces]]
 binding = "SEO_CACHE"
