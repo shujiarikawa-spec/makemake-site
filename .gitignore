@@ -3,4 +3,3 @@ dist/
 .env
 node_modules/
 dashboard/.dev.vars
-dashboard/wrangler.toml
