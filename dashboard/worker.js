@@ -147,7 +147,7 @@ async function refresh(env) {
 
 function authorized(request, env) {
   const header = request.headers.get("authorization") || "";
-  return env.DASHBOARD_REFRESH_TOKEN && header === `Bearer ${env.DASHBOARD_REFRESH_TOKEN}`;
+  return hasDashboardAccess(request, env) || (env.DASHBOARD_REFRESH_TOKEN && header === `Bearer ${env.DASHBOARD_REFRESH_TOKEN}`);
 }
 
 export default {

@@ -32,11 +32,13 @@ npx wrangler deploy
 
 ## 手動初回更新
 
-デプロイ後に、Access を通過できる管理端末から以下を実行します。トークンを shell history に残したくない場合は、プロンプト入力など安全な運用に置き換えてください。
+デプロイ後に、Basic認証を通過できる管理端末から以下を実行します。`DASHBOARD_REFRESH_TOKEN`を設定していない場合も、ダッシュボード用のBasic認証で実行できます。パスワードをshell historyに残さないよう、プロンプト入力にします。
 
 ```sh
-curl -X POST "https://seo.makenai-mark.com/api/admin/refresh" \
-  -H "Authorization: Bearer $DASHBOARD_REFRESH_TOKEN"
+read -r "DASHBOARD_USER?Dashboard user: "
+read -rs "DASHBOARD_PASSWORD?Dashboard password: "
+curl -X POST "https://makemake-seo-dashboard.shuji-arikawa.workers.dev/api/admin/refresh" \
+  --user "$DASHBOARD_USER:$DASHBOARD_PASSWORD"
 ```
 
 レスポンスが `ok: true` なら、画面で GSC / GA4 のキャッシュ済み実データを読めます。失敗時には API が Google の HTTP ステータスを返し、既存キャッシュは消しません。
