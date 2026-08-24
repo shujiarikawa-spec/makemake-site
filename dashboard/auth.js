@@ -11,6 +11,7 @@ export function hasDashboardAccess(request, env) {
   return request.headers.get("authorization") === `Basic ${btoa(`${username}:${password}`)}`;
 }
 
-export function dashboardAuthRequired() {
-  return new Response("Dashboard authentication required.", { status: 401, headers: challengeHeaders });
+export function dashboardAuthRequired(env) {
+  const state = !env.DASHBOARD_ACCESS_USERNAME ? "username-missing" : !env.DASHBOARD_ACCESS_PASSWORD ? "password-missing" : "credentials-mismatch";
+  return new Response("Dashboard authentication required.", { status: 401, headers: { ...challengeHeaders, "x-dashboard-auth-state": state } });
 }
