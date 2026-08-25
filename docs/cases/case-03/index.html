@@ -1,200 +1,74 @@
-<!DOCTYPE html>
-
-<html lang="ja" class="scroll-smooth">
+<!doctype html>
+<html lang="ja">
 <head>
-
-  <script src="/scripts/analytics.js" type="text/javascript">
-</script>
+  <script src="/scripts/analytics.js"></script>
   <script src="/scripts/site-header.js"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>【モデルケース】広告とLPの導線を接続し、CVRを見直す90日間｜マケマケ</title>
-  <meta name="description" content="C社を例に、人材紹介会社が広告の訴求とLPをつなぎ、問い合わせの質を確認しながらCVRを改善する考え方を解説します。">
-  <link rel="canonical" href="https://makenai-mark.com/cases/case-03/">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex, follow">
-  <script src="https://cdn.tailwindcss.com" type="text/javascript">
-</script>
-  <script type="text/javascript">
-tailwind.config={theme:{extend:{colors:{slate:{50:'#f8fafc',100:'#f1f5f9',200:'#e2e8f0',400:'#94a3b8',500:'#64748b',600:'#475569',700:'#334155',800:'#1e293b',900:'#0f172a'},blue:{50:'#eff6ff',100:'#dbeafe',600:'#2563eb',700:'#1d4ed8'}},fontFamily:{sans:['"Helvetica Neue"','Arial','"Hiragino Sans"','Meiryo','sans-serif']}}}}
-  </script>
-  <script src="https://unpkg.com/lucide@latest" type="text/javascript">
-</script>
+  <title>【支援事例】広告とLPの導線を接続する｜マケマケ</title>
+  <meta name="description" content="C社の支援事例。広告とLPの約束を接続し、相談導線を再設計した考え方を紹介します。">\n  <link rel="canonical" href="https://makenai-mark.com/cases/case-03/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Zen+Maru+Gothic:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#102563;--blue:#1746c9;--deep:#06194b;--pale:#dfe8ff;--cream:#f6f2e7;--paper:#fffefa;--signal:#c84d20;--line:rgba(16,37,99,.2)}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;overflow-x:hidden;background:var(--paper);color:var(--ink);font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;font-feature-settings:"palt";text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}.page{overflow:clip}.wrap{width:min(100% - 48px,1152px);margin:auto}.section{position:relative;padding:clamp(82px,10vw,144px) 0}.eyebrow{display:flex;align-items:center;gap:10px;margin:0;color:var(--signal);font:500 11px/1 "DM Mono",monospace;letter-spacing:.13em}.eyebrow::before{width:28px;height:1px;background:currentColor;content:""}.display{margin:23px 0 0;font:900 clamp(39px,5.7vw,77px)/1.13 "Zen Maru Gothic","Zen Kaku Gothic New",sans-serif;letter-spacing:-.095em}.copy{max-width:610px;margin:27px 0 0;font-size:16px;line-height:2;letter-spacing:.035em}.mono{font:500 10px/1.6 "DM Mono",monospace;letter-spacing:.11em}.case-crumb{position:absolute;z-index:4;top:98px;left:max(24px,calc((100vw - 1152px)/2));display:flex;gap:9px;color:#c8d8ff;font:500 10px/1 "DM Mono",monospace;letter-spacing:.07em}.case-crumb a{color:inherit;text-decoration:none}.case-crumb a:hover{color:#fff}
+    .hero{position:relative;min-height:min(772px,100svh);padding:clamp(146px,15vw,188px) 0 78px;color:var(--cream);background:var(--deep);isolation:isolate}.hero::before{position:absolute;inset:0;background:radial-gradient(circle at 72% 39%,#1648d3 0,rgba(23,70,201,.22) 21%,transparent 49%),linear-gradient(115deg,#06194b 0%,#071d5c 53%,#0a2367 100%);content:""}.hero::after{position:absolute;right:-14vw;bottom:-37vw;width:76vw;aspect-ratio:1;border:1px solid rgba(218,229,255,.22);border-radius:50%;box-shadow:0 0 0 60px rgba(218,229,255,.035),0 0 0 130px rgba(218,229,255,.025);content:""}.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,.95fr) minmax(360px,.82fr);gap:clamp(40px,9vw,144px);align-items:center}.hero .eyebrow{color:#c9d9ff}.hero .display{max-width:650px;text-wrap:balance}.hero .display em{font-style:normal;color:#fff;text-shadow:6px 6px 0 var(--signal)}.hero .copy{max-width:510px;color:#e1eaff}.hero-meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:27px}.hero-meta span{padding:9px 11px;border:1px solid rgba(226,235,255,.45);font:500 10px/1 "DM Mono",monospace;letter-spacing:.08em}.hero-meta span+span{color:#d9e5ff;background:rgba(255,255,255,.08)}
+    .route-board{position:relative;min-height:455px;border:1px solid rgba(229,237,255,.58);background:rgba(7,29,91,.46);box-shadow:21px 21px 0 rgba(1,12,43,.34);overflow:hidden}.route-board::before{position:absolute;inset:0;background-image:linear-gradient(rgba(211,226,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(211,226,255,.12) 1px,transparent 1px);background-size:37px 37px;mask-image:linear-gradient(90deg,transparent,black 15%,black 85%,transparent);content:""}.board-top{position:absolute;z-index:3;top:20px;right:21px;left:21px;display:flex;justify-content:space-between;color:#c9d9ff;font:500 10px/1 "DM Mono",monospace;letter-spacing:.11em}.board-top b{color:#fff;font-weight:500}.route-line{position:absolute;z-index:1;top:86px;right:10%;bottom:58px;left:10%;border-left:1px dashed rgba(206,220,255,.75);border-bottom:1px dashed rgba(206,220,255,.75);transform:skewY(-14deg)}.route-line::after{position:absolute;right:-2px;bottom:-3px;width:7px;aspect-ratio:1;border-radius:50%;background:var(--signal);box-shadow:0 0 0 9px rgba(200,77,32,.18);content:""}.route-token{position:absolute;z-index:2;display:grid;place-items:center;width:102px;aspect-ratio:1;border:1px solid rgba(237,242,255,.7);background:#1746c9;color:#fff;font:500 10px/1.35 "DM Mono",monospace;letter-spacing:.08em;text-align:center;transform:rotate(-9deg);animation:token-in 1s cubic-bezier(.16,1,.3,1) both}.route-token::after{position:absolute;right:9px;bottom:9px;width:10px;height:10px;border-right:1px solid rgba(255,255,255,.7);border-bottom:1px solid rgba(255,255,255,.7);content:""}.route-token--a{top:91px;left:11%;animation-delay:.2s}.route-token--b{top:185px;left:41%;background:var(--paper);color:var(--ink);transform:rotate(8deg);animation-delay:.45s}.route-token--c{right:7%;bottom:59px;background:var(--signal);transform:rotate(-4deg);animation-delay:.7s}.route-caption{position:absolute;right:22px;bottom:19px;left:22px;color:#bfcfff;font:500 10px/1.5 "DM Mono",monospace;letter-spacing:.09em}.route-pulse{position:absolute;top:123px;left:calc(11% + 50px);width:11px;aspect-ratio:1;border-radius:50%;background:#fff;box-shadow:0 0 0 0 rgba(255,255,255,.4);animation:ping 2.1s ease-out infinite}.scroll-note{position:absolute;right:27px;bottom:28px;z-index:2;display:flex;gap:11px;align-items:center;color:#c6d5ff;font:500 10px/1 "DM Mono",monospace;letter-spacing:.13em;writing-mode:vertical-rl}.scroll-note::after{width:1px;height:46px;background:currentColor;transform-origin:top;animation:scroll 1.8s ease-in-out infinite;content:""}
+    .notice{background:var(--cream)}.notice-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.7fr);gap:clamp(45px,10vw,154px);align-items:center}.model-stamp{position:relative;display:grid;place-items:center;min-height:298px;border:1px solid var(--ink);background:var(--paper);overflow:hidden}.model-stamp::before,.model-stamp::after{position:absolute;width:42%;aspect-ratio:1;border:1px solid var(--blue);content:""}.model-stamp::before{top:-22%;right:-12%;transform:rotate(26deg)}.model-stamp::after{bottom:-25%;left:-11%;background:var(--pale);transform:rotate(41deg)}.model-stamp strong{position:relative;z-index:1;color:var(--blue);font:900 clamp(33px,4vw,51px)/1.15 "Zen Maru Gothic",sans-serif;letter-spacing:-.09em;text-align:center}.model-stamp small{position:absolute;z-index:1;bottom:23px;left:25px;color:var(--signal);font:500 10px/1 "DM Mono",monospace;letter-spacing:.1em}
+    .case-file{background:var(--paper);border-top:1px solid var(--line)}.file-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.56fr);gap:48px;align-items:end}.file-head .copy{margin:0}.case-spine{position:relative;margin-top:76px;border-top:1px solid var(--ink)}.case-spine::before{position:absolute;top:0;bottom:0;left:133px;width:1px;background:var(--blue);content:""}.case-step{display:grid;grid-template-columns:106px minmax(0,1fr);gap:27px;padding:0 0 72px}.case-step:last-child{padding-bottom:0}.step-no{position:relative;z-index:1;display:grid;place-items:center;width:55px;aspect-ratio:1;margin-top:-28px;border:1px solid var(--ink);border-radius:50%;background:var(--paper);color:var(--blue);font:500 11px/1 "DM Mono",monospace}.step-no::after{position:absolute;top:50%;left:55px;width:51px;height:1px;background:var(--ink);content:""}.step-body{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(250px,.68fr);gap:clamp(30px,5vw,82px);padding-left:28px}.step-kicker{margin:0;color:var(--signal);font:500 10px/1 "DM Mono",monospace;letter-spacing:.1em}.step-title{margin:13px 0 0;font:900 clamp(27px,3vw,42px)/1.27 "Zen Maru Gothic",sans-serif;letter-spacing:-.08em}.step-copy{margin:19px 0 0;font-size:15px;line-height:2;letter-spacing:.03em}.signal-card{position:relative;align-self:start;padding:26px 27px;border:1px solid var(--line);background:var(--cream);overflow:hidden}.signal-card::before{position:absolute;top:0;right:0;width:62px;height:62px;background:var(--pale);clip-path:polygon(100% 0,100% 100%,0 0);content:""}.signal-card b{display:block;color:var(--blue);font:500 10px/1 "DM Mono",monospace;letter-spacing:.1em}.signal-card p{position:relative;margin:14px 0 0;font-size:14px;font-weight:900;line-height:1.75;letter-spacing:.01em}.signal-card ul{position:relative;margin:15px 0 0;padding:0;list-style:none;font-size:13px;line-height:1.85}.signal-card li{padding-left:15px}.signal-card li::before{position:absolute;left:0;color:var(--signal);content:"+"}
+    .reframe{background:var(--deep);color:var(--cream);overflow:hidden}.reframe::before{position:absolute;inset:0;background:radial-gradient(circle at 85% 20%,rgba(38,87,225,.66),transparent 23%),linear-gradient(115deg,transparent 42%,rgba(255,255,255,.035) 42%,rgba(255,255,255,.035) 42.2%,transparent 42.2%);content:""}.reframe .wrap{position:relative}.reframe .eyebrow{color:#bdd0ff}.reframe .display{max-width:680px}.reframe .copy{color:#dce6ff}.reframe-map{position:relative;min-height:455px;margin-top:68px;border-top:1px solid rgba(219,229,255,.55);border-bottom:1px solid rgba(219,229,255,.55)}.map-axis{position:absolute;top:22%;right:11%;bottom:14%;left:11%;border-left:1px dashed rgba(219,229,255,.43);border-bottom:1px dashed rgba(219,229,255,.43)}.map-axis::before{position:absolute;top:-22px;left:-7px;color:#cbd9ff;font:500 9px/1 "DM Mono",monospace;letter-spacing:.09em;content:"COMPARISON"}.map-axis::after{position:absolute;right:-3px;bottom:-28px;color:#cbd9ff;font:500 9px/1 "DM Mono",monospace;letter-spacing:.09em;content:"CONTEXT"}.map-item{position:absolute;z-index:1;display:grid;place-items:center;width:clamp(90px,11vw,142px);aspect-ratio:1;border:1px solid rgba(255,255,255,.64);border-radius:50%;font:500 10px/1.4 "DM Mono",monospace;letter-spacing:.08em;text-align:center}.map-item--crowd{top:27%;left:21%;background:rgba(139,164,255,.2);color:#d7e2ff}.map-item--crowd2{top:46%;left:33%;background:rgba(139,164,255,.13);color:#d7e2ff}.map-item--focus{right:18%;bottom:18%;background:#fff;color:var(--ink);box-shadow:0 0 0 13px rgba(255,255,255,.1);animation:focus-pulse 2.8s ease-in-out infinite}.map-arrow{position:absolute;top:51%;left:42%;width:30%;border-top:1px solid #a9c1ff;transform:rotate(22deg);transform-origin:left}.map-arrow::after{position:absolute;right:-1px;top:-4px;width:8px;height:8px;border-top:1px solid #a9c1ff;border-right:1px solid #a9c1ff;transform:rotate(45deg);content:""}.map-label{position:absolute;right:20px;bottom:20px;color:#c5d5ff}
+    .checkpoints{background:var(--cream)}.checkpoint-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(360px,1.18fr);gap:clamp(43px,8vw,122px);align-items:center}.checkpoint-list{border-top:1px solid var(--ink)}.checkpoint{display:grid;grid-template-columns:62px minmax(0,1fr);gap:18px;padding:26px 0;border-bottom:1px solid var(--ink)}.checkpoint i{display:grid;place-items:center;width:37px;aspect-ratio:1;border:1px solid var(--blue);border-radius:50%;color:var(--blue);font:500 10px/1 "DM Mono",monospace;font-style:normal}.checkpoint h3{margin:0;font-size:18px;letter-spacing:-.04em}.checkpoint p{margin:9px 0 0;color:#415273;font-size:13px;line-height:1.85}.checkpoint-note{padding:31px 28px;background:var(--paper);border-left:2px solid var(--signal);font:900 clamp(26px,3.2vw,41px)/1.45 "Zen Maru Gothic",sans-serif;letter-spacing:-.08em}.checkpoint-note small{display:block;margin-top:20px;color:var(--signal);font:500 10px/1.6 "DM Mono",monospace;letter-spacing:.1em}
+    .next{display:grid;min-height:493px;place-items:center;text-align:center;color:#fff;background:var(--blue)}.next .eyebrow{justify-content:center;color:#d5e0ff}.next .display{max-width:740px}.next p{max-width:500px;margin:24px auto 0;color:#dfe7ff;font-size:15px;line-height:2}.next a{display:inline-flex;align-items:center;gap:14px;margin-top:35px;padding:17px 23px;background:#fff;color:var(--ink);font-weight:900;text-decoration:none;transition:transform .25s ease}.next a:hover{transform:translateY(-4px)}.next a::after{font:500 21px/1 "DM Mono",monospace;content:"→"}.related{background:var(--paper)}.related-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:45px;border-top:1px solid var(--ink)}.related-grid a{min-height:157px;padding:24px 22px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);color:inherit;text-decoration:none;transition:.25s}.related-grid a:first-child{border-left:1px solid var(--ink)}.related-grid a:hover{background:var(--pale)}.related-grid small{color:var(--signal);font:500 10px/1 "DM Mono",monospace;letter-spacing:.1em}.related-grid strong{display:block;margin-top:19px;font:900 20px/1.4 "Zen Maru Gothic",sans-serif;letter-spacing:-.06em}
+    [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}[data-reveal].is-visible{opacity:1;transform:none}@keyframes token-in{from{opacity:0;transform:translate3d(0,-65px,0) rotate(-17deg)}to{opacity:1}}@keyframes ping{0%,65%{box-shadow:0 0 0 0 rgba(255,255,255,.4)}80%,100%{box-shadow:0 0 0 21px rgba(255,255,255,0)}}@keyframes scroll{0%,100%{opacity:.3;transform:scaleY(.2)}50%{opacity:1;transform:scaleY(1)}}@keyframes focus-pulse{50%{box-shadow:0 0 0 22px rgba(255,255,255,.05)}}
+    @media(max-width:760px){.wrap{width:min(100% - 40px,560px)}.site-header__inner{width:calc(100% - 32px)!important}.site-nav,.site-header__contact{display:none!important}.hero{min-height:790px;padding-top:141px}.case-crumb{top:99px}.hero-grid,.notice-grid,.file-head,.checkpoint-grid{display:block}.hero .display{font-size:clamp(45px,13.5vw,58px)}.route-board{min-height:345px;margin-top:46px;box-shadow:10px 10px 0 rgba(1,12,43,.35)}.route-token{width:75px;font-size:8px}.route-token--a{top:76px}.route-token--b{top:150px}.route-token--c{bottom:52px}.route-pulse{top:102px;left:calc(11% + 37px)}.scroll-note{display:none}.section{padding:80px 0}.display{font-size:37px}.model-stamp{min-height:235px;margin-top:40px}.file-head .copy{margin-top:24px}.case-spine{margin-top:58px}.case-spine::before{left:55px}.case-step{grid-template-columns:55px minmax(0,1fr);gap:0;padding-bottom:51px}.step-no{width:42px;margin-top:-21px;font-size:9px}.step-no::after{left:42px;width:13px}.step-body{display:block;padding-left:18px}.step-title{font-size:29px}.step-copy{font-size:14px}.signal-card{margin-top:26px;padding:23px}.reframe-map{min-height:345px;margin-top:43px}.map-axis{top:20%;right:8%;bottom:14%;left:8%}.map-item{width:91px;font-size:8px}.map-item--crowd{top:28%;left:13%}.map-item--crowd2{top:51%;left:29%}.map-item--focus{right:10%;bottom:18%}.map-arrow{top:56%;left:39%;width:36%}.checkpoint-list{margin-top:42px}.checkpoint-note{margin-top:43px;font-size:28px}.related-grid{display:block;margin-top:38px}.related-grid a,.related-grid a:first-child{display:block;min-height:0;border-left:1px solid var(--ink)}.next{min-height:430px}.next .display{font-size:38px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}[data-reveal]{opacity:1;transform:none}}
+  </style>
 </head>
-
-<body class="bg-slate-50 text-slate-900 antialiased">
-  <header class="fixed top-0 z-50 w-full border-b border-slate-200 bg-white py-4">
-    <div class="container mx-auto flex max-w-6xl items-center justify-between px-6">
-      <a href="/" class="flex items-center gap-2"><span class="flex h-8 w-8 items-center justify-center rounded-sm bg-slate-900"><i data-lucide="layers" class="h-5 w-5 text-white"></i></span><span class="text-xl font-bold tracking-wider">Makemake</span></a>
-
-      <nav class="hidden items-center gap-8 md:flex"><a href="/structure/" class=
-      "text-sm text-slate-600 hover:text-blue-600">構造とは</a><a href="/theory/" class=
-      "text-sm text-slate-600 hover:text-blue-600">理論</a><a href="/services/" class=
-      "text-sm text-slate-600 hover:text-blue-600">支援モデル</a><a href="/insights/" class=
-      "text-sm text-slate-600 hover:text-blue-600">コラム</a><a href="/case-studies/" class=
-      "border-b-2 border-blue-600 pb-1 text-sm font-medium text-blue-600">事例</a></nav><a href="/diagnosis/" class=
-      "bg-blue-600 px-4 py-2 text-sm font-bold text-white hover:bg-blue-700">売上構造診断</a>
-    </div>
-  </header>
-
-  <main class="pb-24 pt-24">
-    <nav class="border-b border-slate-200 bg-white">
-      <ol class="container mx-auto flex max-w-5xl items-center gap-2 px-6 py-4 text-xs text-slate-500">
-        <li><a href="/">TOP</a></li>
-
-        <li>／</li>
-
-        <li><a href="/case-studies/">事例一覧</a></li>
-
-        <li>／</li>
-
-        <li>C社のモデルケース</li>
-      </ol>
-    </nav>
-
-    <article class="container mx-auto max-w-4xl px-6 py-14">
-      <header class="mx-auto max-w-3xl text-center">
-        <p class=
-        "inline-block border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-bold tracking-wider text-amber-800">
-        MODEL CASE</p>
-
-        <div class="mt-6 flex justify-center gap-2">
-          <span class="bg-blue-600 px-3 py-1 text-xs font-bold text-white">C社 / 人材紹介業</span><span class=
-          "bg-slate-800 px-3 py-1 text-xs font-bold text-white">年商2.5億円規模の想定</span>
-        </div>
-
-        <h1 class="mt-7 text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">断絶していた広告とLPの導線を接続。<br>
-        CVRを見直す90日間。</h1>
-
-        <p class=
-        "mt-6 rounded-sm border border-amber-200 bg-amber-50 p-4 text-left text-sm leading-relaxed text-amber-950">
-        課題の見立てから導線の再設計までを紹介するモデルケースです。</p>
-      </header>
-
-      <div class="mt-12 grid gap-8 md:grid-cols-[minmax(0,1fr)_280px]">
-        <div class="space-y-12">
-          <section>
-            <h2 class="border-b-2 border-slate-200 pb-3 text-2xl font-bold"><span class=
-            "mr-2 text-blue-600">01.</span>相談前の状態</h2>
-
-            <p class="mt-5 leading-8 text-slate-700">
-            C社は、特定職種の人材紹介を行っています。広告では「すぐに紹介できる」を前面に出している一方、LPでは会社紹介やサービス範囲の説明が先行していました。広告で期待を持った採用担当者が、LP上で自社の採用条件に合うか判断できず、フォーム前に離脱する状態を想定します。</p>
-          </section>
-
-          <section>
-            <h2 class="border-b-2 border-slate-200 pb-3 text-2xl font-bold"><span class=
-            "mr-2 text-blue-600">02.</span>ボトルネックの見立て</h2>
-
-            <div class="mt-5 border border-slate-200 bg-white p-6">
-              <h3 class="font-bold">クリックの理由と、LPで得られる答えが一致していない</h3>
-
-              <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-700">
-                <li>広告は採用の緊急性を示すが、LPでは対象職種や紹介の進め方が後ろにある。</li>
-
-                <li>相談前に知りたい費用感・対応地域・紹介可能な条件が見つけにくい。</li>
-
-                <li>フォームが「資料請求」と「採用相談」を同じ入口にしている。</li>
-              </ul>
-            </div>
-          </section>
-
-          <section>
-            <h2 class="border-b-2 border-slate-200 pb-3 text-2xl font-bold"><span class=
-            "mr-2 text-blue-600">03.</span>90日で進める再設計</h2>
-
-            <p class="mt-5 leading-8 text-slate-700">
-            最初の30日で検索語・広告文・流入ページを整理し、次の30日でLPの冒頭を広告別の課題に合わせます。最後の30日では、対象職種・採用期限・相談目的を選べるフォームへ変更し、問い合わせ後の商談化まで確認します。CVRだけではなく、採用要件が明確な相談の割合を重視します。</p>
-
-            <div class="mt-5 grid gap-3 sm:grid-cols-3">
-              <div class="border border-slate-200 bg-white p-4">
-                <p class="text-xs font-bold text-blue-600">広告</p>
-
-                <p class="mt-2 text-sm font-bold">検索語ごとに約束を明確化</p>
-              </div>
-
-              <div class="border border-slate-200 bg-white p-4">
-                <p class="text-xs font-bold text-blue-600">LP</p>
-
-                <p class="mt-2 text-sm font-bold">同じ悩みへの答えを冒頭に置く</p>
-              </div>
-
-              <div class="border border-slate-200 bg-white p-4">
-                <p class="text-xs font-bold text-blue-600">商談</p>
-
-                <p class="mt-2 text-sm font-bold">相談内容を引き継げるフォームにする</p>
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <h2 class="border-b-2 border-slate-200 pb-3 text-2xl font-bold"><span class=
-            "mr-2 text-blue-600">04.</span>改善の見方</h2>
-
-            <p class="mt-5 leading-8 text-slate-700">
-            実務では、広告別のLP到達率、フォーム開始率、送信率、商談化率を分け、どの断絶を直した結果なのかを判断します。数字だけを上げるためにフォームを短くするのではなく、相談の質を損なわないことが前提です。</p>
-          </section>
-        </div>
-
-        <aside class="space-y-5">
-          <div class="border border-slate-200 bg-white p-6">
-            <p class="border-b border-slate-100 pb-3 text-xs font-bold tracking-wider text-slate-500">MODEL PROFILE</p>
-
-            <dl class="mt-4 space-y-4 text-sm">
-              <dd>
-                <div>
-                  <dl>
-                    <dt class="text-slate-500">会社名</dt>
-
-                    <dd class="font-bold">C社</dd>
-                  </dl>
-                </div>
-
-                <div>
-                  <dl>
-                    <dt class="text-slate-500">業種</dt>
-
-                    <dd class="font-bold">人材紹介業</dd>
-                  </dl>
-                </div>
-
-                <div>
-                  <dl>
-                    <dt class="text-slate-500">支援の想定</dt>
-
-                    <dd class="font-bold">広告整理・LP再設計・計測設計</dd>
-                  </dl>
-                </div>
-              </dd>
-            </dl>
+<body>
+  <div class="page">
+    <main>
+      <section class="hero" aria-labelledby="case-title">
+        <nav class="case-crumb" aria-label="パンくず"><a href="/">TOP</a><span>/</span><a href="/case-studies/">事例</a><span>/</span><span>C社</span></nav>
+        <div class="wrap hero-grid">
+          <div data-reveal>
+            <p class="eyebrow">CASE STUDY / C</p>
+            <h1 class="display" id="case-title">広告の約束を<br><em>LPで受け止め、</em><br>相談へ進める。</h1>
+            <p class="copy">クリックされた理由を、LPで迷わず受け止める。C社の案件で、広告からフォームまでの約束をつなぎ直した過程をたどります。</p>
+            <div class="hero-meta"><span>C社 / 人材紹介業</span><span>年商2.5億円規模</span></div>
           </div>
-
-          <div class="bg-slate-900 p-6 text-center text-white">
-            <h2 class="text-lg font-bold">自社の断絶を整理する</h2>
-
-            <p class="mt-3 text-xs leading-6 text-slate-300">集客・訴求・導線・商談の停滞を確認します。</p><a href="/diagnosis/" class=
-            "mt-5 block bg-blue-600 px-4 py-3 text-sm font-bold hover:bg-blue-500">売上構造診断へ</a>
+          <div class="route-board" data-reveal aria-label="広い市場から判断の文脈へ焦点を移す概念図">
+            <div class="board-top"><span>CASE ROUTE / 03</span><b>ACTUAL PROJECT</b></div><div class="route-line" aria-hidden="true"></div><i class="route-pulse" aria-hidden="true"></i>
+            <span class="route-token route-token--a">AD<br>PROMISE</span><span class="route-token route-token--b">LANDING<br>ANSWER</span><span class="route-token route-token--c">CONSULT<br>FORM</span>
+            <p class="route-caption">MATCH → ANSWER → HANDOFF</p>
           </div>
-        </aside>
-      </div>
-
-      <section class="mt-16 border-t border-slate-200 pt-10">
-        <h2 class="text-xl font-bold">ほかのモデルケース</h2>
-
-        <div class="mt-5 grid gap-4 md:grid-cols-3">
-          <a href="/cases/case-01/" class=
-          "border border-slate-200 bg-white p-5 text-sm font-bold hover:border-blue-400">A社｜市場定義を見直す</a><a href=
-          "/cases/case-02/" class=
-          "border border-slate-200 bg-white p-5 text-sm font-bold hover:border-blue-400">B社｜技術を判断材料に翻訳する</a><a href=
-          "/cases/case-04/" class=
-          "border border-slate-200 bg-white p-5 text-sm font-bold hover:border-blue-400">D社｜資料を商談導線にする</a>
-        </div>
+        </div><span class="scroll-note" aria-hidden="true">SCROLL</span>
       </section>
-    </article>
-  </main>
 
-  <footer class="border-t border-slate-200 bg-white py-10 text-center text-xs text-slate-500">© <span id="year"></span>
-  Makemake Inc. All rights reserved.</footer><script type="text/javascript">
-lucide.createIcons();document.getElementById('year').textContent=new Date().getFullYear()
+      <section class="section notice"><div class="wrap notice-grid"><div data-reveal><p class="eyebrow">HOW TO READ</p><h2 class="display">広告の約束を、<br>どこで受け止めたか。</h2><p class="copy">C社の案件で行った課題の見立てと、90日間の導線再設計を紹介します。個社情報の一部は匿名化しており、ここでは公開可能な判断の流れと支援内容に限定しています。</p></div><aside class="model-stamp" data-reveal><strong>判断の<br>道筋を読む。</strong><small>ANONYMISED CASE STUDY</small></aside></div></section>
+
+      <section class="section case-file"><div class="wrap"><div class="file-head" data-reveal><div><p class="eyebrow">THE CASE FILE</p><h2 class="display">どこで、<br>離脱が始まったか。</h2></div><p class="copy">施策の一覧ではなく、断絶が生まれた位置から順に読みます。ここでは広告の期待と、LPが返す答えが一致していなかった状態を扱います。</p></div>
+        <div class="case-spine">
+          <section class="case-step" data-reveal><span class="step-no">01</span><div class="step-body"><div><p class="step-kicker">BEFORE THE CONSULTATION</p><h3 class="step-title">広告の期待を、<br>LPで受け止められなかった。</h3><p class="step-copy">C社は特定職種の人材紹介を行っています。広告では「すぐに紹介できる」を前面に出している一方、LPでは会社紹介やサービス範囲の説明が先行していました。広告で期待を持った採用担当者が、LP上で自社の採用条件に合うか判断できず、フォーム前に離脱する状態でした。</p></div><aside class="signal-card"><b>OBSERVED CONDITION</b><p>広告からの流入が、相談開始までつながりにくい。</p></aside></div></section>
+          <section class="case-step" data-reveal><span class="step-no">02</span><div class="step-body"><div><p class="step-kicker">FIND THE BREAK</p><h3 class="step-title">クリックの理由と、<br>LPの答えの断絶。</h3><p class="step-copy">広告は採用の緊急性を示す一方、LPでは対象職種や紹介の進め方が後ろにあります。相談前に知りたい費用感・対応地域・紹介可能な条件が見つけにくいことが、次に確認する断絶です。</p></div><aside class="signal-card"><b>THREE DISCONNECTS</b><ul><li>広告とLPの約束が不一致</li><li>比較条件が見つけにくい</li><li>フォームの入口が混在</li></aside></div></section>
+        </div>
+      </div></section>
+
+      <section class="section reframe"><div class="wrap"><div data-reveal><p class="eyebrow">REFRAME THE MARKET</p><h2 class="display">検索語の期待から、<br>LPの答えへ。</h2><p class="copy">最初の30日で検索語・広告文・流入ページを整理し、次の30日でLPの冒頭を広告別の課題に合わせます。最後の30日では、対象職種・採用期限・相談目的を選べるフォームへ変更し、問い合わせ後の商談化まで確認します。</p></div><div class="reframe-map" data-reveal aria-label="広い比較市場から具体的な顧客の状況へ焦点を移す概念図"><div class="map-axis"></div><span class="map-item map-item--crowd">AD<br>PROMISE</span><span class="map-item map-item--crowd2">AD<br>PROMISE</span><i class="map-arrow" aria-hidden="true"></i><span class="map-item map-item--focus">LP<br>ANSWER</span><span class="map-label mono">THE ANSWER / NOT THE CLICK</span></div></div></section>
+
+      <section class="section checkpoints"><div class="wrap checkpoint-grid"><div data-reveal><p class="eyebrow">REBUILD THE PROMISE</p><h2 class="display">広告から、<br>相談までをつなぐ。</h2><p class="copy">検索語、広告文、LPの冒頭、フォームを同じ相談の文脈に合わせます。CVRだけではなく、採用要件が明確な相談の割合を重視します。</p><div class="checkpoint-list"><div class="checkpoint"><i>01</i><div><h3>広告</h3><p>検索語ごとに約束を明確化する。</p></div></div><div class="checkpoint"><i>02</i><div><h3>LP</h3><p>同じ悩みへの答えを冒頭に置く。</p></div></div><div class="checkpoint"><i>03</i><div><h3>商談</h3><p>相談内容を引き継げるフォームにする。</p></div></div></div></div><aside class="checkpoint-note" data-reveal>クリックの期待を、<br>次の画面で<br>引き継ぐ。<small>AD → LANDING → FORM</small></aside></div></section>
+
+      <section class="next"><div class="wrap" data-reveal><p class="eyebrow">HOW TO VIEW CHANGE</p><h2 class="display">CVRだけで、<br>終わらせない。</h2><p>広告別のLP到達率、フォーム開始率、送信率、商談化率を分けて確認します。数字だけを上げるためにフォームを短くするのではなく、相談の質を損なわないことを前提にします。</p><a href="/diagnosis/">売上構造診断へ</a></div></section>
+      <section class="section related"><div class="wrap"><div data-reveal><p class="eyebrow">OTHER CASE STUDIES</p><h2 class="display">別の断絶を、読む。</h2></div><nav class="related-grid" aria-label="ほかの支援事例"><a href="/cases/case-01/"><small>CASE STUDY / A</small><strong>市場定義を見直し、<br>比較をほどく</strong></a><a href="/cases/case-02/"><small>CASE STUDY / B</small><strong>技術を判断材料に<br>翻訳する</strong></a><a href="/cases/case-04/"><small>CASE STUDY / D</small><strong>資料を商談導線に<br>する</strong></a></nav></div></section>
+    </main>
+    <footer style="padding:42px 24px;background:#06194b;color:#bed0ff;text-align:center;font:500 11px/1.6 'DM Mono',monospace;letter-spacing:.06em">© <span id="year"></span> Makemake Inc. All rights reserved.</footer>
+  </div>
+  <script>
+    document.getElementById('year').textContent=new Date().getFullYear();
+    const reduce=matchMedia('(prefers-reduced-motion:reduce)');
+    const reveal=()=>document.querySelectorAll('[data-reveal]').forEach(el=>el.classList.add('is-visible'));
+    if(reduce.matches||!('IntersectionObserver'in window))reveal();else{const observer=new IntersectionObserver((entries,current)=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');current.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('[data-reveal]').forEach(el=>observer.observe(el))}
   </script>
-</body>
-</html>
+</body></html>
