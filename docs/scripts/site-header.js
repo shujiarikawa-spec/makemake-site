@@ -26,10 +26,24 @@
             .brand-lockup--footer .brand-wordmark { font-size: 18px; }
             .brand-lockup--on-dark .brand-wordmark { color: #fff; }
             .brand-lockup--on-dark .brand-wordmark__m { color: #60a5fa; }
-            .site-footer--with-brand { align-items: center; display: flex; flex-direction: column; gap: 14px; justify-content: center; }
+            .makemake-global-footer { align-items: center; background: #f6f2e7; border-top: 1px solid #d7deec; display: flex; min-height: 145px; padding: 48px 0; }
+            .makemake-global-footer__inner { align-items: center; display: flex; gap: 24px; justify-content: space-between; margin: 0 auto; width: min(100% - 48px, 1152px); }
+            .makemake-global-footer .brand-lockup { color: #102563; }
+            .makemake-global-footer .brand-lockup__mark { height: 24px; }
+            .makemake-global-footer .brand-wordmark { color: #102563; font-size: 18px; }
+            .makemake-global-footer .brand-wordmark__m { color: #1746c9; }
+            .makemake-global-footer__links { display: flex; gap: 24px; }
+            .makemake-global-footer__links a { color: #52617c; font: 700 14px/1 "DM Sans", "Zen Kaku Gothic New", sans-serif; letter-spacing: -.025em; text-decoration: none; transition: color .2s ease; }
+            .makemake-global-footer__links a:hover { color: #102563; }
+            .makemake-global-footer__copyright { color: #7685a0; font: 500 11px/1.6 "DM Sans", "Zen Kaku Gothic New", sans-serif; margin: 0; white-space: nowrap; }
             @media (max-width: 767px) {
                 .brand-lockup__mark { height: 28px; }
                 .brand-wordmark { font-size: 18px; }
+                .makemake-global-footer { min-height: 0; padding: 42px 0; }
+                .makemake-global-footer__inner { flex-direction: column; gap: 20px; justify-content: center; text-align: center; width: min(100% - 40px, 560px); }
+                .makemake-global-footer__links { flex-wrap: wrap; gap: 16px 24px; justify-content: center; }
+                .makemake-global-footer__links a { font-size: 13px; }
+                .makemake-global-footer__copyright { font-size: 11px; }
             }
         `;
         document.head.appendChild(styles);
@@ -109,20 +123,24 @@
         document.body.insertAdjacentHTML('afterbegin', headerMarkup);
     };
 
-    const mountFooterBrands = function () {
-        document.querySelectorAll('footer').forEach(function (footer) {
-            if (footer.querySelector('.brand-lockup')) return;
-            const isDark = footer.classList.contains('bg-slate-900') || footer.classList.contains('bg-slate-950');
-            const brandMount = footer.querySelector('.flex.items-center.gap-2');
-            const markup = brandLockupMarkup({ footer: true, dark: isDark });
+    const globalFooterMarkup = function () {
+        return `<div class="makemake-global-footer__inner">
+            ${brandLockupMarkup({ footer: true, dark: false })}
+            <nav class="makemake-global-footer__links" aria-label="フッターナビゲーション"><a href="/company/">会社概要</a><a href="/privacy/">プライバシーポリシー</a><a href="/contact/">お問い合わせ</a></nav>
+            <p class="makemake-global-footer__copyright">© <span data-makemake-footer-year></span> Makemake Inc. All rights reserved.</p>
+        </div>`;
+    };
 
-            if (brandMount) {
-                brandMount.innerHTML = markup;
-                return;
-            }
-
-            footer.classList.add('site-footer--with-brand');
-            footer.insertAdjacentHTML('afterbegin', markup);
+    const mountGlobalFooter = function () {
+        const footers = Array.from(document.querySelectorAll('footer'));
+        const targets = footers.length ? footers : [document.body.appendChild(document.createElement('footer'))];
+        targets.forEach(function (footer) {
+            footer.className = 'makemake-global-footer';
+            footer.removeAttribute('style');
+            footer.innerHTML = globalFooterMarkup();
+        });
+        document.querySelectorAll('[data-makemake-footer-year]').forEach(function (year) {
+            year.textContent = new Date().getFullYear();
         });
     };
 
@@ -132,10 +150,10 @@
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function () {
             mountHeader();
-            mountFooterBrands();
+            mountGlobalFooter();
         }, { once: true });
     } else {
         mountHeader();
-        mountFooterBrands();
+        mountGlobalFooter();
     }
 }());
