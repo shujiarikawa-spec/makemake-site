@@ -91,10 +91,10 @@
             </div>
 
             <div class="bg-white border border-slate-200 rounded-sm shadow-sm p-6 md:p-10 reveal overflow-hidden">
-                <form action="https://formspree.io/f/xzdaqrgy" method="POST" class="space-y-6">
+                <form action="https://formspree.io/f/xzdaqrgy" method="POST" class="space-y-6" data-analytics-form="contact">
 
                     <!-- 任意：送信後の遷移先 -->
-                    <input type="hidden" name="_redirect" value="/thanks-diagnosis/">
+                    <input type="hidden" name="_redirect" value="/thanks-contact/">
 
                     <!-- 推奨：スパム対策 -->
                     <input type="text" name="_gotcha" style="display:none">
@@ -148,7 +148,7 @@
                             送信することにより、弊社の<a href="/privacy/" target="_blank"
                                 class="text-blue-600 underline">プライバシーポリシー</a>に同意したものとみなされます。
                         </p>
-                        <button type="submit"
+                        <button type="submit" data-analytics-submit
                             class="bg-slate-900 text-white font-bold px-12 py-4 rounded-sm hover:bg-slate-800 transition-all shadow-sm w-full md:w-auto">
                             送信する
                         </button>

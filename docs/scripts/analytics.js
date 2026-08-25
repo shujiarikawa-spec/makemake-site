@@ -22,6 +22,24 @@
         }, parameters || {}));
     };
 
+    const pendingFormKey = 'makemake_pending_form_submission';
+    const rememberPendingForm = function (formType) {
+        try {
+            window.sessionStorage.setItem(pendingFormKey, formType);
+        } catch (_) {
+            // A blocked storage area must not prevent the native form submit.
+        }
+    };
+    const consumePendingForm = function () {
+        try {
+            const formType = window.sessionStorage.getItem(pendingFormKey);
+            window.sessionStorage.removeItem(pendingFormKey);
+            return formType;
+        } catch (_) {
+            return null;
+        }
+    };
+
     document.addEventListener('click', function (event) {
         const diagnosisLink = event.target.closest('a[href="/diagnosis/"], a[href="/diagnosis"]');
         if (diagnosisLink) {
@@ -36,15 +54,31 @@
                 diagnosis_area: diagnosisChoice.dataset.diagnosis
             });
         }
-    });
 
-    document.addEventListener('submit', function (event) {
-        if (event.target.matches('form[action*="formspree.io"]')) {
-            sendEvent('diagnosis_form_submit');
+        const submitButton = event.target.closest('button[type="submit"][data-analytics-submit]');
+        const formType = submitButton && submitButton.form && submitButton.form.dataset.analyticsForm;
+        if (formType) {
+            // This intentionally counts an actual button press, including a
+            // press that is stopped by browser validation before submission.
+            sendEvent(formType + '_submit_click', { form_type: formType });
         }
     });
 
-    if (window.location.pathname === '/thanks-diagnosis/') {
-        sendEvent('generate_lead');
+    document.addEventListener('submit', function (event) {
+        const formType = event.target.dataset.analyticsForm;
+        if (formType) {
+            // The completion event is emitted only after Formspree returns to
+            // the matching thank-you page, never with any form-field value.
+            rememberPendingForm(formType);
+        }
+    });
+
+    const completionByPath = {
+        '/thanks-diagnosis/': 'diagnosis',
+        '/thanks-contact/': 'contact'
+    };
+    const completedFormType = completionByPath[window.location.pathname];
+    if (completedFormType && consumePendingForm() === completedFormType) {
+        sendEvent(completedFormType + '_submission_success', { form_type: completedFormType });
     }
 }());

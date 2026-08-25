@@ -23,6 +23,10 @@ export const SHEETS = Object.freeze({
     headers: ["date", "source", "medium", "campaign", "content", "users", "sessions", "pageviews", "key_events"],
     key: row => [row[0], row[1], row[2], row[3], row[4]].join("\u0001")
   },
+  form_events: {
+    headers: ["date", "event_name", "page_path", "event_count"],
+    key: row => [row[0], row[1], row[2]].join("\u0001")
+  },
   articles: {
     headers: ["url", "title", "publish_date", "target_keyword", "status"],
     key: row => row[0]
@@ -75,10 +79,13 @@ export function makeSheetRows(raw, startDate, endDate, targetKeywordJson = "") {
   const utmRows = sorted(selected(raw.acquisitionRows).filter(row => row.sessionSource || row.sessionMedium || row.sessionCampaignName || row.sessionManualAdContent).map(row => [
     row.date, row.sessionSource || "", row.sessionMedium || "", row.sessionCampaignName || "", row.sessionManualAdContent || "", num(row.users), num(row.sessions), num(row.pageviews), num(row.keyEvents)
   ]));
+  const formEventRows = sorted(selected(raw.eventRows).filter(row => /^(contact|diagnosis)_(submit_click|submission_success)$/.test(row.eventName || "")).map(row => [
+    row.date, row.eventName, row.pagePath || "", num(row.events)
+  ]));
   const targets = keywordMap(targetKeywordJson);
   const articleRows = (raw.articles || []).map(article => [article.url, article.title, article.publishedAt || "", targets[article.url] || targets[new URL(article.url).pathname] || "", "published"]);
   const actionRows = (raw.articles || []).filter(article => article.publishedAt).map(article => [article.publishedAt, "article", article.title, "公開済みコラムを初期登録", new URL(article.url).pathname]);
-  return { daily_summary: dailySummary, search_queries: queryRows, search_pages: pageRows, ga4_pages: sorted(gaRows), utm_traffic: utmRows, articles: articleRows, seo_actions: actionRows };
+  return { daily_summary: dailySummary, search_queries: queryRows, search_pages: pageRows, ga4_pages: sorted(gaRows), utm_traffic: utmRows, form_events: formEventRows, articles: articleRows, seo_actions: actionRows };
 }
 
 async function sheetsRequest(url, token, method = "GET", body) {

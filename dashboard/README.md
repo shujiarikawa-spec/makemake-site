@@ -45,12 +45,12 @@ curl -X POST "https://makemake-seo-dashboard.shuji-arikawa.workers.dev/api/admin
 
 ## 計測上の前提
 
-- 問い合わせは現在の `generate_lead` を使用します。GA4 管理画面でこのイベントを **キーイベント** に指定してください。フォームの `submit` は送信失敗を含み得るため、問い合わせ数には使いません。
+- フォーム計測は、`contact_submit_click`、`diagnosis_submit_click`、`contact_submission_success`、`diagnosis_submission_success` の4イベントです。押下は入力不足で送れなかったケースも含み、完了はFormspreeから対応する完了ページへ戻った場合だけを計測します。フォームの入力値・個人情報はGA4へ送りません。GA4上で送信完了イベントをキーイベントに指定しても構いませんが、ダッシュボードはイベント回数を使用するため追加設定なしで表示できます。
 - 診断ページ到達は `/diagnosis/` の `screenPageViews`、記事→診断遷移は `diagnosis_cta_click` です。
 - X / Instagram は `sessionSource` を `x|twitter|t.co`、`instagram|ig|l.instagram.com` として集計し、`sessionManualAdContent`（`utm_content`）を投稿単位として表示します。UTM のない SNS 流入は投稿単位比較に入らず、`(UTM contentなし)` と明示されます。
 - コラムは公開サイトの sitemap の `/insights/` URLを毎回発見するため、記事追加時にダッシュボードのコードを修正しません。公開日は記事本文の `公開日：YYYY年M月D日` を抽出します。書式が異なる記事は「公開日未取得」です。
 - GSC は通常数日の確定遅延があるため、最新3日を収集対象から外します。これは「0」と誤認しないためです。無料WorkerのCPU制限に収めるため、初回は`DASHBOARD_HISTORY_DAYS`（既定28日）だけを取得します。以後は`SHEETS_RECONCILE_DAYS`（既定7日）を更新し、同じ日付・キーの行は追加せず更新します。長期の推移は日次蓄積で育てる設計です。
-- 保存先のシートは`daily_summary`、`search_queries`、`search_pages`、`ga4_pages`、`utm_traffic`、`articles`、`seo_actions`です。既存シートが同一ヘッダーなら更新、ヘッダーが異なれば中断するため、既存データを壊しません。空の`シート1`はそのまま残します。
+- 保存先のシートは`daily_summary`、`search_queries`、`search_pages`、`ga4_pages`、`utm_traffic`、`form_events`、`articles`、`seo_actions`です。既存シートが同一ヘッダーなら更新、ヘッダーが異なれば中断するため、既存データを壊しません。空の`シート1`はそのまま残します。
 
 ## 判定ロジック
 

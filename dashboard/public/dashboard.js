@@ -16,7 +16,8 @@ function metrics(data) {
     ["CTR", data.current.search.ctr, data.changes.ctr, false, rate], ["平均掲載順位", data.current.search.position, data.changes.position, true, position],
     ["オーガニックユーザー", data.current.organic.users, data.changes.organicUsers, false, n], ["オーガニックセッション", data.current.organic.sessions, data.changes.organicSessions, false, n],
     ["コラム閲覧数", data.current.columns.pageviews, data.changes.columnPageviews, false, n], ["診断ページ到達", data.current.diagnosis.pageviews, data.changes.diagnosisPageviews, false, n],
-    ["問い合わせ", data.current.inquiries.keyEvents, data.changes.inquiries, false, n]
+    ["お問い合わせ送信ボタン", data.current.forms.contactSubmitClicks, data.changes.contactSubmitClicks, false, n], ["構造診断送信ボタン", data.current.forms.diagnosisSubmitClicks, data.changes.diagnosisSubmitClicks, false, n],
+    ["お問い合わせ送信完了", data.current.forms.contactSubmissionSuccess, data.changes.contactSubmissionSuccess, false, n], ["構造診断送信完了", data.current.forms.diagnosisSubmissionSuccess, data.changes.diagnosisSubmissionSuccess, false, n]
   ];
   el("metrics").innerHTML = items.map(([label, value, change, reverse, formatter]) => `<article class="metric"><p>${label}</p><strong>${formatter(value)}</strong>${delta(change, reverse, reverse ? " 位" : "%")}</article>`).join("");
 }
@@ -31,7 +32,7 @@ function health(data) {
 }
 
 function flow(data) {
-  const steps = [["Google検索表示", data.current.search.impressions], ["検索クリック", data.current.search.clicks], ["自然検索セッション", data.current.organic.sessions], ["診断ページ到達", data.current.diagnosis.pageviews], ["問い合わせ", data.current.inquiries.keyEvents]];
+  const steps = [["Google検索表示", data.current.search.impressions], ["検索クリック", data.current.search.clicks], ["自然検索セッション", data.current.organic.sessions], ["診断ページ到達", data.current.diagnosis.pageviews], ["フォーム送信完了", data.current.forms.completed]];
   el("flow-steps").innerHTML = steps.map(([label, value], index) => `<div class="flow-step"><span>0${index + 1}</span><b>${n(value)}</b><span>${label}</span></div>`).join("");
 }
 
@@ -44,7 +45,7 @@ function chartSvg(rows, field, formatter) {
 }
 
 function charts(data) {
-  const items = [["Google検索クリック", "clicks", n], ["Google検索表示", "impressions", n], ["CTR", "ctr", rate], ["平均掲載順位", "position", position], ["オーガニックユーザー", "organicUsers", n], ["オーガニックセッション", "organicSessions", n], ["コラム閲覧", "columnPageviews", n], ["診断到達", "diagnosisPageviews", n], ["問い合わせ", "inquiries", n]];
+  const items = [["Google検索クリック", "clicks", n], ["Google検索表示", "impressions", n], ["CTR", "ctr", rate], ["平均掲載順位", "position", position], ["オーガニックユーザー", "organicUsers", n], ["オーガニックセッション", "organicSessions", n], ["コラム閲覧", "columnPageviews", n], ["診断到達", "diagnosisPageviews", n], ["お問い合わせ送信ボタン", "contactSubmitClicks", n], ["構造診断送信ボタン", "diagnosisSubmitClicks", n], ["お問い合わせ送信完了", "contactSubmissionSuccess", n], ["構造診断送信完了", "diagnosisSubmissionSuccess", n]];
   el("charts").innerHTML = items.map(([title, field, formatter]) => `<article class="chart"><h3>${title}</h3>${chartSvg(data.trend, field, formatter)}</article>`).join("");
 }
 

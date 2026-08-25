@@ -17,7 +17,7 @@ test("dashboard joins query, column, social and diagnosis data for selected peri
     pageRows: [{ date: "2026-08-20", pagePath: "/insights/sales-not-growing/", sessionDefaultChannelGroup: "Organic Search", users: 10, sessions: 12, pageviews: 18 }, { date: "2026-08-20", pagePath: "/diagnosis/", users: 4, sessions: 4, pageviews: 6 }],
     articleAcquisitionRows: [{ date: "2026-08-20", pagePath: "/insights/sales-not-growing/", sessionSource: "x", sessionManualAdContent: "post03", users: 3, sessions: 4 }],
     acquisitionRows: [{ date: "2026-08-20", sessionSource: "x", sessionManualAdContent: "post03", users: 3, sessions: 4 }],
-    eventRows: [{ date: "2026-08-20", eventName: "diagnosis_cta_click", pagePath: "/insights/sales-not-growing/", events: 2 }, { date: "2026-08-20", eventName: "generate_lead", pagePath: "/thanks-diagnosis/", events: 1 }],
+    eventRows: [{ date: "2026-08-20", eventName: "diagnosis_cta_click", pagePath: "/insights/sales-not-growing/", events: 2 }, { date: "2026-08-20", eventName: "contact_submit_click", pagePath: "/contact/", events: 3 }, { date: "2026-08-20", eventName: "diagnosis_submit_click", pagePath: "/diagnosis/", events: 4 }, { date: "2026-08-20", eventName: "contact_submission_success", pagePath: "/thanks-contact/", events: 1 }, { date: "2026-08-20", eventName: "diagnosis_submission_success", pagePath: "/thanks-diagnosis/", events: 2 }],
     articles: [{ url: "https://makenai-mark.com/insights/sales-not-growing/", title: "売上が伸びない原因", publishedAt: "2026-08-22" }], targetQueries: ["売上が伸びない 原因"], targetQueryRows: [{ date: "2026-08-20", query: "売上が伸びない 原因", clicks: 5, impressions: 30, ctr: .16, position: 7 }], warnings: []
   };
   const data = buildDashboard(raw, "28");
@@ -26,4 +26,8 @@ test("dashboard joins query, column, social and diagnosis data for selected peri
   assert.equal(data.articles[0].diagnosisTransitions, 2);
   assert.equal(data.social[0].posts[0].name, "post03");
   assert.equal(data.targets[0].current.position, 7);
+  assert.equal(data.current.forms.contactSubmitClicks, 3);
+  assert.equal(data.current.forms.diagnosisSubmitClicks, 4);
+  assert.equal(data.current.forms.contactSubmissionSuccess, 1);
+  assert.equal(data.current.forms.diagnosisSubmissionSuccess, 2);
 });

@@ -47,6 +47,11 @@ export function reduceGa(rows) {
   }), { users: 0, sessions: 0, pageviews: 0, keyEvents: 0 });
 }
 
+function eventCount(rows, range, eventName) {
+  return (rows || []).filter(row => inRange(row.date, range) && row.eventName === eventName)
+    .reduce((sum, row) => sum + number(row.events), 0);
+}
+
 export function health(current, previous, sampleDays) {
   const signals = [
     pctChange(current.search.clicks, previous.search.clicks),
@@ -100,7 +105,19 @@ export function buildDashboard(raw, periodKey = "28") {
   const gaPreviousRows = select(raw.gaDaily, ranges.previous);
   const organic = (rows) => reduceGa(rows.filter(row => String(row.sessionDefaultChannelGroup || "").toLowerCase() === "organic search"));
   const diagnosis = (rows) => reduceGa((raw.pageRows || []).filter(row => inRange(row.date, rows) && safePath(row.pagePath) === "/diagnosis/"));
-  const inquiry = (rows) => reduceGa((raw.eventRows || []).filter(row => inRange(row.date, rows) && row.eventName === "generate_lead"));
+  const forms = (range) => {
+    const contactSubmitClicks = eventCount(raw.eventRows, range, "contact_submit_click");
+    const diagnosisSubmitClicks = eventCount(raw.eventRows, range, "diagnosis_submit_click");
+    const contactSubmissionSuccess = eventCount(raw.eventRows, range, "contact_submission_success");
+    const diagnosisSubmissionSuccess = eventCount(raw.eventRows, range, "diagnosis_submission_success");
+    return {
+      contactSubmitClicks,
+      diagnosisSubmitClicks,
+      contactSubmissionSuccess,
+      diagnosisSubmissionSuccess,
+      completed: contactSubmissionSuccess + diagnosisSubmissionSuccess
+    };
+  };
   const columns = (rows) => reduceGa((raw.pageRows || []).filter(row => inRange(row.date, rows) && safePath(row.pagePath).startsWith("/insights/")));
   const current = {
     search: reduceSearch(searchCurrentRows),
@@ -108,7 +125,7 @@ export function buildDashboard(raw, periodKey = "28") {
     organic: organic(gaCurrentRows),
     columns: columns(ranges.current),
     diagnosis: diagnosis(ranges.current),
-    inquiries: inquiry(ranges.current)
+    forms: forms(ranges.current)
   };
   const previous = {
     search: reduceSearch(searchPreviousRows),
@@ -116,7 +133,7 @@ export function buildDashboard(raw, periodKey = "28") {
     organic: organic(gaPreviousRows),
     columns: columns(ranges.previous),
     diagnosis: diagnosis(ranges.previous),
-    inquiries: inquiry(ranges.previous)
+    forms: forms(ranges.previous)
   };
   const rangeRows = (rows) => select(rows || [], ranges.current);
   const queries = aggregateTable(rangeRows(raw.searchQueryRows), row => row.query, reduceSearch)
@@ -156,7 +173,10 @@ export function buildDashboard(raw, periodKey = "28") {
     organicSessions: number((raw.gaDaily || []).find(ga => ga.date === row.date && String(ga.sessionDefaultChannelGroup || "").toLowerCase() === "organic search")?.sessions),
     columnPageviews: columns({ start: row.date, end: row.date }).pageviews,
     diagnosisPageviews: diagnosis({ start: row.date, end: row.date }).pageviews,
-    inquiries: inquiry({ start: row.date, end: row.date }).keyEvents
+    contactSubmitClicks: forms({ start: row.date, end: row.date }).contactSubmitClicks,
+    diagnosisSubmitClicks: forms({ start: row.date, end: row.date }).diagnosisSubmitClicks,
+    contactSubmissionSuccess: forms({ start: row.date, end: row.date }).contactSubmissionSuccess,
+    diagnosisSubmissionSuccess: forms({ start: row.date, end: row.date }).diagnosisSubmissionSuccess
   }));
   const targets = (raw.targetQueries || []).map(query => {
     const rows = (raw.targetQueryRows || []).filter(row => row.query === query);
@@ -168,6 +188,9 @@ export function buildDashboard(raw, periodKey = "28") {
     ctr: pctChange(current.search.ctr, previous.search.ctr), position: previous.search.position - current.search.position,
     organicUsers: pctChange(current.organic.users, previous.organic.users), organicSessions: pctChange(current.organic.sessions, previous.organic.sessions),
     columnPageviews: pctChange(current.columns.pageviews, previous.columns.pageviews), diagnosisPageviews: pctChange(current.diagnosis.pageviews, previous.diagnosis.pageviews),
-    inquiries: pctChange(current.inquiries.keyEvents, previous.inquiries.keyEvents)
+    contactSubmitClicks: pctChange(current.forms.contactSubmitClicks, previous.forms.contactSubmitClicks),
+    diagnosisSubmitClicks: pctChange(current.forms.diagnosisSubmitClicks, previous.forms.diagnosisSubmitClicks),
+    contactSubmissionSuccess: pctChange(current.forms.contactSubmissionSuccess, previous.forms.contactSubmissionSuccess),
+    diagnosisSubmissionSuccess: pctChange(current.forms.diagnosisSubmissionSuccess, previous.forms.diagnosisSubmissionSuccess)
   }, health: health(current, previous, days), trend, queries, pages, importantPages, articles, social, initiatives: raw.articles || [], targets, warnings: raw.warnings || [] };
 }
