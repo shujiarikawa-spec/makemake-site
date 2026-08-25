@@ -1,383 +1,53 @@
-<!DOCTYPE html>
-<html lang="ja" class="scroll-smooth">
-
+<!doctype html>
+<html lang="ja">
 <head>
-    <script src="/scripts/analytics.js"></script>
-    <script src="/scripts/site-header.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>マケマケの支援モデル（顧問＋制作）｜戦略から実行までを一気通貫</title>
-    <meta name="description"
-        content="マケマケは戦略を描くだけの顧問ではなく、作るだけの制作会社でもありません。「戦略顧問」「クリエイティブ制作」「改善運用」を統合したハイブリッド型のマーケティング支援を提供します。">
-    <link rel="canonical" href="https://makenai-mark.com/services/">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        slate: {
-                            50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1',
-                            400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155',
-                            800: '#1e293b', 900: '#0f172a',
-                        },
-                        blue: {
-                            50: '#eff6ff', 100: '#dbeafe', 400: '#60a5fa', 500: '#3b82f6',
-                            600: '#2563eb', 700: '#1d4ed8',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['"Helvetica Neue"', 'Arial', '"Hiragino Kaku Gothic ProN"', '"Hiragino Sans"', 'Meiryo', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- SEO / SGE Schema (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "マーケティング顧問＋制作支援",
-      "provider": {
-        "@type": "Organization",
-        "name": "マケマケ"
-      },
-      "description": "戦略顧問、クリエイティブ制作、改善運用の3つを統合したハイブリッド型マーケティング支援。",
-      "areaServed": "JP",
-      "serviceType": "Marketing Consulting & Web Development"
-    }
-    </script>
-
-    <style>
-        body {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reveal.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .delay-100 {
-            transition-delay: 100ms;
-        }
-
-        .delay-200 {
-            transition-delay: 200ms;
-        }
-
-        .delay-300 {
-            transition-delay: 300ms;
-        }
-    </style>
+  <script src="/scripts/analytics.js"></script>
+  <script src="/scripts/site-header.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>マケマケの支援モデル（顧問＋制作）｜戦略から実行までを一気通貫</title>
+  <meta name="description" content="マケマケは戦略を描くだけの顧問ではなく、作るだけの制作会社でもありません。「戦略顧問」「クリエイティブ制作」「改善運用」を統合したハイブリッド型のマーケティング支援を提供します。">
+  <link rel="canonical" href="https://makenai-mark.com/services/">
+  <meta property="og:title" content="マケマケの支援モデル（顧問＋制作）｜戦略から実行までを一気通貫">
+  <meta property="og:description" content="戦略顧問・クリエイティブ制作・改善運用を統合した、マケマケの支援モデル。">
+  <meta property="og:url" content="https://makenai-mark.com/services/">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Service","name":"マーケティング顧問＋制作支援","provider":{"@type":"Organization","name":"マケマケ"},"description":"戦略顧問、クリエイティブ制作、改善運用の3つを統合したハイブリッド型マーケティング支援。","areaServed":"JP","serviceType":"Marketing Consulting & Web Development"}
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=JetBrains+Mono:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Zen+Maru+Gothic:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#102563;--blue:#1240c4;--sky:#3165dc;--cream:#f6f2e7;--paper:#fffefa;--pale:#e5edff;--orange:#c84d20;--line:rgba(16,37,99,.18)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;overflow-x:hidden;color:var(--ink);background:var(--paper);font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;font-feature-settings:"palt";-webkit-font-smoothing:antialiased}.page{overflow:clip}.wrap{position:relative;z-index:2;width:min(100% - 48px,1152px);margin:auto}.section{position:relative;padding:clamp(84px,11vw,146px) 0}.eyebrow{display:flex;align-items:center;gap:10px;margin:0;color:var(--orange);font:500 11px/1 "JetBrains Mono",monospace;letter-spacing:.15em}.eyebrow::before{width:27px;height:1px;background:currentColor;content:""}.section-title{max-width:780px;margin:20px 0 0;font:900 clamp(34px,5.2vw,67px)/1.16 "Zen Maru Gothic","Zen Kaku Gothic New",sans-serif;letter-spacing:-.08em}.copy{max-width:625px;margin:27px 0 0;font-size:16px;line-height:2;letter-spacing:.035em}.grain{position:absolute;inset:0;pointer-events:none;opacity:.25;background-image:radial-gradient(rgba(16,37,99,.35) .55px,transparent .7px);background-size:7px 7px;mix-blend-mode:multiply}
+    .hero{position:relative;min-height:min(780px,100svh);padding:clamp(140px,14vw,184px) 0 76px;overflow:hidden;background:var(--ink);color:var(--cream)}.hero::after{position:absolute;right:-10vw;bottom:-13vw;width:min(47vw,620px);aspect-ratio:1;border:1px solid rgba(255,255,255,.16);border-radius:50%;content:""}.hero-crumb{position:absolute;z-index:3;top:99px;left:max(24px,calc((100vw - 1152px)/2));display:flex;gap:9px;color:#b6c8f7;font:500 10px/1 "JetBrains Mono",monospace;letter-spacing:.08em}.hero-crumb a{color:inherit;text-decoration:none}.hero-crumb a:hover{color:#fff}.hero-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(390px,1.1fr);gap:clamp(38px,8vw,128px);align-items:center}.hero .eyebrow{color:#9bb7ff}.hero h1{max-width:650px;margin:34px 0 0;font:900 clamp(51px,7.5vw,102px)/1.03 "Zen Maru Gothic","Zen Kaku Gothic New",sans-serif;letter-spacing:-.105em}.hero h1 em{font-style:normal;color:#83a5ff}.hero-copy{max-width:510px;margin:29px 0 0;color:#dbe5ff;font-size:16px;font-weight:700;line-height:2;letter-spacing:.035em}.hero-meta{display:flex;align-items:center;gap:14px;margin:38px 0 0;color:#aec2f6;font:500 10px/1.7 "JetBrains Mono",monospace;letter-spacing:.1em}.hero-meta i{width:7px;aspect-ratio:1;border-radius:50%;background:var(--orange)}
+    .support-console{position:relative;min-height:470px;padding:25px;border:1px solid rgba(203,218,255,.5);background:rgba(16,37,99,.32);box-shadow:22px 22px 0 rgba(49,101,220,.24)}.console-label{display:flex;justify-content:space-between;color:#afc4ff;font:500 10px/1 "JetBrains Mono",monospace;letter-spacing:.12em}.console-grid{position:absolute;inset:60px 25px 25px;background-image:linear-gradient(to right,rgba(211,224,255,.15) 1px,transparent 1px),linear-gradient(to bottom,rgba(211,224,255,.15) 1px,transparent 1px);background-size:32px 32px}.relay-line{position:absolute;z-index:1;top:50%;right:11%;left:11%;height:1px;background:#8fabff}.relay-line::before,.relay-line::after{position:absolute;top:-4px;width:9px;aspect-ratio:1;border-radius:50%;background:#fff;content:""}.relay-line::before{left:0}.relay-line::after{right:0}.relay-signal{position:absolute;z-index:2;top:calc(50% - 7px);left:11%;width:14px;aspect-ratio:1;border-radius:50%;background:var(--orange);box-shadow:0 0 0 8px rgba(200,77,32,.18);animation:relay 4.6s cubic-bezier(.65,0,.35,1) infinite}@keyframes relay{0%,12%{left:11%;opacity:0}18%{opacity:1}43%{left:44%}54%{left:44%}82%{left:86%}90%,100%{left:86%;opacity:0}}.support-node{position:absolute;z-index:3;display:grid;place-items:center;width:126px;aspect-ratio:1;border:1px solid rgba(255,255,255,.68);background:var(--ink);color:#fff;transition:transform .35s ease,background .35s ease}.support-node svg{width:41px;height:41px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.support-node span{position:absolute;right:13px;bottom:11px;color:#a9c0ff;font:500 9px/1 "JetBrains Mono",monospace;letter-spacing:.12em}.support-node--one{top:17%;left:9%;animation:node-one 4.6s ease-in-out infinite}.support-node--two{top:calc(50% - 63px);left:calc(50% - 63px);background:#18377f;animation:node-two 4.6s ease-in-out infinite}.support-node--three{right:9%;bottom:17%;animation:node-three 4.6s ease-in-out infinite}@keyframes node-one{0%,18%{background:#315fd8;transform:translateY(-7px)}26%,100%{background:var(--ink);transform:none}}@keyframes node-two{0%,38%{background:#18377f}46%,62%{background:#315fd8;transform:translateY(-7px)}70%,100%{background:#18377f;transform:none}}@keyframes node-three{0%,72%{background:var(--ink)}80%,94%{background:#315fd8;transform:translateY(-7px)}100%{background:var(--ink);transform:none}}
+    .statement{background:var(--cream)}.statement-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.78fr);gap:clamp(45px,9vw,150px);align-items:center}.statement-card{position:relative;min-height:310px;padding:38px;border:1px solid var(--line);background:var(--paper);overflow:hidden}.statement-card::before{position:absolute;top:0;right:0;width:45%;height:100%;background:var(--pale);clip-path:polygon(100% 0,100% 100%,0 100%);content:""}.statement-card p{position:relative;max-width:360px;margin:0;font:900 clamp(28px,3.25vw,44px)/1.45 "Zen Maru Gothic",sans-serif;letter-spacing:-.07em}.statement-card small{position:absolute;bottom:30px;left:38px;color:var(--orange);font:500 10px/1 "JetBrains Mono",monospace;letter-spacing:.13em}
+    .pillars{background:var(--paper)}.pillar-list{margin:clamp(50px,8vw,93px) 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}.pillar{display:grid;grid-template-columns:112px minmax(0,1fr) minmax(230px,.72fr);gap:30px;align-items:center;padding:31px 0;border-bottom:1px solid var(--line)}.pillar-no{color:var(--orange);font:500 11px/1 "JetBrains Mono",monospace;letter-spacing:.12em}.pillar h3{margin:0;font:900 clamp(28px,3.5vw,47px)/1.17 "Zen Maru Gothic",sans-serif;letter-spacing:-.08em}.pillar p{margin:14px 0 0;color:#425472;font-size:14px;line-height:1.9}.pillar-deliverables{margin:0;padding:0;list-style:none;color:#27427e;font-size:13px;line-height:1.9}.pillar-deliverables li{display:flex;gap:9px}.pillar-deliverables li::before{color:var(--orange);content:"+"}.pillar-symbol{display:grid;width:72px;aspect-ratio:1;place-items:center;margin-top:18px;border:1px solid var(--line);color:var(--blue)}.pillar-symbol svg{width:38px;height:38px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.pillar:hover .pillar-symbol{background:var(--blue);color:#fff;transform:rotate(8deg)}
+    .handoff{overflow:hidden;color:var(--cream);background:var(--blue)}.handoff-top{display:grid;grid-template-columns:1fr minmax(220px,.55fr);gap:35px;align-items:end}.handoff .eyebrow{color:#bed0ff}.handoff .copy{color:#d7e3ff}.handoff-loop{display:flex;width:max-content;margin-top:clamp(55px,8vw,96px);animation:track 26s linear infinite}.handoff-group{display:flex;gap:17px;padding-right:17px}.handoff-card{display:flex;align-items:center;gap:19px;width:min(30vw,350px);min-width:290px;padding:26px;border:1px solid rgba(255,255,255,.45);background:rgba(8,28,87,.3)}.handoff-card b{display:grid;width:49px;aspect-ratio:1;place-items:center;border:1px solid rgba(255,255,255,.65);border-radius:50%;font:500 12px/1 "JetBrains Mono",monospace}.handoff-card strong{display:block;font-size:17px}.handoff-card small{display:block;margin-top:7px;color:#bed0ff;font:500 10px/1.6 "JetBrains Mono",monospace;letter-spacing:.1em}@keyframes track{to{transform:translateX(calc(-50% - 8.5px))}}
+    .timeline{background:var(--cream)}.timeline-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(270px,.62fr);gap:50px;align-items:end}.timeline-heading .copy{margin:0}.phase-list{position:relative;margin:clamp(52px,8vw,90px) 0 0;padding:0;list-style:none}.phase-list::before{position:absolute;top:18px;bottom:18px;left:16px;width:1px;background:var(--ink);content:""}.phase{position:relative;display:grid;grid-template-columns:70px minmax(0,1fr) minmax(240px,.62fr);gap:28px;align-items:start;padding:0 0 52px}.phase:last-child{padding-bottom:0}.phase b{position:relative;z-index:1;display:grid;width:33px;aspect-ratio:1;place-items:center;border-radius:50%;background:var(--orange);color:#fff;font:500 10px/1 "JetBrains Mono",monospace}.phase time{display:block;color:#62749a;font:500 10px/1.4 "JetBrains Mono",monospace;letter-spacing:.12em}.phase h3{margin:8px 0 0;font:900 clamp(23px,3vw,34px)/1.25 "Zen Maru Gothic",sans-serif;letter-spacing:-.07em}.phase p{margin:0;color:#435471;font-size:14px;line-height:1.95}.notice{margin:54px 0 0;padding:19px 22px;border-left:2px solid var(--orange);background:rgba(255,255,255,.55);color:#4a5a76;font-size:13px;line-height:1.85}
+    .final{position:relative;min-height:520px;display:grid;place-items:center;overflow:hidden;text-align:center;color:var(--cream);background:var(--ink)}.final::before{position:absolute;top:50%;left:50%;width:min(82vw,940px);aspect-ratio:1;border:1px solid rgba(173,199,255,.22);border-radius:50%;transform:translate(-50%,-50%);content:""}.final::after{position:absolute;top:50%;left:50%;width:min(52vw,620px);aspect-ratio:1;border:1px dashed rgba(173,199,255,.38);border-radius:50%;transform:translate(-50%,-50%);content:""}.final .wrap{display:grid;place-items:center}.final .eyebrow{color:#bed0ff}.final h2{max-width:760px;margin:27px 0 0;font:900 clamp(39px,5.7vw,76px)/1.14 "Zen Maru Gothic",sans-serif;letter-spacing:-.1em}.final p:not(.eyebrow){max-width:500px;margin:24px 0 0;color:#d0dcfa;font-size:15px;line-height:2}.final a{display:inline-flex;align-items:center;gap:15px;margin-top:37px;padding:17px 23px;background:#fff;color:var(--ink);font-weight:900;text-decoration:none;transition:transform .25s ease}.final a::after{font:500 19px/1 "DM Sans",sans-serif;content:"→"}.final a:hover{transform:translateY(-4px)}[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}[data-reveal].is-visible{opacity:1;transform:none}
+    @media(max-width:760px){.wrap{width:min(100% - 40px,560px)}.site-header__inner{width:calc(100% - 32px)!important}.site-nav,.site-header__contact{display:none!important}.hero{min-height:790px;padding-top:140px}.hero-grid,.statement-grid,.handoff-top,.timeline-heading{display:block}.hero h1{font-size:clamp(47px,14vw,60px)}.hero-copy{font-size:15px}.support-console{min-height:360px;margin-top:51px;padding:18px;box-shadow:12px 12px 0 rgba(49,101,220,.24)}.console-grid{inset:46px 18px 18px}.support-node{width:92px}.support-node svg{width:31px;height:31px}.support-node span{right:8px;bottom:8px;font-size:7px}.statement-card{margin-top:42px;min-height:265px;padding:29px}.statement-card small{bottom:25px;left:29px}.section-title{font-size:34px}.pillar{grid-template-columns:54px 1fr;gap:13px 18px;padding:25px 0}.pillar h3{font-size:28px}.pillar p{grid-column:2;margin-top:10px}.pillar-deliverables{grid-column:2;margin-top:5px}.pillar-symbol{width:48px;margin-top:11px}.pillar-symbol svg{width:28px;height:28px}.handoff-loop{margin-top:46px}.handoff-card{min-width:245px;width:245px;padding:20px}.timeline-heading .copy{margin-top:25px}.phase{grid-template-columns:52px 1fr;gap:16px;padding-bottom:41px}.phase p{grid-column:2}.phase-list::before{left:16px}.notice{margin-top:34px}.final{min-height:460px}.final h2{font-size:39px}.hero::after{width:420px;right:-180px;bottom:-100px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}[data-reveal]{opacity:1;transform:none}}
+  </style>
 </head>
-
-<body class="bg-slate-50 text-slate-900 selection:bg-blue-200">
-
-    <!-- Header -->
-    <header id="global-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent py-6">
-        <div class="container mx-auto px-6 max-w-6xl flex justify-between items-center">
-            <a href="/" class="flex items-center gap-2 group cursor-pointer text-decoration-none">
-                <div
-                    class="w-8 h-8 bg-slate-900 rounded-sm flex items-center justify-center transition-transform group-hover:scale-105">
-                    <i data-lucide="layers" class="w-5 h-5 text-white"></i>
-                </div>
-                <span class="text-xl font-bold tracking-wider text-slate-900">Makemake</span>
-            </a>
-            <nav class="hidden md:flex items-center gap-8">
-                <a href="/structure/"
-                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">構造とは</a>
-                <a href="/theory/"
-                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">理論</a>
-                <a href="/services/"
-                    class="text-sm font-medium text-blue-600 border-b-2 border-blue-600 pb-1">支援モデル</a>
-                <a href="/insights/"
-                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">コラム</a>
-                <a href="/case-studies/"
-                    class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">事例</a>
-            </nav>
-            <div class="flex items-center gap-4">
-                <a href="/diagnosis/"
-                    class="bg-blue-600 text-white text-sm font-medium px-5 py-2.5 rounded-sm hover:bg-blue-700 transition-all shadow-sm flex items-center gap-2">
-                    売上構造診断 <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </a>
-            </div>
-        </div>
-    </header>
-
+<body>
+  <div class="page">
     <main>
-        <!-- Hero Section -->
-        <section class="pt-32 pb-16 md:pt-40 md:pb-24 bg-slate-900 text-white relative overflow-hidden">
-            <!-- Decorative Grid -->
-            <div class="absolute inset-0 opacity-10 pointer-events-none">
-                <div class="absolute left-1/3 top-0 w-px h-full bg-blue-400"></div>
-                <div class="absolute left-2/3 top-0 w-px h-full bg-blue-400"></div>
-                <div class="absolute top-1/2 left-0 w-full h-px bg-blue-400"></div>
-            </div>
-
-            <div class="container mx-auto px-6 max-w-4xl text-center relative z-10">
-                <div class="reveal">
-                    <span
-                        class="inline-block py-1 px-3 border border-slate-700 bg-slate-800 text-xs font-bold tracking-widest text-slate-300 rounded-sm mb-6">
-                        OUR SERVICES
-                    </span>
-                    <h1 class="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight mb-6">
-                        戦略を描き、形にして、<br class="md:hidden">成果を追う。
-                    </h1>
-                    <p class="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto font-medium">
-                        マケマケは、アドバイスだけで終わるコンサルタントでも、<br class="hidden md:block">
-                        言われた通りに作るだけの制作会社でもありません。<br>
-                        「顧問」と「制作」を統合した、ハイブリッド型支援を提供します。
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- The 3 Pillars -->
-        <section class="py-24 bg-slate-50 border-b border-slate-200">
-            <div class="container mx-auto px-6 max-w-5xl">
-                <div class="text-center mb-16 reveal">
-                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">支援の3本柱</h2>
-                    <p class="text-slate-600">売上構造（市場・戦略・表現・導線）を一気通貫で再設計するための体制です。</p>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Pillar 1 -->
-                    <div class="bg-white p-8 border border-slate-200 rounded-sm shadow-sm reveal">
-                        <div
-                            class="w-12 h-12 bg-blue-50 border border-blue-100 rounded-sm flex items-center justify-center mb-6">
-                            <i data-lucide="compass" class="w-6 h-6 text-blue-600"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">01. 戦略顧問</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed mb-6">
-                            自社の強みと戦うべき市場を再定義します。経営層やマーケティング責任者と伴走し、ブレない売上構造の土台を設計します。
-                        </p>
-                        <div class="bg-slate-50 p-4 rounded-sm border border-slate-100">
-                            <p class="text-xs font-bold text-slate-500 mb-2 tracking-wider">主な成果物</p>
-                            <ul class="text-sm text-slate-700 space-y-2 font-medium">
-                                <li class="flex items-center gap-2"><i data-lucide="check"
-                                        class="w-4 h-4 text-blue-500"></i>市場・競合調査レポート</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check"
-                                        class="w-4 h-4 text-blue-500"></i>ポジショニング定義書</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check"
-                                        class="w-4 h-4 text-blue-500"></i>カスタマージャーニーマップ</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Pillar 2 -->
-                    <div class="bg-white p-8 border border-slate-200 rounded-sm shadow-sm reveal delay-100">
-                        <div
-                            class="w-12 h-12 bg-slate-100 border border-slate-200 rounded-sm flex items-center justify-center mb-6">
-                            <i data-lucide="pen-tool" class="w-6 h-6 text-slate-700"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">02. 制作・実装</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed mb-6">
-                            設計した戦略を、顧客の心を動かすクリエイティブに翻訳します。「カッコいい」ではなく「売れる」ことに特化した制作を行います。
-                        </p>
-                        <div class="bg-slate-50 p-4 rounded-sm border border-slate-100">
-                            <p class="text-xs font-bold text-slate-500 mb-2 tracking-wider">主な成果物</p>
-                            <ul class="text-sm text-slate-700 space-y-2 font-medium">
-                                <li class="flex items-center gap-2"><i data-lucide="check"
-                                        class="w-4 h-4 text-blue-500"></i>ランディングページ（LP）</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check"
-                                        class="w-4 h-4 text-blue-500"></i>Webサイト全般</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check"
-                                        class="w-4 h-4 text-blue-500"></i>広告用バナー・動画</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Pillar 3 -->
-                    <div class="bg-white p-8 border border-slate-200 rounded-sm shadow-sm reveal delay-200">
-                        <div
-                            class="w-12 h-12 bg-slate-100 border border-slate-200 rounded-sm flex items-center justify-center mb-6">
-                            <i data-lucide="line-chart" class="w-6 h-6 text-slate-700"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">03. 改善運用</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed mb-6">
-                            作って終わりではありません。数値を計測し、仮説検証を繰り返すことで、CPAの改善とCVRの最大化を図ります。
-                        </p>
-                        <div class="bg-slate-50 p-4 rounded-sm border border-slate-100">
-                            <p class="text-xs font-bold text-slate-500 mb-2 tracking-wider">主な成果物</p>
-                            <ul class="text-sm text-slate-700 space-y-2 font-medium">
-                                <li class="flex items-center gap-2"><i data-lucide="check"
-                                        class="w-4 h-4 text-blue-500"></i>月次/週次レポート</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check"
-                                        class="w-4 h-4 text-blue-500"></i>LPO（LP最適化）実装</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check"
-                                        class="w-4 h-4 text-blue-500"></i>広告アカウント運用・調整</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 90 Days Timeline -->
-        <section class="py-24 bg-white">
-            <div class="container mx-auto px-6 max-w-4xl">
-                <div class="text-center mb-16 reveal">
-                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">ご支援の流れ（90日モデル）</h2>
-                    <p class="text-slate-600">最初の90日間で、売上の基盤となる「再現性の土台」を構築します。</p>
-                </div>
-
-                <div class="relative border-l-2 border-slate-200 ml-3 md:ml-6 space-y-12">
-
-                    <!-- Phase 1 -->
-                    <div class="relative pl-8 md:pl-12 reveal">
-                        <div
-                            class="absolute w-6 h-6 bg-blue-600 rounded-full -left-[13px] top-1 border-4 border-white shadow-sm">
-                        </div>
-                        <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 mb-4">
-                            <span class="text-blue-600 font-bold text-lg">Phase 1</span>
-                            <span
-                                class="text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-sm w-fit">Week
-                                1 - 2</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">構造診断と戦略立案</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                            現状のマーケティング施策をすべて棚卸しし、「どこでユーザーが離脱しているか（導線の断絶）」を可視化します。その後、戦うべき市場とメッセージを再定義します。
-                        </p>
-                    </div>
-
-                    <!-- Phase 2 -->
-                    <div class="relative pl-8 md:pl-12 reveal">
-                        <div
-                            class="absolute w-6 h-6 bg-slate-300 rounded-full -left-[13px] top-1 border-4 border-white shadow-sm">
-                        </div>
-                        <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 mb-4">
-                            <span class="text-slate-700 font-bold text-lg">Phase 2</span>
-                            <span
-                                class="text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-sm w-fit">Week
-                                3 - 6</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">クリエイティブ開発・実装</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                            立案した戦略に基づき、必要となるアセット（LP、バナー、ホワイトペーパー等）を制作します。既存の資産が使える場合は改修にとどめ、無駄なコストはかけません。
-                        </p>
-                    </div>
-
-                    <!-- Phase 3 -->
-                    <div class="relative pl-8 md:pl-12 reveal">
-                        <div
-                            class="absolute w-6 h-6 bg-slate-300 rounded-full -left-[13px] top-1 border-4 border-white shadow-sm">
-                        </div>
-                        <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 mb-4">
-                            <span class="text-slate-700 font-bold text-lg">Phase 3</span>
-                            <span
-                                class="text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-sm w-fit">Week
-                                7 - 12</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">運用開始・高速PDCA</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                            新しい導線で配信を開始します。初期の反応データをもとに、週次単位でクリエイティブやターゲット設定のチューニングを行い、CPAを適正値へ引き下げます。
-                        </p>
-                    </div>
-                </div>
-
-                <div class="mt-16 p-6 bg-slate-50 border border-slate-200 rounded-sm text-center reveal">
-                    <p class="text-sm text-slate-600">※ 90日以降は、安定した基盤をもとに予算を拡大し、さらなる売上グロースを目指すフェーズに移行します。</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA & Performance link -->
-        <section class="py-24 bg-slate-900 text-white relative">
-            <div class="container mx-auto px-6 max-w-4xl text-center">
-                <h2 class="text-2xl md:text-3xl font-bold mb-6 reveal">
-                    さらに踏み込んだコミットメントを求める方へ。
-                </h2>
-                <p class="text-slate-300 mb-10 reveal delay-100 max-w-2xl mx-auto leading-relaxed">
-                    マケマケでは、一定の条件を満たす企業様限定で、私たちの報酬と貴社の売上（または粗利/リード数）を連動させる**「成果連動型支援」**を提供しています。
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4 reveal delay-200">
-                    <a href="/diagnosis/"
-                        class="bg-blue-600 text-white font-bold px-8 py-4 rounded-sm hover:bg-blue-500 transition-all shadow-lg flex items-center justify-center gap-2 group">
-                        まずは構造診断から始める
-                        <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                    <a href="/performance/"
-                        class="bg-transparent border border-slate-600 text-white font-medium px-8 py-4 rounded-sm hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
-                        成果連動の条件を見る
-                    </a>
-                </div>
-            </div>
-        </section>
-
+      <section class="hero" aria-labelledby="services-title"><div class="grain" aria-hidden="true"></div><nav class="hero-crumb" aria-label="パンくず"><a href="/">TOP</a><span>/</span><span>支援モデル</span></nav><div class="wrap hero-grid"><div data-reveal><p class="eyebrow">SUPPORT MODEL / 01</p><h1 id="services-title">考えて、<br><em>つくって、</em><br>育てる。</h1><p class="hero-copy">マケマケは、助言だけでも、制作だけでも終わりません。<br>戦略顧問・クリエイティブ制作・改善運用を、ひとつの支援としてつなぎます。</p><p class="hero-meta"><i></i>THINK → MAKE → IMPROVE</p></div><div class="support-console" data-reveal aria-label="戦略、制作、改善が順につながる支援の図"><div class="console-label"><span>SUPPORT RELAY</span><span>LIVE / 03</span></div><div class="console-grid" aria-hidden="true"></div><div class="relay-line" aria-hidden="true"></div><i class="relay-signal" aria-hidden="true"></i><div class="support-node support-node--one"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="14"/><path d="M24 7v8m0 18v8M7 24h8m18 0h8M17 31l14-14"/></svg><span>THINK</span></div><div class="support-node support-node--two"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 33 33 10l5 5-23 23-7 1zM29 14l5 5"/><path d="m8 40 8-2"/></svg><span>MAKE</span></div><div class="support-node support-node--three"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 35V13m0 22h30"/><path d="m15 30 8-8 6 4 10-12"/><path d="M34 14h5v5"/></svg><span>IMPROVE</span></div></div></div><span class="scroll" aria-hidden="true"></span></section>
+      <section class="section statement"><div class="wrap statement-grid"><div data-reveal><p class="eyebrow">01 / ONE TEAM</p><h2 class="section-title">分けるための役割を、<br>つなぐために持つ。</h2><p class="copy">市場や顧客への理解は、制作の前提になります。制作で得た反応は、次の改善と戦略の材料になります。各工程を引き継ぐのではなく、前後の判断が途切れない体制をつくります。</p></div><aside class="statement-card" data-reveal><p>戦略から実行まで、<br>一気通貫で考える。</p><small>MAKEMAKE / SUPPORT PRINCIPLE</small></aside></div></section>
+      <section class="section pillars" id="model"><div class="wrap"><div data-reveal><p class="eyebrow">02 / THREE ROLES</p><h2 class="section-title">必要な役割を、<br>ひとつの流れに。</h2><p class="copy">3つの役割は独立したメニューではなく、売上構造を見直し、形にし、反応から次の判断へつなぐための支援です。</p></div><ol class="pillar-list"><li class="pillar" data-reveal><span class="pillar-no">01 / THINK</span><div><h3>戦略顧問</h3><p>自社の強みと戦うべき市場を整理し、経営層やマーケティング責任者と、売上構造の土台を設計します。</p><span class="pillar-symbol" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="15"/><path d="m19 29 10-10m-2 9 2-9-9 2"/></svg></span></div><ul class="pillar-deliverables" aria-label="主な成果物"><li>市場・競合調査レポート</li><li>ポジショニング定義書</li><li>カスタマージャーニーマップ</li></ul></li><li class="pillar" data-reveal><span class="pillar-no">02 / MAKE</span><div><h3>制作・実装</h3><p>設計した戦略を、顧客に届くクリエイティブへ翻訳します。必要な接点を見極めながら、言葉・デザイン・導線を具体化します。</p><span class="pillar-symbol" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M10 34 34 10l5 5-24 24-7 2zM29 15l5 5M8 41l8-3"/></svg></span></div><ul class="pillar-deliverables" aria-label="主な成果物"><li>ランディングページ（LP）</li><li>Webサイト全般</li><li>広告用バナー・動画</li></ul></li><li class="pillar" data-reveal><span class="pillar-no">03 / IMPROVE</span><div><h3>改善運用</h3><p>作った後の反応を計測し、仮説と実装を繰り返します。次に何を調整するかを、数値と顧客行動の両面から検討します。</p><span class="pillar-symbol" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M9 36V12m0 24h31"/><path d="m15 30 8-8 6 4 11-13M34 13h6v6"/></svg></span></div><ul class="pillar-deliverables" aria-label="主な成果物"><li>月次・週次レポート</li><li>LPO（LP最適化）実装</li><li>広告アカウント運用・調整</li></ul></li></ol></div></section>
+      <section class="section handoff" aria-label="3つの支援がつながる流れ"><div class="wrap"><div class="handoff-top" data-reveal><div><p class="eyebrow">03 / RELAY</p><h2 class="section-title">前の判断が、<br>次の仕事を決める。</h2></div><p class="copy">支援の途中で目的が切り替わらないように、判断の背景も次の工程へ渡します。</p></div></div><div class="handoff-loop" aria-hidden="true"><div class="handoff-group"><article class="handoff-card"><b>01</b><div><strong>市場と戦略を整理</strong><small>CONTEXT FOR MAKING</small></div></article><article class="handoff-card"><b>02</b><div><strong>言葉と導線に翻訳</strong><small>OUTPUT FOR LEARNING</small></div></article><article class="handoff-card"><b>03</b><div><strong>反応から次を決める</strong><small>LEARNING FOR STRATEGY</small></div></article></div><div class="handoff-group"><article class="handoff-card"><b>01</b><div><strong>市場と戦略を整理</strong><small>CONTEXT FOR MAKING</small></div></article><article class="handoff-card"><b>02</b><div><strong>言葉と導線に翻訳</strong><small>OUTPUT FOR LEARNING</small></div></article><article class="handoff-card"><b>03</b><div><strong>反応から次を決める</strong><small>LEARNING FOR STRATEGY</small></div></article></div></div></section>
+      <section class="section timeline" id="flow"><div class="wrap"><div class="timeline-heading" data-reveal><div><p class="eyebrow">04 / FIRST 90 DAYS</p><h2 class="section-title">最初の90日で、<br>次の判断ができる状態へ。</h2></div><p class="copy">状況に応じて進め方は調整します。ここでは、構造を整理してから実装・検証へ進む基本の流れを示します。</p></div><ol class="phase-list"><li class="phase" data-reveal><b>01</b><div><time>WEEK 1 – 2</time><h3>構造診断と戦略立案</h3></div><p>現在の施策と顧客の流れを整理し、どこで分断が起きているかを確認します。その上で、扱う市場とメッセージの前提を整えます。</p></li><li class="phase" data-reveal><b>02</b><div><time>WEEK 3 – 6</time><h3>クリエイティブ開発・実装</h3></div><p>整理した前提に基づき、必要なアセットを制作・改修します。既存資産を活かせる場合は、その可能性も含めて検討します。</p></li><li class="phase" data-reveal><b>03</b><div><time>WEEK 7 – 12</time><h3>運用開始・改善検討</h3></div><p>新しい導線で反応を見ながら、クリエイティブやターゲット設定を調整します。次に何を検証するかを、記録とともに決めます。</p></li></ol><p class="notice" data-reveal>※ 90日以降は、整えた基盤をもとに、継続して改善と検証を行う段階へ進みます。</p></div></section>
+      <section class="final"><div class="grain" aria-hidden="true"></div><div class="wrap" data-reveal><p class="eyebrow">NEXT STEP</p><h2>いま必要な支援を、<br>構造から考える。</h2><p>施策だけでなく、判断と実行のつながりを整理したいときに。</p><a href="/diagnosis/">売上構造診断を受ける</a></div></section>
     </main>
-
-    <!-- Footer -->
-    <footer class="bg-slate-900 border-t border-slate-800 py-12">
-        <div class="container mx-auto px-6 max-w-6xl flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-2">
-                <i data-lucide="layers" class="w-5 h-5 text-white"></i>
-                <span class="text-lg font-bold tracking-wider text-white">Makemake</span>
-            </div>
-            <div class="flex gap-6 text-sm text-slate-400">
-                <a href="/company/" class="hover:text-white transition-colors">会社概要</a>
-                <a href="/privacy/" class="hover:text-white transition-colors">プライバシーポリシー</a>
-                <a href="/contact/" class="hover:text-white transition-colors">お問い合わせ</a>
-            </div>
-            <p class="text-xs text-slate-500">
-                &copy; <span id="year"></span> Makemake Inc. All rights reserved.
-            </p>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script>
-        lucide.createIcons();
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Header Scroll
-        const header = document.getElementById('global-header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                header.classList.add('bg-white/90', 'backdrop-blur-md', 'border-b', 'border-slate-200', 'py-3');
-                header.classList.remove('bg-transparent', 'py-6');
-                // Change logo and text colors for white background
-                header.querySelectorAll('.text-white').forEach(el => {
-                    if (!el.closest('.bg-blue-600')) {
-                        el.classList.remove('text-white');
-                        el.classList.add('text-slate-900');
-                    }
-                });
-            } else {
-                header.classList.remove('bg-white/90', 'backdrop-blur-md', 'border-b', 'border-slate-200', 'py-3');
-                header.classList.add('bg-transparent', 'py-6');
-            }
-        });
-
-        // Intersection Observer for Animation
-        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach((el) => {
-            observer.observe(el);
-        });
-    </script>
+    <footer class="bg-slate-900 border-t border-slate-800 py-12"><div class="container mx-auto px-6 max-w-6xl flex flex-col md:flex-row justify-between items-center gap-6"><div class="flex items-center gap-2"></div><div class="flex gap-6 text-sm text-slate-400"><a href="/company/" class="hover:text-white">会社概要</a><a href="/privacy/" class="hover:text-white">プライバシーポリシー</a><a href="/contact/" class="hover:text-white">お問い合わせ</a></div><p class="text-xs text-slate-500">&copy; <span id="year"></span> Makemake Inc. All rights reserved.</p></div></footer>
+  </div>
+  <script>
+    document.getElementById('year').textContent=new Date().getFullYear();
+    const reduce=matchMedia('(prefers-reduced-motion: reduce)');
+    const show=()=>document.querySelectorAll('[data-reveal]').forEach(el=>el.classList.add('is-visible'));
+    if(reduce.matches||!('IntersectionObserver'in window))show();else{const observer=new IntersectionObserver((entries,current)=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');current.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('[data-reveal]').forEach(el=>observer.observe(el))}
+  </script>
 </body>
-
 </html>
