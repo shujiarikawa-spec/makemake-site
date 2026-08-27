@@ -116,6 +116,18 @@
 @keyframes network-icon-path-draw{0%{opacity:0;stroke-dashoffset:var(--path-length)}12%{opacity:1}100%{opacity:1;stroke-dashoffset:0}}
 @media(prefers-reduced-motion:reduce){.story .network-icon-disc{opacity:1;animation:none!important}.story .network-icon-ring{stroke-dashoffset:0;animation:none!important}.story .network-icon-drawing .icon-line{opacity:1;stroke-dashoffset:0;animation:none!important}}
 </style>
+<style>
+/* Readability adjustments for the service-map labels and opening quote. */
+.quote .type-line--lead{white-space:nowrap;font-size:clamp(29px,3.7vw,51px);letter-spacing:-.07em}
+.network-label--market{transform:translateY(7px)}
+.network-label--strategy{transform:translateY(-4px)}
+.network-label--value{transform:translateY(5px)}
+.network-label--journey{transform:translateY(5px)}
+.journey-fallback > g > *{fill:none;stroke-dasharray:500;stroke-dashoffset:500;opacity:0}
+.structure-network.visible .journey-fallback > g > *{animation:network-icon-path-draw .78s cubic-bezier(.16,1,.3,1) forwards}
+.structure-network.visible .journey-fallback > g:first-child > :nth-child(1){animation-delay:1.56s}.structure-network.visible .journey-fallback > g:first-child > :nth-child(2){animation-delay:1.62s}.structure-network.visible .journey-fallback > g:first-child > :nth-child(3){animation-delay:1.68s}.structure-network.visible .journey-fallback > g:first-child > :nth-child(4){animation-delay:1.74s}.structure-network.visible .journey-fallback > g:first-child > :nth-child(5){animation-delay:1.80s}.structure-network.visible .journey-fallback > g:first-child > :nth-child(6){animation-delay:1.86s}.structure-network.visible .journey-fallback > g:first-child > :nth-child(7){animation-delay:1.92s}.structure-network.visible .journey-fallback > g:last-child > :nth-child(1){animation-delay:1.98s}.structure-network.visible .journey-fallback > g:last-child > :nth-child(2){animation-delay:2.04s}
+@media(prefers-reduced-motion:reduce){.journey-fallback > g > *{opacity:1;stroke-dashoffset:0;animation:none!important}}
+</style>
 </head>
 <body>
 <div class="page">
@@ -148,7 +160,7 @@
 </div>
 <div class="statement-scene">
 <blockquote class="quote" data-ime-quote aria-label="現場が頑張っても、点と点が線にならない。">
-<span class="type-line" data-type-text="現場が頑張っても、" data-ime-words="現場|genba;が|ga;頑張っても、|ganbatte mo,">
+<span class="type-line type-line--lead" data-type-text="現場が頑張っても、" data-ime-words="現場|genba;が|ga;頑張っても、|ganbatte mo,">
 </span>
 <span class="type-line type-line--accent" data-type-text="点と点が" data-ime-words="点と点が|ten to ten ga">
 </span>
@@ -195,11 +207,26 @@
   <circle class="network-icon-disc" cx="588" cy="142" r="45"/>
   <circle class="network-icon-ring" cx="588" cy="142" r="49"/>
   <svg class="network-icon-drawing" data-icon="journey" x="545" y="99" width="86" height="86" viewBox="0 0 301 301" aria-hidden="true"></svg>
+  <g class="journey-fallback" transform="translate(545 99) scale(.285714)" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <g stroke="#4D4D47" stroke-width="8">
+      <path d="M63 212c18-61 66-111 128-124 23-5 47-3 68 5"/>
+      <path d="M53 211l23 7 7-23"/>
+      <path d="M74 196c32-24 42-73 76-73 25 0 31 29 53 29 16 0 25-14 36-30"/>
+      <circle cx="73" cy="196" r="12"/>
+      <circle cx="150" cy="123" r="12"/>
+      <circle cx="203" cy="152" r="12"/>
+      <path d="M222 202l24 24M222 226l24-24"/>
+    </g>
+    <g stroke="#0079C0" stroke-width="8">
+      <circle cx="231" cy="104" r="25"/>
+      <path d="M231 89v30M216 104h30"/>
+    </g>
+  </g>
 </g>
-<text class="network-label network-label--market" x="89" y="233">MARKET</text>
-<text class="network-label network-label--strategy" x="250" y="43">STRATEGY</text>
-<text class="network-label network-label--value" x="431" y="299">VALUE</text>
-<text class="network-label network-label--journey" x="588" y="202">JOURNEY</text>
+<text class="network-label network-label--market" x="89" y="260">MARKET</text>
+<text class="network-label network-label--strategy" x="250" y="27">STRATEGY</text>
+<text class="network-label network-label--value" x="431" y="329">VALUE</text>
+<text class="network-label network-label--journey" x="588" y="225">JOURNEY</text>
 </svg>
 </div>
 <p>マケマケは、この4つのレイヤーをつなぎ直すための構造設計を行います。必ずバズるといった魔法ではなく、データと論理に基づき、何を見直すべきかを整理します。</p>
