@@ -26,6 +26,17 @@
             .brand-lockup--footer .brand-wordmark { font-size: 18px; }
             .brand-lockup--on-dark .brand-wordmark { color: #fff; }
             .brand-lockup--on-dark .brand-wordmark__m { color: #60a5fa; }
+            .makemake-global-header { background: #fff; border-bottom: 1px solid #e2e8f0; inset: 0 0 auto; padding: 16px 0; position: fixed; z-index: 50; }
+            .makemake-global-header__inner { align-items: center; display: flex; gap: 24px; justify-content: space-between; margin: 0 auto; width: min(100% - 48px, 1152px); }
+            .makemake-global-header__nav { align-items: center; display: flex; gap: 32px; }
+            .makemake-global-header__nav a, .makemake-global-header__contact { color: #475569; font: 700 14px/1 "DM Sans", "Zen Kaku Gothic New", sans-serif; letter-spacing: -.025em; text-decoration: none; transition: color .2s ease; }
+            .makemake-global-header__nav a:hover, .makemake-global-header__contact:hover { color: #2563eb; }
+            .makemake-global-header__nav a[aria-current="page"] { border-bottom: 2px solid #2563eb; color: #2563eb; padding-bottom: 4px; }
+            .makemake-global-header__actions { align-items: center; display: flex; gap: 16px; }
+            .makemake-global-header__diagnosis { align-items: center; background: #2563eb; border-radius: 2px; box-shadow: 0 1px 2px rgba(15, 23, 42, .12); color: #fff; display: inline-flex; font: 500 14px/1 "Zen Kaku Gothic New", sans-serif; gap: 8px; padding: 10px 20px; text-decoration: none; transition: background .2s ease; }
+            .makemake-global-header__diagnosis:hover { background: #1d4ed8; }
+            .makemake-global-header__diagnosis svg { height: 16px; width: 16px; }
+            .makemake-global-header a:focus-visible { outline: 2px solid #3165dc; outline-offset: 5px; }
             .makemake-global-footer { align-items: center; background: #f6f2e7; border-top: 1px solid #d7deec; display: flex; min-height: 145px; padding: 48px 0; }
             .makemake-global-footer__inner { align-items: center; display: flex; gap: 24px; justify-content: space-between; margin: 0 auto; width: min(100% - 48px, 1152px); }
             .makemake-global-footer .brand-lockup { color: #102563; }
@@ -39,6 +50,11 @@
             @media (max-width: 767px) {
                 .brand-lockup__mark { height: 28px; }
                 .brand-wordmark { font-size: 18px; }
+                .makemake-global-header { padding: 14px 0; }
+                .makemake-global-header__inner { gap: 16px; width: min(100% - 40px, 560px); }
+                .makemake-global-header__nav, .makemake-global-header__contact { display: none; }
+                .makemake-global-header__actions { gap: 0; }
+                .makemake-global-header__diagnosis { font-size: 12px; padding: 10px 12px; }
                 .makemake-global-footer { min-height: 0; padding: 42px 0; }
                 .makemake-global-footer__inner { flex-direction: column; gap: 20px; justify-content: center; text-align: center; width: min(100% - 40px, 560px); }
                 .makemake-global-footer__links { flex-wrap: wrap; gap: 16px 24px; justify-content: center; }
@@ -99,17 +115,17 @@
 
     const navLinks = navItems.map(function ([section, href, label]) {
         const active = section === activeSection;
-        return `<a href="${href}"${active ? ' aria-current="page"' : ''} class="text-sm font-medium transition-colors ${active ? 'text-blue-600 border-b-2 border-blue-600 pb-1' : 'text-slate-600 hover:text-blue-600'}">${label}</a>`;
+        return `<a href="${href}"${active ? ' aria-current="page"' : ''}>${label}</a>`;
     }).join('');
 
     const headerMarkup = `
-        <header id="global-header" class="fixed top-0 left-0 w-full z-50 bg-white border-b border-slate-200 py-4">
-            <div class="container mx-auto px-6 max-w-6xl flex justify-between items-center">
+        <header id="global-header" class="makemake-global-header">
+            <div class="makemake-global-header__inner">
                 ${brandLockupMarkup({ footer: false, dark: false })}
-                <nav class="hidden md:flex items-center gap-8" aria-label="メインナビゲーション">${navLinks}</nav>
-                <div class="flex items-center gap-4">
-                    <a href="/contact/" class="hidden md:flex text-sm font-medium text-slate-900 hover:text-blue-600 transition-colors">お問い合わせ</a>
-                    <a href="/diagnosis/" class="bg-blue-600 text-white text-sm font-medium px-5 py-2.5 rounded-sm hover:bg-blue-700 transition-colors shadow-sm flex items-center gap-2">売上構造診断 <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                <nav class="makemake-global-header__nav" aria-label="メインナビゲーション">${navLinks}</nav>
+                <div class="makemake-global-header__actions">
+                    <a href="/contact/" class="makemake-global-header__contact">お問い合わせ</a>
+                    <a href="/diagnosis/" class="makemake-global-header__diagnosis">売上構造診断 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                 </div>
             </div>
         </header>`;
@@ -126,13 +142,13 @@
     const globalFooterMarkup = function () {
         return `<div class="makemake-global-footer__inner">
             ${brandLockupMarkup({ footer: true, dark: false })}
-            <nav class="makemake-global-footer__links" aria-label="フッターナビゲーション"><a href="/company/">会社概要</a><a href="/privacy/">プライバシーポリシー</a><a href="/contact/">お問い合わせ</a></nav>
-            <p class="makemake-global-footer__copyright">© <span data-makemake-footer-year></span> Makemake Inc. All rights reserved.</p>
+            <nav class="makemake-global-footer__links" aria-label="フッターナビゲーション"><a href="/company/">事業概要</a><a href="/privacy/">プライバシーポリシー</a><a href="/contact/">お問い合わせ</a></nav>
+            <p class="makemake-global-footer__copyright">© <span data-makemake-footer-year></span> Makemake All rights reserved.</p>
         </div>`;
     };
 
     const mountGlobalFooter = function () {
-        const footers = Array.from(document.querySelectorAll('footer'));
+        const footers = Array.from(document.querySelectorAll('body > footer'));
         const targets = footers.length ? footers : [document.body.appendChild(document.createElement('footer'))];
         targets.forEach(function (footer) {
             footer.className = 'makemake-global-footer';

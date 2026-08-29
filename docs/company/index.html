@@ -3,11 +3,11 @@
 
 <head>
     <script src="/scripts/analytics.js"></script>
-    <script src="/scripts/site-header.js?v=footer-20260825"></script>
+    <script src="/scripts/site-header.js?v=global-shell-20260829"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>会社概要｜マケマケ</title>
-    <meta name="description" content="株式会社マケマケの会社概要ページです。所在地、設立、事業内容などをご確認いただけます。">
+    <title>事業概要｜マケマケ</title>
+    <meta name="description" content="個人事業マケマケの事業概要です。運営者、所在地、事業内容をご確認いただけます。">
     <link rel="canonical" href="https://makenai-mark.com/company/">
 
     <!-- Tailwind CSS -->
@@ -44,8 +44,9 @@
       "@context": "https://makenai-mark.com/",
       "@type": "AboutPage",
       "mainEntity": {
-        "@type": "Organization",
-        "name": "株式会社マケマケ",
+        "@type": "Person",
+        "name": "有川 秀治",
+        "alternateName": "マケマケ",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "浦添",
@@ -103,7 +104,7 @@
             </nav>
             <div class="flex items-center gap-4">
                 <a href="/company/"
-                    class="hidden md:flex text-sm font-medium text-blue-600 border-b-2 border-blue-600 pb-1">会社概要</a>
+                    class="hidden md:flex text-sm font-medium text-blue-600 border-b-2 border-blue-600 pb-1">事業概要</a>
                 <a href="/diagnosis/"
                     class="bg-blue-600 text-white text-sm font-medium px-5 py-2.5 rounded-sm hover:bg-blue-700 transition-all shadow-sm flex items-center gap-2">
                     売上構造診断 <i data-lucide="arrow-right" class="w-4 h-4"></i>
@@ -120,7 +121,7 @@
                 <ol class="flex items-center space-x-2 text-xs text-slate-500 font-medium">
                     <li><a href="/" class="hover:text-blue-600 transition-colors">TOP</a></li>
                     <li><i data-lucide="chevron-right" class="w-3 h-3"></i></li>
-                    <li class="text-slate-800">会社概要</li>
+                    <li class="text-slate-800">事業概要</li>
                 </ol>
             </nav>
         </div>
@@ -129,26 +130,31 @@
             <div class="container mx-auto px-6 max-w-3xl">
 
                 <div class="text-center mb-16 reveal">
-                    <h1 class="text-3xl font-bold text-slate-900 tracking-tight mb-4">会社概要</h1>
-                    <p class="text-slate-600">株式会社マケマケの企業情報をご案内します。</p>
+                    <h1 class="text-3xl font-bold text-slate-900 tracking-tight mb-4">事業概要</h1>
+                    <p class="text-slate-600">個人事業マケマケの事業情報をご案内します。</p>
                 </div>
 
                 <div class="bg-white border border-slate-200 rounded-sm shadow-sm reveal overflow-hidden">
                     <dl class="divide-y divide-slate-100">
                         <div
                             class="px-6 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-8 hover:bg-slate-50 transition-colors">
-                            <dt class="text-sm font-bold text-slate-900">会社名</dt>
-                            <dd class="mt-1 text-sm text-slate-700 sm:col-span-2 sm:mt-0">株式会社マケマケ (Makemake Inc.)</dd>
+                            <dt class="text-sm font-bold text-slate-900">事業者名</dt>
+                            <dd class="mt-1 text-sm text-slate-700 sm:col-span-2 sm:mt-0">マケマケ</dd>
                         </div>
                         <div
                             class="px-6 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-8 hover:bg-slate-50 transition-colors">
-                            <dt class="text-sm font-bold text-slate-900">設立</dt>
+                            <dt class="text-sm font-bold text-slate-900">開業</dt>
                             <dd class="mt-1 text-sm text-slate-700 sm:col-span-2 sm:mt-0">2023年4月</dd>
                         </div>
                         <div
                             class="px-6 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-8 hover:bg-slate-50 transition-colors">
-                            <dt class="text-sm font-bold text-slate-900">代表者</dt>
-                            <dd class="mt-1 text-sm text-slate-700 sm:col-span-2 sm:mt-0">代表取締役　有川　秀治</dd>
+                            <dt class="text-sm font-bold text-slate-900">運営者</dt>
+                            <dd class="mt-1 text-sm text-slate-700 sm:col-span-2 sm:mt-0">有川 秀治</dd>
+                        </div>
+                        <div
+                            class="px-6 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-8 hover:bg-slate-50 transition-colors">
+                            <dt class="text-sm font-bold text-slate-900">事業形態</dt>
+                            <dd class="mt-1 text-sm text-slate-700 sm:col-span-2 sm:mt-0">個人事業</dd>
                         </div>
                         <div
                             class="px-6 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-8 hover:bg-slate-50 transition-colors">
@@ -181,7 +187,7 @@
                 <div class="mt-12 text-center reveal">
                     <a href="/ceo/"
                         class="inline-flex items-center gap-2 text-blue-600 font-medium hover:text-blue-800 transition-colors group">
-                        代表メッセージを読む
+                        運営者メッセージを読む
                         <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                     </a>
                 </div>
@@ -198,12 +204,12 @@
                 <span class="text-lg font-bold tracking-wider text-slate-900">Makemake</span>
             </div>
             <div class="flex gap-6 text-sm text-slate-500">
-                <a href="/company/" class="hover:text-slate-900 transition-colors">会社概要</a>
+                <a href="/company/" class="hover:text-slate-900 transition-colors">事業概要</a>
                 <a href="/privacy/" class="hover:text-slate-900 transition-colors">プライバシーポリシー</a>
                 <a href="/contact/" class="hover:text-slate-900 transition-colors">お問い合わせ</a>
             </div>
             <p class="text-xs text-slate-400">
-                &copy; <span id="year"></span> Makemake Inc. All rights reserved.
+                &copy; <span id="year"></span> Makemake All rights reserved.
             </p>
         </div>
     </footer>
