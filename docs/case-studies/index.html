@@ -84,6 +84,9 @@
 .case:hover .case-title__face--next,.case:focus-visible .case-title__face--next{transform:translateY(0)}
 @media(prefers-reduced-motion:reduce){.case{transition:none}.case-title__face,.case-swap__face{transition:none}.case-title__face--next,.case-swap__face--next{display:none}.case:hover .case-title__face--base,.case:focus-visible .case-title__face--base,.case:hover .case-swap__face--base,.case:focus-visible .case-swap__face--base{color:var(--blue);transform:none}}
 /* Keep the requested Japanese heading breaks intact at every viewport. */
+.note-grid{grid-template-columns:minmax(300px,.72fr) minmax(0,1fr)}
+.note-grid>[data-reveal]:first-child{order:2}
+.note-grid>.case-timeline-board{order:1}
 .title--fixed-lines .title-line{display:block;white-space:nowrap}
 .hero .title--fixed-lines{font-size:clamp(44px,5vw,64px)}
 .note .title--fixed-lines{font-size:clamp(38px,4.7vw,60px)}
