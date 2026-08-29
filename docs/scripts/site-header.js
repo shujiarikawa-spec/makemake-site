@@ -148,7 +148,7 @@
     };
 
     const mountGlobalFooter = function () {
-        const footers = Array.from(document.querySelectorAll('body > footer'));
+        const footers = Array.from(document.querySelectorAll('body > footer, body > .page > footer'));
         const targets = footers.length ? footers : [document.body.appendChild(document.createElement('footer'))];
         targets.forEach(function (footer) {
             footer.className = 'makemake-global-footer';
