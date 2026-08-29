@@ -400,7 +400,8 @@
       update() { const elapsed = performance.now() - this.startedAt; let complete = 0; this.element.replaceChildren(...this.queue.map(item => { const span = document.createElement('span'); if (elapsed >= item.settleAt) { complete++; span.textContent = item.to; } else { if (!item.char || Math.random() < .5) item.char = this.chars[Math.floor(Math.random() * this.chars.length)]; span.textContent = item.char; span.style.opacity = '.55'; } return span; })); if (complete < this.queue.length) this.frame = requestAnimationFrame(this.update); }
     }
     addEventListener('DOMContentLoaded', () => {
-      document.querySelector('#previewYear').textContent = new Date().getFullYear();
+      const previewYear = document.querySelector('#previewYear');
+      if (previewYear) previewYear.textContent = new Date().getFullYear();
       const targets = [[document.querySelector('#kara'),'から、',0],[document.querySelector('#wo'),'を',300],[document.querySelector('#eru'),'える。',600]];
       const reasonLines = document.querySelectorAll('.reason-line, .reason-cta');
       const story = document.querySelector('.story');
