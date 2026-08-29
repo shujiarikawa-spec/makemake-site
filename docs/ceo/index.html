@@ -128,6 +128,10 @@
 .structure-network.visible .journey-fallback > g:first-child > :nth-child(1){animation-delay:1.56s}.structure-network.visible .journey-fallback > g:first-child > :nth-child(2){animation-delay:1.62s}.structure-network.visible .journey-fallback > g:first-child > :nth-child(3){animation-delay:1.68s}.structure-network.visible .journey-fallback > g:first-child > :nth-child(4){animation-delay:1.74s}.structure-network.visible .journey-fallback > g:first-child > :nth-child(5){animation-delay:1.80s}.structure-network.visible .journey-fallback > g:first-child > :nth-child(6){animation-delay:1.86s}.structure-network.visible .journey-fallback > g:first-child > :nth-child(7){animation-delay:1.92s}.structure-network.visible .journey-fallback > g:last-child > :nth-child(1){animation-delay:1.98s}.structure-network.visible .journey-fallback > g:last-child > :nth-child(2){animation-delay:2.04s}
 @media(prefers-reduced-motion:reduce){.journey-fallback > g > *{opacity:1;stroke-dashoffset:0;animation:none!important}}
 </style>
+<style>
+/* The signature is revealed by the same moving pen path that draws its mask. */
+.signature-write{position:relative;width:clamp(220px,26vw,332px);margin-left:auto}.signature-write svg{display:block;width:100%;height:auto;overflow:visible}.signature-write .signature-art{mix-blend-mode:multiply}.signature-guide{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}.signature-write.is-writing .signature-guide{animation:signature-handwrite var(--draw-duration) cubic-bezier(.25,0,.25,1) var(--draw-delay) forwards}.signature-pen{opacity:0;filter:drop-shadow(0 2px 1px rgba(16,37,99,.2));transition:opacity .12s ease}.signature-write.is-writing .signature-pen{opacity:1}.signature-write.is-complete .signature-guide{stroke-dashoffset:0}.signature-write.is-complete .signature-pen{opacity:0}@keyframes signature-handwrite{to{stroke-dashoffset:0}}@media(max-width:760px){.signature-write{width:min(79vw,300px)}}@media(prefers-reduced-motion:reduce){.signature-guide{stroke-dashoffset:0!important;animation:none!important}.signature-pen{display:none!important}}
+</style>
 </head>
 <body>
 <div class="page">
@@ -233,7 +237,24 @@
 <p>「なぜ自社の売上が止まっているのか」。その問いを、次の判断に変えるための地図をつくる。それが私たちの仕事です。</p>
 <div class="signature">
 <div>
-<img src="/images/ceo/sign.png" alt="有川秀治の署名">
+<div class="signature-write" data-signature-write role="img" aria-label="有川秀治の署名">
+<svg viewBox="130 280 1320 470" aria-hidden="true">
+<defs>
+<mask id="ceo-signature-reveal" maskUnits="userSpaceOnUse" x="0" y="0" width="1536" height="1024">
+<path class="signature-guide" data-signature-guide pathLength="1" style="--draw-delay:0ms;--draw-duration:850ms" stroke-width="132" d="M188 628C220 526 391 393 471 414C526 430 466 493 403 536C329 587 232 606 201 677C183 721 227 748 299 722C387 691 424 632 501 475"/>
+<path class="signature-guide" data-signature-guide pathLength="1" style="--draw-delay:850ms;--draw-duration:800ms" stroke-width="92" d="M370 625C430 590 459 498 506 441C481 548 464 654 514 662C568 664 576 587 615 541C590 607 596 638 627 638C648 638 665 601 690 555"/>
+<path class="signature-guide" data-signature-guide pathLength="1" style="--draw-delay:1650ms;--draw-duration:800ms" stroke-width="132" d="M653 612C735 540 821 383 865 338C888 317 878 426 830 530C807 579 796 625 834 640C885 658 895 602 920 531"/>
+<path class="signature-guide" data-signature-guide pathLength="1" style="--draw-delay:2450ms;--draw-duration:750ms" stroke-width="104" d="M873 568C945 531 1001 492 1035 461C1068 433 1046 523 1016 563C992 595 983 621 1016 624C1055 627 1096 563 1137 506C1174 455 1196 434 1217 446C1235 457 1205 517 1174 553C1152 578 1140 610 1171 616C1223 628 1274 577 1303 541"/>
+<path class="signature-guide" data-signature-guide pathLength="1" style="--draw-delay:3200ms;--draw-duration:650ms" stroke-width="68" d="M551 686C728 645 886 624 1055 620C1196 615 1321 619 1402 630"/>
+</mask>
+</defs>
+<image class="signature-art" href="/images/ceo/sign.png" x="0" y="0" width="1536" height="1024" mask="url(#ceo-signature-reveal)"/>
+<g class="signature-pen" data-signature-pen transform="translate(-999 -999)">
+<path d="M-24-42H24L18-8L0 16L-18-8Z" fill="#fffefa" stroke="#102563" stroke-width="4" stroke-linejoin="round"/>
+<path d="M-18-8H18M0-42V16" fill="none" stroke="#1746c9" stroke-width="3" stroke-linecap="round"/>
+</g>
+</svg>
+</div>
 <p>株式会社マケマケ<br>代表取締役　有川 秀治</p>
 </div>
 </div>
@@ -578,6 +599,63 @@
     else start();
   });
   resize();
+})();
+</script>
+<script>
+(() => {
+  const signature = document.querySelector('[data-signature-write]');
+  const pen = signature?.querySelector('[data-signature-pen]');
+  const guides = signature ? [...signature.querySelectorAll('[data-signature-guide]')] : [];
+  if (!signature || !pen || !guides.length) return;
+
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const timeline = guides.map((guide) => ({
+    guide,
+    delay: Number.parseFloat(guide.style.getPropertyValue('--draw-delay')) || 0,
+    duration: Number.parseFloat(guide.style.getPropertyValue('--draw-duration')) || 700
+  }));
+  const total = Math.max(...timeline.map(({ delay, duration }) => delay + duration));
+  const ease = (value) => 1 - (1 - Math.max(0, Math.min(1, value))) ** 3;
+  let frame = 0;
+  let started = false;
+
+  const finish = () => {
+    cancelAnimationFrame(frame);
+    signature.classList.remove('is-writing');
+    signature.classList.add('is-complete');
+    pen.setAttribute('transform', 'translate(-999 -999)');
+  };
+  const movePen = (elapsed) => {
+    const segment = timeline.find(({ delay, duration }) => elapsed >= delay && elapsed <= delay + duration) || timeline.at(-1);
+    const raw = (elapsed - segment.delay) / segment.duration;
+    const progress = ease(raw);
+    const length = segment.guide.getTotalLength();
+    const point = segment.guide.getPointAtLength(length * progress);
+    const next = segment.guide.getPointAtLength(Math.min(length, length * progress + 2));
+    const angle = Math.atan2(next.y - point.y, next.x - point.x) * 180 / Math.PI + 90;
+    pen.setAttribute('transform', `translate(${point.x.toFixed(1)} ${point.y.toFixed(1)}) rotate(${angle.toFixed(1)})`);
+  };
+  const play = () => {
+    if (started || reduced.matches) return;
+    started = true;
+    signature.classList.remove('is-complete');
+    signature.classList.add('is-writing');
+    const start = performance.now();
+    const tick = (now) => {
+      const elapsed = now - start;
+      movePen(Math.min(elapsed, total));
+      if (elapsed < total) frame = requestAnimationFrame(tick);
+      else finish();
+    };
+    frame = requestAnimationFrame(tick);
+  };
+
+  if (reduced.matches) finish();
+  else if (!('IntersectionObserver' in window)) play();
+  else new IntersectionObserver((entries, observer) => {
+    if (entries.some((entry) => entry.isIntersecting)) { play(); observer.disconnect(); }
+  }, { threshold: .55 }).observe(signature);
+  reduced.addEventListener('change', () => { if (reduced.matches) finish(); });
 })();
 </script>
 </body>
