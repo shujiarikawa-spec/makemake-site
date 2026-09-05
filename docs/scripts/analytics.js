@@ -4,12 +4,16 @@
  */
 (function () {
     const measurementId = 'G-4BL0WG5Y3T';
+    // Add ?internal_check=1 only to deliberate production verification URLs.
+    // It is intentionally opt-in so ordinary visitors retain normal GA4 data.
+    const isInternalCheck = new URLSearchParams(window.location.search).get('internal_check') === '1';
+    const internalTrafficParameters = isInternalCheck ? { traffic_type: 'internal' } : {};
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function () {
         window.dataLayer.push(arguments);
     };
     window.gtag('js', new Date());
-    window.gtag('config', measurementId);
+    window.gtag('config', measurementId, internalTrafficParameters);
 
     const script = document.createElement('script');
     script.async = true;
@@ -19,7 +23,7 @@
     const sendEvent = function (eventName, parameters) {
         window.gtag('event', eventName, Object.assign({
             page_path: window.location.pathname
-        }, parameters || {}));
+        }, internalTrafficParameters, parameters || {}));
     };
 
     const pendingFormKey = 'makemake_pending_form_submission';
