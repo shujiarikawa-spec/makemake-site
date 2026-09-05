@@ -30,4 +30,8 @@ test("dashboard joins query, column, social and diagnosis data for selected peri
   assert.equal(data.current.forms.diagnosisSubmitClicks, 4);
   assert.equal(data.current.forms.contactSubmissionSuccess, 1);
   assert.equal(data.current.forms.diagnosisSubmissionSuccess, 2);
+  assert.equal(data.measurementQuality.gaHistoryStart, "2026-07-23");
+  assert.equal(data.measurementQuality.comparisonHasCoverage, false);
+  assert.equal(data.measurementQuality.internalTrafficFilter, "未確認");
+  assert.equal(data.measurementQuality.searchConsoleLink, "未確認");
 });

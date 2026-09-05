@@ -113,7 +113,7 @@ async function refresh(env) {
     acquisitionRows: acquisitionRows.map(row => ({ ...row, users: row.activeUsers, pageviews: row.screenPageViews })), landingPageRows: landingPageRows.map(row => ({ ...row, users: row.activeUsers })), pageRows: pageRows.map(row => ({ ...row, users: row.activeUsers, pageviews: row.screenPageViews })), pageRollupRows: pageRollupRows.map(row => ({ ...row, users: row.activeUsers, pageviews: row.screenPageViews })),
     articleAcquisitionRows: articleAcquisitionRows.map(row => ({ ...row, users: row.activeUsers })), eventRows: eventRows.map(row => ({ ...row, events: row.eventCount })),
     targetQueryRows: targetReports.flat() };
-  const raw = { version: 1, generatedAt: new Date().toISOString(), latestDate: endDate,
+  const raw = { version: 2, generatedAt: new Date().toISOString(), latestDate: endDate,
     searchDaily: mergeHistory(cachedRaw?.searchDaily, fresh.searchDaily, startDate, row => row.date),
     searchQueryRows: mergeHistory(cachedRaw?.searchQueryRows, fresh.searchQueryRows, startDate, row => `${row.date}\u0001${row.query}`),
     searchPageRows: mergeHistory(cachedRaw?.searchPageRows, fresh.searchPageRows, startDate, row => `${row.date}\u0001${row.page}`),
@@ -124,7 +124,13 @@ async function refresh(env) {
     pageRollupRows: mergeHistory(cachedRaw?.pageRollupRows, fresh.pageRollupRows, startDate, row => [row.date, row.pagePath].join("\u0001")),
     articleAcquisitionRows: mergeHistory(cachedRaw?.articleAcquisitionRows, fresh.articleAcquisitionRows, startDate, row => [row.date, row.pagePath, row.sessionSource, row.sessionMedium, row.sessionCampaignName, row.sessionManualAdContent].join("\u0001")),
     eventRows: mergeHistory(cachedRaw?.eventRows, fresh.eventRows, startDate, row => [row.date, row.eventName, row.pagePath].join("\u0001")),
-    articles, targetQueries, targetQueryRows: mergeHistory(cachedRaw?.targetQueryRows, fresh.targetQueryRows, startDate, row => `${row.date}\u0001${row.query}`), importantPaths: (env.SEO_IMPORTANT_PATHS || "").split(",").map(value => value.trim()).filter(Boolean), warnings: [] };
+    articles, targetQueries, targetQueryRows: mergeHistory(cachedRaw?.targetQueryRows, fresh.targetQueryRows, startDate, row => `${row.date}\u0001${row.query}`), importantPaths: (env.SEO_IMPORTANT_PATHS || "").split(",").map(value => value.trim()).filter(Boolean),
+    measurementConfig: {
+      // GA4 Data API does not expose data-filter configuration. Keep these
+      // explicit, operator-maintained statuses visible in the protected UI.
+      internalTrafficFilter: env.INTERNAL_TRAFFIC_FILTER_STATUS || "未確認",
+      searchConsoleLink: env.GA4_SEARCH_CONSOLE_LINK_STATUS || "未確認"
+    }, warnings: [] };
   const priorSync = await env.SEO_CACHE.get(SHEETS_STATE_KEY, "json");
   const initialDays = Math.max(1, Number(env.SHEETS_INITIAL_BACKFILL_DAYS || 28));
   const backfillDays = priorSync?.completedAt ? reconcileDays : initialDays;

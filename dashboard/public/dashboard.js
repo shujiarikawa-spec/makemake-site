@@ -31,6 +31,22 @@ function health(data) {
   el("health-signals").innerHTML = signals.map(([label, value, suffix]) => `<div class="signal"><b>${value === null || value === undefined ? "—" : `${value > 0 ? "+" : ""}${value.toFixed(1)}${suffix}`}</b><span>${label}</span></div>`).join("");
 }
 
+function measurementQuality(data) {
+  const quality = data.measurementQuality;
+  const comparison = quality.comparisonHasCoverage ? "比較可能" : "前期間データなし";
+  const qualityItems = [
+    ["GA4総PV", n(data.current.ga.pageviews), `${data.range.current.start} 〜 ${data.range.current.end}`],
+    ["アクティブユーザー", n(data.current.ga.users), `1ユーザーあたり ${quality.viewsPerActiveUser.toFixed(1)} PV`],
+    ["(not set) PV", n(quality.unassignedPageviews), `全PVの ${rate(quality.unassignedPageviewRate)}`],
+    ["前期間比較", comparison, quality.gaHistoryStart ? `GA4データ開始：${quality.gaHistoryStart}` : "計測開始日を確認できません"],
+    ["内部トラフィック除外", quality.internalTrafficFilter, "GA4のデータフィルタでIPを登録後に状態を更新"],
+    ["GA4 × Search Console", quality.searchConsoleLink, "GA4管理画面のSearch Consoleリンクを確認"],
+    ["自然検索セッション", n(data.current.organic.sessions), "GA4のチャネル分類による値"],
+    ["Search Console確定日", data.range.current.end, "Search Consoleは最新3日を除外して取得"]
+  ];
+  el("measurement-quality").innerHTML = qualityItems.map(([label, value, note]) => `<article class="quality-card"><p>${label}</p><strong>${value}</strong><span>${note}</span></article>`).join("");
+}
+
 function flow(data) {
   const steps = [["Google検索表示", data.current.search.impressions], ["検索クリック", data.current.search.clicks], ["自然検索セッション", data.current.organic.sessions], ["診断ページ到達", data.current.diagnosis.pageviews], ["フォーム送信完了", data.current.forms.completed]];
   el("flow-steps").innerHTML = steps.map(([label, value], index) => `<div class="flow-step"><span>0${index + 1}</span><b>${n(value)}</b><span>${label}</span></div>`).join("");
@@ -81,7 +97,7 @@ function escapeHtml(value) { const div = document.createElement("div"); div.text
 function render(data) {
   el("updated").textContent = `最終取得：${new Date(data.generatedAt).toLocaleString("ja-JP", { dateStyle: "medium", timeStyle: "short" })}`;
   el("range").textContent = `${data.range.current.start} 〜 ${data.range.current.end}（前期間比較）`;
-  health(data); metrics(data); flow(data); charts(data); searchTables(data); targets(data); articles(data); social(data); initiatives(data);
+  measurementQuality(data); health(data); metrics(data); flow(data); charts(data); searchTables(data); targets(data); articles(data); social(data); initiatives(data);
   const warning = el("warnings"); const list = warning.querySelector("ul"); list.innerHTML = data.warnings.map(item => `<li>${escapeHtml(item)}</li>`).join(""); warning.hidden = !data.warnings.length;
 }
 

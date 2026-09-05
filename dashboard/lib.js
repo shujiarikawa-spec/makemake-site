@@ -31,6 +31,11 @@ export function pctChange(current, previous) {
 }
 export function ratio(numerator, denominator) { return denominator ? numerator / denominator : 0; }
 
+function firstDate(rows) {
+  const dates = (rows || []).map(row => row.date).filter(Boolean).sort();
+  return dates[0] || null;
+}
+
 export function reduceSearch(rows) {
   const clicks = rows.reduce((sum, row) => sum + number(row.clicks), 0);
   const impressions = rows.reduce((sum, row) => sum + number(row.impressions), 0);
@@ -119,6 +124,12 @@ export function buildDashboard(raw, periodKey = "28") {
     };
   };
   const columns = (rows) => reduceGa((raw.pageRows || []).filter(row => inRange(row.date, rows) && safePath(row.pagePath).startsWith("/insights/")));
+  const currentPageRows = select(raw.pageRows, ranges.current);
+  const unassignedPageviews = currentPageRows
+    .filter(row => !row.pagePath || row.pagePath === "(not set)" || row.pageTitle === "(not set)")
+    .reduce((sum, row) => sum + number(row.pageviews), 0);
+  const gaHistoryStart = firstDate(raw.gaDaily);
+  const comparisonHasCoverage = gaHistoryStart ? gaHistoryStart <= ranges.previous.start : false;
   const current = {
     search: reduceSearch(searchCurrentRows),
     ga: reduceGa(gaCurrentRows),
@@ -183,7 +194,16 @@ export function buildDashboard(raw, periodKey = "28") {
     return { query, current: reduceSearch(select(rows, ranges.current)), previous: reduceSearch(select(rows, ranges.previous)),
       trend: select(rows, ranges.current).map(row => ({ date: row.date, clicks: number(row.clicks), impressions: number(row.impressions), ctr: number(row.ctr), position: number(row.position) })) };
   });
-  return { version: 1, generatedAt: raw.generatedAt, range: { days, ...ranges }, current, previous, changes: {
+  const measurementQuality = {
+    gaHistoryStart,
+    comparisonHasCoverage,
+    unassignedPageviews,
+    unassignedPageviewRate: ratio(unassignedPageviews, current.ga.pageviews),
+    viewsPerActiveUser: ratio(current.ga.pageviews, current.ga.users),
+    internalTrafficFilter: raw.measurementConfig?.internalTrafficFilter || "未確認",
+    searchConsoleLink: raw.measurementConfig?.searchConsoleLink || "未確認"
+  };
+  return { version: 2, generatedAt: raw.generatedAt, range: { days, ...ranges }, current, previous, changes: {
     clicks: pctChange(current.search.clicks, previous.search.clicks), impressions: pctChange(current.search.impressions, previous.search.impressions),
     ctr: pctChange(current.search.ctr, previous.search.ctr), position: previous.search.position - current.search.position,
     organicUsers: pctChange(current.organic.users, previous.organic.users), organicSessions: pctChange(current.organic.sessions, previous.organic.sessions),
@@ -192,5 +212,5 @@ export function buildDashboard(raw, periodKey = "28") {
     diagnosisSubmitClicks: pctChange(current.forms.diagnosisSubmitClicks, previous.forms.diagnosisSubmitClicks),
     contactSubmissionSuccess: pctChange(current.forms.contactSubmissionSuccess, previous.forms.contactSubmissionSuccess),
     diagnosisSubmissionSuccess: pctChange(current.forms.diagnosisSubmissionSuccess, previous.forms.diagnosisSubmissionSuccess)
-  }, health: health(current, previous, days), trend, queries, pages, importantPages, articles, social, initiatives: raw.articles || [], targets, warnings: raw.warnings || [] };
+  }, health: health(current, previous, days), measurementQuality, trend, queries, pages, importantPages, articles, social, initiatives: raw.articles || [], targets, warnings: raw.warnings || [] };
 }

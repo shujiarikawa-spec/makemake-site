@@ -30,6 +30,15 @@ npx wrangler deploy
 
 `SEARCH_CONSOLE_SITE_URL` は Search Console に登録済みのプロパティ文字列と完全に一致させます（例: `sc-domain:makenai-mark.com` または `https://makenai-mark.com/`）。リポジトリ内や公開 HTML からこの値を推測してはいけません。
 
+### PV品質の運用状態
+
+保護された画面の「PVの判定前に確認する項目」には、GA4 Data APIだけでは取得できない運用設定も表示します。次のWorker環境変数は、設定が完了した事実を確認した時だけ更新します。未設定時は画面に`未確認`と表示され、成功状態を推測しません。
+
+- `INTERNAL_TRAFFIC_FILTER_STATUS`：GA4の内部トラフィック定義と、該当データフィルタの状態。例：`Testing（2026-09-05）`
+- `GA4_SEARCH_CONSOLE_LINK_STATUS`：GA4プロパティとSearch Consoleプロパティのリンク状態。例：`連携済み（2026-09-05）`
+
+内部トラフィックを除外するには、GA4のウェブデータストリームに除外対象の固定IPまたはVPN出口IPを登録し、データフィルタを最初は`Testing`で確認してから`Active`にします。IPアドレスを推測して登録しません。
+
 ## 手動初回更新
 
 デプロイ後に、Basic認証を通過できる管理端末から以下を実行します。`DASHBOARD_REFRESH_TOKEN`を設定していない場合も、ダッシュボード用のBasic認証で実行できます。パスワードをshell historyに残さないよう、プロンプト入力にします。
